@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sawsquarenoise - Tittle Screen.ogg-de1643c95ed7e486eacf5f05f4343e2a.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/sawsquarenoise - Tittle Screen.ogg"
+dest_files=[ "res://.import/sawsquarenoise - Tittle Screen.ogg-de1643c95ed7e486eacf5f05f4343e2a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/MainUI/MainUI.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Fonts/Bitmgothic/Bitmgothic.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+use_mipmaps = true
+extra_spacing_top = 1
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 64.0
+margin_bottom = 64.0
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 9.34388
+margin_top = -1.00113
+margin_right = 59.3439
+margin_bottom = 71.9989
+custom_fonts/font = SubResource( 1 )
+text = "7"

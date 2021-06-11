@@ -1,0 +1,124 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/MainUI/MainUI.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Textures/bedroom1_1bit.jpg" type="Texture" id=2]
+
+[node name="GameUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bedroom1_1bit" type="Sprite" parent="."]
+position = Vector2( 200, 150 )
+texture = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="bedroom1_1bit"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -400.0
+margin_top = -216.0
+margin_bottom = -150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="bedroom1_1bit/Panel"]
+margin_left = 14.0158
+margin_top = 10.0113
+margin_right = 54.0158
+margin_bottom = 26.0113
+text = "Go to:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeaderUI" type="Control" parent="MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 396.0
+margin_bottom = 300.0
+
+[node name="LocationPanel" type="Panel" parent="MarginContainer/HeaderUI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -196.0
+margin_right = 196.0
+margin_bottom = 29.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HeaderUI/LocationPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 2
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/HeaderUI/LocationPanel/MarginContainer"]
+margin_left = 4.0
+margin_top = 6.0
+margin_right = 388.0
+margin_bottom = 22.0
+text = "Home - Bedroom"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DateTimePanel" type="Panel" parent="MarginContainer/HeaderUI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -15.8999
+margin_top = 242.37
+margin_right = 191.1
+margin_bottom = 288.37
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HeaderUI/DateTimePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 2
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/HeaderUI/DateTimePanel/MarginContainer"]
+margin_left = 4.0
+margin_top = 5.0
+margin_right = 203.0
+margin_bottom = 40.0
+text = "Jun 27, 1984
+09:00 AM"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
