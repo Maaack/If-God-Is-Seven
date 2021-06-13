@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
@@ -38,6 +38,8 @@
 [ext_resource path="res://Assets/Icons/lighter.png" type="Texture" id=36]
 [ext_resource path="res://Assets/Icons/bathtub.png" type="Texture" id=37]
 [ext_resource path="res://Assets/Icons/flashlight.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Icons/school-bag.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Icons/lockers.png" type="Texture" id=40]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -313,3 +315,11 @@ texture = ExtResource( 36 )
 [node name="grab" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
 position = Vector2( 74.6853, 9.82069 )
 texture = ExtResource( 34 )
+
+[node name="school-bag" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 231.092, 10.6615 )
+texture = ExtResource( 39 )
+
+[node name="lockers" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 265.924, 12.146 )
+texture = ExtResource( 40 )
