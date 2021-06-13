@@ -1,8 +1,43 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Icons/church.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Icons/camping-tent.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Icons/carousel.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Icons/water-mill.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Icons/house.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Icons/wood-cabin.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Icons/treehouse.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Icons/shop.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Icons/observatory.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Icons/barn.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Icons/forest.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Icons/forest-entrance.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Icons/pine-tree.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Icons/birch-trees.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Icons/crucifix.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Icons/tv.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Icons/chat-bubble.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Icons/run.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Icons/walk.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Icons/family-house.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Icons/swap-bag.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Icons/briefcase.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Icons/eye-target.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Icons/discussion.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Icons/backpack.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Icons/talk.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Icons/rotary-phone.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Icons/bed.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Icons/kneeling.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Icons/night-sleep.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Icons/grab.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Icons/magnifying-glass.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Icons/lighter.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Icons/bathtub.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Icons/flashlight.png" type="Texture" id=38]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -107,21 +142,10 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="MarginContainer/HeaderUI"]
-margin_left = 19.0
-margin_top = 236.0
-margin_right = 411.0
-margin_bottom = 309.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="MarginContainer/HeaderUI/Panel"]
-margin_left = 14.0158
-margin_top = 10.0113
-margin_right = 54.0158
-margin_bottom = 26.0113
-custom_fonts/font = ExtResource( 3 )
-text = "Go to:"
+margin_left = 19.5763
+margin_top = 236.354
+margin_right = 411.576
+margin_bottom = 309.354
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -149,3 +173,143 @@ margin_top = 46.258
 margin_right = 389.374
 margin_bottom = 68.258
 text = "Do something cool"
+
+[node name="church" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 229.596, 29.5962 )
+texture = ExtResource( 4 )
+
+[node name="treehouse" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 248.284, 29.5962 )
+texture = ExtResource( 10 )
+
+[node name="water-mill" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 211.243, 29.5962 )
+texture = ExtResource( 7 )
+
+[node name="camping-tent" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 229.556, 48.1317 )
+texture = ExtResource( 5 )
+
+[node name="barn" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 211.137, 48.1317 )
+texture = ExtResource( 13 )
+
+[node name="carousel" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 174.763, 48.1317 )
+texture = ExtResource( 6 )
+
+[node name="observatory" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 248.75, 48.1317 )
+texture = ExtResource( 12 )
+
+[node name="wood-cabin" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 191.707, 29.5962 )
+texture = ExtResource( 9 )
+
+[node name="shop" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 193, 48.1317 )
+texture = ExtResource( 11 )
+
+[node name="house" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 174.457, 29.5962 )
+texture = ExtResource( 8 )
+
+[node name="birch-trees" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 130.446, 48.1317 )
+texture = ExtResource( 17 )
+
+[node name="pine-tree" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 130.262, 29.5962 )
+texture = ExtResource( 16 )
+
+[node name="crucifix" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 265.124, 48 )
+texture = ExtResource( 18 )
+
+[node name="forest" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 154.476, 48.1317 )
+texture = ExtResource( 14 )
+
+[node name="forest-entrance" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 154.405, 29.5962 )
+texture = ExtResource( 15 )
+
+[node name="chat-bubble" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 75.1058, 47.2406 )
+texture = ExtResource( 20 )
+
+[node name="discussion" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 53.6629, 28.3204 )
+texture = ExtResource( 27 )
+
+[node name="kneeling" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 78.0489, 24.9568 )
+texture = ExtResource( 32 )
+
+[node name="night-sleep" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 93.6055, 47.661 )
+texture = ExtResource( 33 )
+
+[node name="run" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 115.048, 23.6955 )
+texture = ExtResource( 21 )
+
+[node name="walk" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 96.9691, 23.6955 )
+texture = ExtResource( 22 )
+
+[node name="briefcase" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 53.6629, 47.2406 )
+texture = ExtResource( 25 )
+
+[node name="talk" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 29.6973, 28.7409 )
+texture = ExtResource( 29 )
+
+[node name="backpack" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 30.1178, 45.1384 )
+texture = ExtResource( 28 )
+
+[node name="bed" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 133.969, 8.55936 )
+texture = ExtResource( 31 )
+
+[node name="eye-target" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 173.491, 11.082 )
+texture = ExtResource( 26 )
+
+[node name="family-house" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 248.751, 11.5025 )
+texture = ExtResource( 23 )
+
+[node name="swap-bag" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 113.787, 46.3997 )
+texture = ExtResource( 24 )
+
+[node name="tv" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 31.3791, 10.6616 )
+texture = ExtResource( 19 )
+
+[node name="rotary-phone" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 51.1402, 10.2411 )
+texture = ExtResource( 30 )
+
+[node name="bathtub" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 94.8668, 9.40025 )
+texture = ExtResource( 37 )
+
+[node name="flashlight" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 154.991, 11.082 )
+texture = ExtResource( 38 )
+
+[node name="magnifying-glass" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 194.513, 11.5025 )
+texture = ExtResource( 35 )
+
+[node name="lighter" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 213.854, 10.6616 )
+texture = ExtResource( 36 )
+
+[node name="grab" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+position = Vector2( 74.6853, 9.82069 )
+texture = ExtResource( 34 )
