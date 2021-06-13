@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/MainUI/MainUI.tres" type="Theme" id=1]
-[ext_resource path="res://Assets/Textures/bedroom1_1bit.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=3]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -11,30 +12,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bedroom1_1bit" type="Sprite" parent="."]
-position = Vector2( 200, 150 )
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 320, 160 )
 texture = ExtResource( 2 )
-
-[node name="Panel" type="Panel" parent="bedroom1_1bit"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -400.0
-margin_top = -216.0
-margin_bottom = -150.0
 __meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="bedroom1_1bit/Panel"]
-margin_left = 14.0158
-margin_top = 10.0113
-margin_right = 54.0158
-margin_bottom = 26.0113
-text = "Go to:"
-__meta__ = {
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -50,8 +32,8 @@ __meta__ = {
 [node name="HeaderUI" type="Control" parent="MarginContainer"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 396.0
-margin_bottom = 300.0
+margin_right = 636.0
+margin_bottom = 320.0
 
 [node name="LocationPanel" type="Panel" parent="MarginContainer/HeaderUI"]
 anchor_left = 0.5
@@ -90,10 +72,10 @@ __meta__ = {
 [node name="DateTimePanel" type="Panel" parent="MarginContainer/HeaderUI"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -15.8999
-margin_top = 242.37
-margin_right = 191.1
-margin_bottom = 288.37
+margin_left = 110.643
+margin_top = 33.5028
+margin_right = 317.643
+margin_bottom = 79.5028
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -112,9 +94,10 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="MarginContainer/HeaderUI/DateTimePanel/MarginContainer"]
 margin_left = 4.0
-margin_top = 5.0
+margin_top = 12.0
 margin_right = 203.0
-margin_bottom = 40.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 3 )
 text = "Jun 27, 1984
 09:00 AM"
 align = 1
@@ -122,3 +105,47 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Panel" type="Panel" parent="MarginContainer/HeaderUI"]
+margin_left = 19.0
+margin_top = 236.0
+margin_right = 411.0
+margin_bottom = 309.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/HeaderUI/Panel"]
+margin_left = 14.0158
+margin_top = 10.0113
+margin_right = 54.0158
+margin_bottom = 26.0113
+custom_fonts/font = ExtResource( 3 )
+text = "Go to:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox3" type="CheckBox" parent="MarginContainer/HeaderUI/Panel"]
+margin_left = 275.374
+margin_top = 3.74091
+margin_right = 389.374
+margin_bottom = 25.7409
+text = "Do something cool"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/HeaderUI/Panel"]
+margin_left = 274.707
+margin_top = 24.5679
+margin_right = 388.707
+margin_bottom = 46.5679
+text = "Do something cool"
+
+[node name="CheckBox2" type="CheckBox" parent="MarginContainer/HeaderUI/Panel"]
+margin_left = 275.374
+margin_top = 46.258
+margin_right = 389.374
+margin_bottom = 68.258
+text = "Do something cool"

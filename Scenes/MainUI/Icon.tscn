@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/MainUI/MainUI.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Fonts/Bitmgothic/Bitmgothic.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
