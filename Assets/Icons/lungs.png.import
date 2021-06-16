@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex"
+path="res://.import/lungs.png-251cb42c36016676f31de2c65aa0ecb0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/lockers.png"
-dest_files=[ "res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex" ]
+source_file="res://Assets/Icons/lungs.png"
+dest_files=[ "res://.import/lungs.png-251cb42c36016676f31de2c65aa0ecb0.stex" ]
 
 [params]
 

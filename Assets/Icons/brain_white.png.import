@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex"
+path="res://.import/brain_white.png-42a601f0ca3e62a3da8a645df352b479.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/lockers.png"
-dest_files=[ "res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex" ]
+source_file="res://Assets/Icons/brain_white.png"
+dest_files=[ "res://.import/brain_white.png-42a601f0ca3e62a3da8a645df352b479.stex" ]
 
 [params]
 

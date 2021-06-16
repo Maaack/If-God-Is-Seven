@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex"
+path="res://.import/human-ear.png-a07361c83f5aaf41807fc32f2c426ab9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/lockers.png"
-dest_files=[ "res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex" ]
+source_file="res://Assets/Icons/human-ear.png"
+dest_files=[ "res://.import/human-ear.png-a07361c83f5aaf41807fc32f2c426ab9.stex" ]
 
 [params]
 

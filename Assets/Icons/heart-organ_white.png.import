@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex"
+path="res://.import/heart-organ_white.png-bf1dd0f2af6f7a480301df5802a8db11.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/lockers.png"
-dest_files=[ "res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex" ]
+source_file="res://Assets/Icons/heart-organ_white.png"
+dest_files=[ "res://.import/heart-organ_white.png-bf1dd0f2af6f7a480301df5802a8db11.stex" ]
 
 [params]
 

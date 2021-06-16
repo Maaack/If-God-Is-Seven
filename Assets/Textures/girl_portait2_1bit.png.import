@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex"
+path="res://.import/girl_portait2_1bit.png-b3fbd944cab33b9c8411a88fd1a1a99a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/lockers.png"
-dest_files=[ "res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex" ]
+source_file="res://Assets/Textures/girl_portait2_1bit.png"
+dest_files=[ "res://.import/girl_portait2_1bit.png-b3fbd944cab33b9c8411a88fd1a1a99a.stex" ]
 
 [params]
 

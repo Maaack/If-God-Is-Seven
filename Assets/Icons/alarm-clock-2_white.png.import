@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex"
+path="res://.import/alarm-clock-2_white.png-92fbf08bb5a4f0fdb8f51b553a07f0af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/lockers.png"
-dest_files=[ "res://.import/lockers.png-b0a79d4be0f99d3fea47dd1bc9184c24.stex" ]
+source_file="res://Assets/Icons/alarm-clock-2_white.png"
+dest_files=[ "res://.import/alarm-clock-2_white.png-92fbf08bb5a4f0fdb8f51b553a07f0af.stex" ]
 
 [params]
 
