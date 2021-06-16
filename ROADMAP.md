@@ -38,8 +38,35 @@
 * Play Screen
     * Current Location Label
     * Current Location Background
+    * Current Date/Time
     * Actions Panel
         * Travel Options Panel
+            * Move to other immediate zones
+            * Leave zone
         * Location-Specific Options Panel
+            * Talk
+                * Select character
+                * Always open?
+            * Pick up stuff
+            * Open inventory
+                * Always open?
+        * Activity text
+            * Moving to location
+    * Popup Panel
+        * Announce things on arrival to location
+    * Character Stats
+        * Current Health / Sanity
+        * Full body outline?
+        * Character portrait?
+        
+
+#### Sprint 2
 * Dialogue screen
-    
+    * Speaking character
+        * Portrait
+        * Dialogue / text
+        * Title / name
+    * Reply options
+        * Button
+        * Sample text
+        * Hint text
