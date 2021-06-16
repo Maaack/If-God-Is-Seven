@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/MainUI/DarkTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Icons/alarm-clock-2_white.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Icons/calendar_white.png" type="Texture" id=4]
+
+[node name="TemporalAwarenessPanel" type="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -170.0
+margin_top = -134.0
+margin_right = 170.0
+margin_bottom = 2.0
+rect_min_size = Vector2( 340, 136 )
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 0, 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DateLabel" type="Label" parent="."]
+margin_left = 26.8763
+margin_top = 7.12373
+margin_right = 119.876
+margin_bottom = 16.1237
+custom_fonts/font = ExtResource( 2 )
+text = "27th of May, 1986"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLabel" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -89.5089
+margin_top = 4.37457
+margin_right = -24.5089
+margin_bottom = 20.3746
+custom_fonts/font = ExtResource( 2 )
+text = "09:00 AM"
+align = 2
+valign = 1
+
+[node name="ClockSprite" type="Sprite" parent="."]
+position = Vector2( 327.365, 9.84074 )
+texture = ExtResource( 3 )
+
+[node name="CalendarSprite" type="Sprite" parent="."]
+position = Vector2( 12.7206, 9.95045 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = -102.0
+margin_right = -3.0
+margin_bottom = -5.0
+custom_fonts/font = ExtResource( 2 )
+text = "You awaken...
+You are in YOUR BEDROOM.
+You read the CALENDAR and CLOCK.
+"
+align = 1

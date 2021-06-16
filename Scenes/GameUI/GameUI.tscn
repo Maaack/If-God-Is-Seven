@@ -1,8 +1,8 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/LocalAwarenessPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Icons/church.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Icons/camping-tent.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Icons/carousel.png" type="Texture" id=6]
@@ -38,6 +38,11 @@
 [ext_resource path="res://Assets/Icons/lighter.png" type="Texture" id=36]
 [ext_resource path="res://Assets/Icons/bathtub.png" type="Texture" id=37]
 [ext_resource path="res://Assets/Icons/flashlight.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Icons/lockers.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Icons/alarm-clock.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Icons/school-bag.png" type="Texture" id=41]
+[ext_resource path="res://Scenes/GameUI/SelfAwarenessUI/SelfAwarenessPanel.tscn" type="PackedScene" id=42]
+[ext_resource path="res://Scenes/GameUI/TemporalAwarenessUI/TemporalAwarenessPanel.tscn" type="PackedScene" id=43]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -64,13 +69,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeaderUI" type="Control" parent="MarginContainer"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 636.0
-margin_bottom = 320.0
+[node name="TemporalAwarenessPanel" parent="." instance=ExtResource( 43 )]
 
-[node name="LocationPanel" type="Panel" parent="MarginContainer/HeaderUI"]
+[node name="HeaderUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LocationPanel" type="Panel" parent="HeaderUI"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -196.0
@@ -81,7 +90,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HeaderUI/LocationPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="HeaderUI/LocationPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 4
@@ -92,7 +101,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MarginContainer/HeaderUI/LocationPanel/MarginContainer"]
+[node name="Label" type="Label" parent="HeaderUI/LocationPanel/MarginContainer"]
 margin_left = 4.0
 margin_top = 6.0
 margin_right = 388.0
@@ -104,53 +113,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DateTimePanel" type="Panel" parent="MarginContainer/HeaderUI"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 110.643
-margin_top = 33.5028
-margin_right = 317.643
-margin_bottom = 79.5028
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
+[node name="SelfAwarenessPanel" parent="HeaderUI" instance=ExtResource( 42 )]
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HeaderUI/DateTimePanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 4
-custom_constants/margin_top = 2
-custom_constants/margin_left = 4
-custom_constants/margin_bottom = 2
+[node name="LocalAwarenessPanel" parent="HeaderUI" instance=ExtResource( 3 )]
+
+[node name="TestPanel" type="Panel" parent="HeaderUI"]
+margin_left = 118.354
+margin_top = 326.456
+margin_right = 510.354
+margin_bottom = 399.456
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MarginContainer/HeaderUI/DateTimePanel/MarginContainer"]
-margin_left = 4.0
-margin_top = 12.0
-margin_right = 203.0
-margin_bottom = 33.0
-custom_fonts/font = ExtResource( 3 )
-text = "Jun 27, 1984
-09:00 AM"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="MarginContainer/HeaderUI"]
-margin_left = 19.5763
-margin_top = 236.354
-margin_right = 411.576
-margin_bottom = 309.354
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CheckBox3" type="CheckBox" parent="MarginContainer/HeaderUI/Panel"]
+[node name="CheckBox3" type="CheckBox" parent="HeaderUI/TestPanel"]
 margin_left = 275.374
 margin_top = 3.74091
 margin_right = 389.374
@@ -160,156 +136,168 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/HeaderUI/Panel"]
+[node name="CheckBox" type="CheckBox" parent="HeaderUI/TestPanel"]
 margin_left = 274.707
 margin_top = 24.5679
 margin_right = 388.707
 margin_bottom = 46.5679
 text = "Do something cool"
 
-[node name="CheckBox2" type="CheckBox" parent="MarginContainer/HeaderUI/Panel"]
+[node name="CheckBox2" type="CheckBox" parent="HeaderUI/TestPanel"]
 margin_left = 275.374
 margin_top = 46.258
 margin_right = 389.374
 margin_bottom = 68.258
 text = "Do something cool"
 
-[node name="church" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="church" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 229.596, 29.5962 )
 texture = ExtResource( 4 )
 
-[node name="treehouse" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="treehouse" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 248.284, 29.5962 )
 texture = ExtResource( 10 )
 
-[node name="water-mill" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="water-mill" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 211.243, 29.5962 )
 texture = ExtResource( 7 )
 
-[node name="camping-tent" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="camping-tent" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 229.556, 48.1317 )
 texture = ExtResource( 5 )
 
-[node name="barn" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="barn" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 211.137, 48.1317 )
 texture = ExtResource( 13 )
 
-[node name="carousel" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="carousel" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 174.763, 48.1317 )
 texture = ExtResource( 6 )
 
-[node name="observatory" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="observatory" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 248.75, 48.1317 )
 texture = ExtResource( 12 )
 
-[node name="wood-cabin" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="wood-cabin" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 191.707, 29.5962 )
 texture = ExtResource( 9 )
 
-[node name="shop" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="shop" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 193, 48.1317 )
 texture = ExtResource( 11 )
 
-[node name="house" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="house" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 174.457, 29.5962 )
 texture = ExtResource( 8 )
 
-[node name="birch-trees" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="birch-trees" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 130.446, 48.1317 )
 texture = ExtResource( 17 )
 
-[node name="pine-tree" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="pine-tree" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 130.262, 29.5962 )
 texture = ExtResource( 16 )
 
-[node name="crucifix" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="crucifix" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 265.124, 48 )
 texture = ExtResource( 18 )
 
-[node name="forest" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="forest" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 154.476, 48.1317 )
 texture = ExtResource( 14 )
 
-[node name="forest-entrance" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="forest-entrance" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 154.405, 29.5962 )
 texture = ExtResource( 15 )
 
-[node name="chat-bubble" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="chat-bubble" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 75.1058, 47.2406 )
 texture = ExtResource( 20 )
 
-[node name="discussion" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="discussion" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 53.6629, 28.3204 )
 texture = ExtResource( 27 )
 
-[node name="kneeling" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="kneeling" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 78.0489, 24.9568 )
 texture = ExtResource( 32 )
 
-[node name="night-sleep" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="night-sleep" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 93.6055, 47.661 )
 texture = ExtResource( 33 )
 
-[node name="run" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="run" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 115.048, 23.6955 )
 texture = ExtResource( 21 )
 
-[node name="walk" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="walk" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 96.9691, 23.6955 )
 texture = ExtResource( 22 )
 
-[node name="briefcase" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="briefcase" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 53.6629, 47.2406 )
 texture = ExtResource( 25 )
 
-[node name="talk" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="talk" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 29.6973, 28.7409 )
 texture = ExtResource( 29 )
 
-[node name="backpack" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="backpack" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 30.1178, 45.1384 )
 texture = ExtResource( 28 )
 
-[node name="bed" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="bed" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 133.969, 8.55936 )
 texture = ExtResource( 31 )
 
-[node name="eye-target" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="eye-target" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 173.491, 11.082 )
 texture = ExtResource( 26 )
 
-[node name="family-house" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="family-house" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 248.751, 11.5025 )
 texture = ExtResource( 23 )
 
-[node name="swap-bag" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="swap-bag" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 113.787, 46.3997 )
 texture = ExtResource( 24 )
 
-[node name="tv" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="tv" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 31.3791, 10.6616 )
 texture = ExtResource( 19 )
 
-[node name="rotary-phone" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="rotary-phone" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 51.1402, 10.2411 )
 texture = ExtResource( 30 )
 
-[node name="bathtub" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="bathtub" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 94.8668, 9.40025 )
 texture = ExtResource( 37 )
 
-[node name="flashlight" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="flashlight" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 154.991, 11.082 )
 texture = ExtResource( 38 )
 
-[node name="magnifying-glass" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="magnifying-glass" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 194.513, 11.5025 )
 texture = ExtResource( 35 )
 
-[node name="lighter" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="lighter" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 213.854, 10.6616 )
 texture = ExtResource( 36 )
 
-[node name="grab" type="Sprite" parent="MarginContainer/HeaderUI/Panel"]
+[node name="grab" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 74.6853, 9.82069 )
 texture = ExtResource( 34 )
+
+[node name="school-bag" type="Sprite" parent="HeaderUI/TestPanel"]
+position = Vector2( 228.59, 11.4626 )
+texture = ExtResource( 41 )
+
+[node name="lockers" type="Sprite" parent="HeaderUI/TestPanel"]
+position = Vector2( 266.185, 12.9188 )
+texture = ExtResource( 39 )
+
+[node name="alarm-clock" type="Sprite" parent="HeaderUI/TestPanel"]
+position = Vector2( 115.244, 7.45299 )
+texture = ExtResource( 40 )
