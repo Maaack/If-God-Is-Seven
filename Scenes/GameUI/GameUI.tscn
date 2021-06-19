@@ -69,8 +69,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TemporalAwarenessPanel" parent="." instance=ExtResource( 43 )]
-
 [node name="HeaderUI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -301,3 +299,5 @@ texture = ExtResource( 39 )
 [node name="alarm-clock" type="Sprite" parent="HeaderUI/TestPanel"]
 position = Vector2( 115.244, 7.45299 )
 texture = ExtResource( 40 )
+
+[node name="TemporalAwarenessPanel" parent="HeaderUI" instance=ExtResource( 43 )]

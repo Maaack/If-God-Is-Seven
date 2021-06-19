@@ -11,24 +11,32 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -170.0
-margin_top = -134.0
+margin_top = -114.0
 margin_right = 170.0
 margin_bottom = 2.0
-rect_min_size = Vector2( 340, 136 )
+rect_min_size = Vector2( 340, 116 )
 theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+margin_right = 340.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 0, 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DateLabel" type="Label" parent="."]
+[node name="DateLabel" type="Label" parent="VBoxContainer/Panel"]
 margin_left = 26.8763
 margin_top = 7.12373
 margin_right = 119.876
@@ -40,7 +48,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TimeLabel" type="Label" parent="."]
+[node name="TimeLabel" type="Label" parent="VBoxContainer/Panel"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -89.5089
@@ -52,25 +60,35 @@ text = "09:00 AM"
 align = 2
 valign = 1
 
-[node name="ClockSprite" type="Sprite" parent="."]
+[node name="ClockSprite" type="Sprite" parent="VBoxContainer/Panel"]
 position = Vector2( 327.365, 9.84074 )
 texture = ExtResource( 3 )
 
-[node name="CalendarSprite" type="Sprite" parent="."]
+[node name="CalendarSprite" type="Sprite" parent="VBoxContainer/Panel"]
 position = Vector2( 12.7206, 9.95045 )
 texture = ExtResource( 4 )
 
-[node name="Label" type="Label" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.0
-margin_top = -102.0
-margin_right = -3.0
-margin_bottom = -5.0
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 30.0
+margin_right = 340.0
+margin_bottom = 116.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer"]
+margin_right = 340.0
+margin_bottom = 69.0
+size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "You awaken...
+You are ANASTASIA.
+You feel HEALTHY.
+Your mind is SHARP. 
 You are in YOUR BEDROOM.
-You read the CALENDAR and CLOCK.
-"
+You read the CALENDAR and CLOCK."
 align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
