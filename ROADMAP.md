@@ -25,7 +25,6 @@
 #### Sprint 1
 * UI Elements
     * Buttons
-    * Progress Bars
     * Font
     * Panels
     * 9-Box
@@ -41,19 +40,10 @@
     * Current Date/Time
     * Actions Panel
         * Travel Options Panel
-            * Move to other immediate zones
-            * Leave zone
-        * Location-Specific Options Panel
-            * Talk
-                * Select character
-                * Always open?
-            * Pick up stuff
-            * Open inventory
-                * Always open?
+        * Open inventory
+            * Always open?
         * Activity text
             * Moving to location
-    * Popup Panel
-        * Announce things on arrival to location
     * Character Stats
         * Current Health / Sanity
         * Full body outline?
@@ -61,6 +51,27 @@
         
 
 #### Sprint 2
+* UI Elements
+    * H Scroll Bar
+    * V Scroll Bar
+    * Progress Bar? 
+* Locations
+    * 4 in house
+        * Bedroom
+        * Kitchen
+        * Living Room
+        * Bathroom
+    * Traveling between locations
+    * Location-Specific Options Panel
+        * Talk
+            * Select character
+            * Always open?
+        * Pick up stuff
+    * Popup Panel
+        * Announce things on arrival to location
+
+
+#### Sprint 3
 * Dialogue screen
     * Speaking character
         * Portrait
