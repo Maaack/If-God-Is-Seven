@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
@@ -43,11 +43,13 @@
 [ext_resource path="res://Assets/Icons/school-bag.png" type="Texture" id=41]
 [ext_resource path="res://Scenes/GameUI/SelfAwarenessUI/SelfAwarenessPanel.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Scenes/GameUI/TemporalAwarenessUI/TemporalAwarenessPanel.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Scenes/GameUI/GameUI.gd" type="Script" id=44]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
+script = ExtResource( 44 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -301,3 +303,5 @@ position = Vector2( 115.244, 7.45299 )
 texture = ExtResource( 40 )
 
 [node name="TemporalAwarenessPanel" parent="HeaderUI" instance=ExtResource( 43 )]
+
+[connection signal="changed_location" from="HeaderUI/LocalAwarenessPanel" to="." method="_on_LocalAwarenessPanel_changed_location"]

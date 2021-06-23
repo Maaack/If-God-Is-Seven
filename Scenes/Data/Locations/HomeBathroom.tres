@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Textures/bathroom_02.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/LocationData.gd" type="Script" id=2]
+
+[resource]
+script = ExtResource( 2 )
+title = "Bathroom"
+background = ExtResource( 1 )
