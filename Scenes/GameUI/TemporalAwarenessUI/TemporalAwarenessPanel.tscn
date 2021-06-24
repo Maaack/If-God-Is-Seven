@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/MainUI/DarkTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Icons/alarm-clock-2_white.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Icons/calendar_white.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/GameUI/TemporalAwarenessUI/TemporalAwarenessPanel.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/GameUI/TemporalAwarenessUI/EventHistoryScrollContainer.gd" type="Script" id=6]
 
 [node name="TemporalAwarenessPanel" type="Panel"]
 anchor_left = 0.5
@@ -86,7 +85,6 @@ margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
-script = ExtResource( 6 )
 
 [node name="EventHistoryLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 margin_right = 340.0
