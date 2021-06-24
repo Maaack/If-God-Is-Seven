@@ -62,6 +62,9 @@
         * Living Room
         * Bathroom
     * Traveling between locations
+    
+#### Sprint 3
+* UI Elements
     * Location-Specific Options Panel
         * Talk
             * Select character
@@ -69,9 +72,11 @@
         * Pick up stuff
     * Popup Panel
         * Announce things on arrival to location
-
-
-#### Sprint 3
+    * Temporal Awareness
+        * Add comment when changing locations
+        * Add time to clock when changing locations
+    
+#### Sprint 4
 * Dialogue screen
     * Speaking character
         * Portrait

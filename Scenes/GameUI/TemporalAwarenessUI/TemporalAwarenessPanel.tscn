@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/MainUI/DarkTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Icons/alarm-clock-2_white.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Icons/calendar_white.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/GameUI/TemporalAwarenessUI/TemporalAwarenessPanel.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/GameUI/TemporalAwarenessUI/EventHistoryScrollContainer.gd" type="Script" id=6]
 
 [node name="TemporalAwarenessPanel" type="Panel"]
 anchor_left = 0.5
@@ -16,19 +18,28 @@ margin_right = 170.0
 margin_bottom = 2.0
 rect_min_size = Vector2( 340, 116 )
 theme = ExtResource( 1 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 340.0
+margin_bottom = 114.0
 custom_constants/separation = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="VBoxContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
 margin_right = 340.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 0, 22 )
@@ -36,7 +47,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DateLabel" type="Label" parent="VBoxContainer/Panel"]
+[node name="DateLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel"]
 margin_left = 26.8763
 margin_top = 7.12373
 margin_right = 119.876
@@ -48,7 +59,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TimeLabel" type="Label" parent="VBoxContainer/Panel"]
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/Panel"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -89.5089
@@ -60,29 +71,30 @@ text = "09:00 AM"
 align = 2
 valign = 1
 
-[node name="ClockSprite" type="Sprite" parent="VBoxContainer/Panel"]
+[node name="ClockSprite" type="Sprite" parent="MarginContainer/VBoxContainer/Panel"]
 position = Vector2( 327.365, 9.84074 )
 texture = ExtResource( 3 )
 
-[node name="CalendarSprite" type="Sprite" parent="VBoxContainer/Panel"]
+[node name="CalendarSprite" type="Sprite" parent="MarginContainer/VBoxContainer/Panel"]
 position = Vector2( 12.7206, 9.95045 )
 texture = ExtResource( 4 )
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 30.0
 margin_right = 340.0
-margin_bottom = 116.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
+script = ExtResource( 6 )
 
-[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer"]
+[node name="EventHistoryLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 margin_right = 340.0
 margin_bottom = 69.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "You awaken...
-You are ANASTASIA.
+You are ANGELA.
 You feel HEALTHY.
 Your mind is SHARP. 
 You are in YOUR BEDROOM.
@@ -92,3 +104,7 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="EventWriteDelayTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
