@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=2]
+[gd_resource type="Theme" load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/MainUI/DarkPanel/DarkButtonStyleBox.tres" type="StyleBox" id=1]
 [ext_resource path="res://Scenes/MainUI/DarkPanelStyleBox.tres" type="StyleBox" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://Assets/Textures/checkbox_inverted_2.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Textures/checkbox_pressed_2.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Scenes/MainUI/BlackWhiteBorderStyleBoxt.tres" type="StyleBox" id=9]
+[ext_resource path="res://Scenes/MainUI/WhiteStyleBoxt.tres" type="StyleBox" id=10]
+[ext_resource path="res://Scenes/MainUI/BlackWhiteBorderVScrollStyleBoxt.tres" type="StyleBox" id=11]
+[ext_resource path="res://Scenes/MainUI/BlackWhiteBorderHScrollStyleBoxt.tres" type="StyleBox" id=12]
 
 [resource]
 default_font = ExtResource( 5 )
@@ -40,6 +44,15 @@ CheckBox/styles/hover = null
 CheckBox/styles/hover_pressed = null
 CheckBox/styles/normal = null
 CheckBox/styles/pressed = null
+HScrollBar/icons/decrement = null
+HScrollBar/icons/decrement_highlight = null
+HScrollBar/icons/increment = null
+HScrollBar/icons/increment_highlight = null
+HScrollBar/styles/grabber = ExtResource( 10 )
+HScrollBar/styles/grabber_highlight = ExtResource( 9 )
+HScrollBar/styles/grabber_pressed = ExtResource( 9 )
+HScrollBar/styles/scroll = ExtResource( 12 )
+HScrollBar/styles/scroll_focus = null
 Label/colors/font_color = Color( 0.941176, 0.964706, 0.941176, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
 Label/colors/font_outline_modulate = Color( 0.133333, 0.137255, 0.137255, 1 )
@@ -50,3 +63,12 @@ Label/constants/shadow_offset_y = 1
 Label/fonts/font = null
 Label/styles/normal = null
 Panel/styles/panel = ExtResource( 2 )
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = ExtResource( 10 )
+VScrollBar/styles/grabber_highlight = ExtResource( 9 )
+VScrollBar/styles/grabber_pressed = ExtResource( 9 )
+VScrollBar/styles/scroll = ExtResource( 11 )
+VScrollBar/styles/scroll_focus = null
