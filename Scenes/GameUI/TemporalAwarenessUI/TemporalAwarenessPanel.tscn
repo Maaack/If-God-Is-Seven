@@ -52,7 +52,7 @@ margin_top = 7.12373
 margin_right = 119.876
 margin_bottom = 16.1237
 custom_fonts/font = ExtResource( 2 )
-text = "27th of May, 1986"
+text = "June 22, 1986"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false

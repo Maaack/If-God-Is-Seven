@@ -75,6 +75,7 @@
     * Temporal Awareness
         * Add comment when changing locations
         * Add time to clock when changing locations
+        * Add days to calendar when time > 24:00
     
 #### Sprint 4
 * Dialogue screen
