@@ -66,6 +66,13 @@
 #### Sprint 3
 * UI Elements
     * Location-Specific Options Panel
+        * Interactions
+            * Look At
+            * Listen To
+            * Smell
+            * Take
+            * Talk to
+            * Interact with
         * Talk
             * Select character
             * Always open?
