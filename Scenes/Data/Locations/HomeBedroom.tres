@@ -7,4 +7,4 @@
 script = ExtResource( 2 )
 title = "Home - Bedroom"
 background = ExtResource( 1 )
-map_position = Vector2( 28, 46 )
+interactables = [  ]

@@ -7,3 +7,4 @@
 script = ExtResource( 2 )
 title = "Bathroom"
 background = ExtResource( 1 )
+interactables = [  ]

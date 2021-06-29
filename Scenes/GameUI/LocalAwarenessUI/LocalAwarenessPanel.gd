@@ -9,8 +9,20 @@ export(Resource) var current_location : Resource
 onready var map_container = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MapContainer
 onready var location_label = $VBoxContainer/HeaderPanel/LocationLabel
 onready var travel_label = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/TravelLabel
+onready var interactables_container = $InteractablesPanel/MarginContainer/HBoxContainer/InteractablesContainer
 
+var interactable_button_scene = preload("res://Scenes/GameUI/LocalAwarenessUI/InteractableButton.tscn")
 var map_instance
+
+func update_interactables():
+	for child in interactables_container.get_children():
+		child.queue_free()
+	if not current_location is LocationData:
+		return
+	for interactable in current_location.interactables:
+		var interactable_button_instance = interactable_button_scene.instance()
+		interactables_container.add_child(interactable_button_instance)
+		interactable_button_instance.text = interactable.title
 
 func update_map():
 	if is_instance_valid(map_instance):
@@ -28,6 +40,7 @@ func update_location():
 		location_label.text = "%s - %s" % [map_instance.title, current_location.title]
 	else:
 		location_label.text = "%s" % map_instance.title
+	update_interactables()
 
 func _ready():
 	update_map()
