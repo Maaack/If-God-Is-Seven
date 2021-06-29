@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource( 1 )
 title = "Radio"
-interaction_list = [ 0, 4, 5, 3 ]
+interaction_list = [ 0, 4, 5, 3, 1 ]

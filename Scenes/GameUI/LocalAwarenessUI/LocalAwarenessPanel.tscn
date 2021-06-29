@@ -428,7 +428,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+[node name="LookButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
 margin_right = 20.0
 margin_bottom = 20.0
 focus_mode = 0
@@ -436,7 +436,7 @@ texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 20 )
 texture_hover = ExtResource( 19 )
 
-[node name="TextureButton2" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+[node name="ListenButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
 margin_top = 21.0
 margin_right = 20.0
 margin_bottom = 41.0
@@ -445,7 +445,7 @@ texture_normal = ExtResource( 21 )
 texture_pressed = ExtResource( 21 )
 texture_hover = ExtResource( 22 )
 
-[node name="TextureButton3" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+[node name="SmellButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
 margin_top = 42.0
 margin_right = 20.0
 margin_bottom = 62.0
@@ -454,7 +454,7 @@ texture_normal = ExtResource( 24 )
 texture_pressed = ExtResource( 24 )
 texture_hover = ExtResource( 25 )
 
-[node name="TextureButton4" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+[node name="SpeakButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
 margin_top = 63.0
 margin_right = 20.0
 margin_bottom = 83.0
@@ -463,7 +463,7 @@ texture_normal = ExtResource( 26 )
 texture_pressed = ExtResource( 26 )
 texture_hover = ExtResource( 23 )
 
-[node name="TextureButton5" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+[node name="UseButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
 margin_top = 84.0
 margin_right = 20.0
 margin_bottom = 104.0
@@ -472,7 +472,7 @@ texture_normal = ExtResource( 29 )
 texture_pressed = ExtResource( 29 )
 texture_hover = ExtResource( 28 )
 
-[node name="TextureButton6" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+[node name="GrabButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
 margin_top = 105.0
 margin_right = 20.0
 margin_bottom = 125.0
@@ -487,3 +487,10 @@ margin_right = 144.0
 margin_bottom = 198.0
 size_flags_horizontal = 3
 custom_constants/separation = 2
+
+[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/LookButton" to="." method="_on_LookButton_pressed"]
+[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/ListenButton" to="." method="_on_ListenButton_pressed"]
+[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/SmellButton" to="." method="_on_SmellButton_pressed"]
+[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/SpeakButton" to="." method="_on_SpeakButton_pressed"]
+[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/UseButton" to="." method="_on_UseButton_pressed"]
+[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/GrabButton" to="." method="_on_GrabButton_pressed"]
