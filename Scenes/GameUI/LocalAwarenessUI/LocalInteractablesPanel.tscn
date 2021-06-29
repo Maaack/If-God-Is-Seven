@@ -1,0 +1,130 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Buttons/smell-black-button.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/MainUI/SmallFontLightTheme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/Buttons/inspect-white-button.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Buttons/talk-white-button.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Buttons/inspect-black-button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Buttons/listen-black-button.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Buttons/smell-white-button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Buttons/talk-black-button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Buttons/listen-white-button.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Buttons/grab-white-button.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Buttons/interact-white-button.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Buttons/interact-black-button.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Buttons/grab-black-button.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/LocalInteractablesPanel.gd" type="Script" id=14]
+
+[node name="LocalInteractablesPanel" type="Panel"]
+anchor_right = 1.0
+margin_top = -206.0
+theme = ExtResource( 2 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 2.0
+margin_top = 4.0
+margin_right = 636.0
+margin_bottom = 202.0
+custom_constants/separation = 4
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer"]
+margin_right = 24.0
+margin_bottom = 198.0
+rect_min_size = Vector2( 24, 0 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractionOptionsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel/MarginContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 22.0
+margin_bottom = 196.0
+custom_constants/separation = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LookButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 3 )
+
+[node name="ListenButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+margin_top = 21.0
+margin_right = 20.0
+margin_bottom = 41.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 9 )
+
+[node name="SmellButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+margin_top = 42.0
+margin_right = 20.0
+margin_bottom = 62.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 7 )
+
+[node name="SpeakButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+margin_top = 63.0
+margin_right = 20.0
+margin_bottom = 83.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 4 )
+
+[node name="UseButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+margin_top = 84.0
+margin_right = 20.0
+margin_bottom = 104.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 11 )
+
+[node name="GrabButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+margin_top = 105.0
+margin_right = 20.0
+margin_bottom = 125.0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 10 )
+
+[node name="InteractablesContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 28.0
+margin_right = 634.0
+margin_bottom = 198.0
+size_flags_horizontal = 3
+custom_constants/separation = 2
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/LookButton" to="." method="_on_LookButton_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/ListenButton" to="." method="_on_ListenButton_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/SmellButton" to="." method="_on_SmellButton_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/SpeakButton" to="." method="_on_SpeakButton_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/UseButton" to="." method="_on_UseButton_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/GrabButton" to="." method="_on_GrabButton_pressed"]

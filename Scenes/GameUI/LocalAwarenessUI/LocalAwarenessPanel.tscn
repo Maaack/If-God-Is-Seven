@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
@@ -11,25 +11,13 @@
 [ext_resource path="res://Assets/Icons/run.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/MainUI/DarkTheme.tres" type="Theme" id=10]
 [ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/HomeMap.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/MainUI/SmallFontLightTheme.tres" type="Theme" id=12]
+[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/LocalInteractablesPanel.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Icons/light-bulb_white.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Icons/speaker_white.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=15]
 [ext_resource path="res://Assets/Icons/nose-side_white.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Icons/human-ear_white.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Icons/eyeball_white.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Buttons/inspect-white-button.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Buttons/inspect-black-button.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Buttons/listen-black-button.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Buttons/listen-white-button.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Buttons/talk-white-button.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Buttons/smell-black-button.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Buttons/smell-white-button.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Buttons/talk-black-button.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Buttons/grab-white-button.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Buttons/interact-white-button.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Buttons/interact-black-button.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Buttons/grab-black-button.png" type="Texture" id=30]
 
 [node name="LocalAwarenessPanel" type="Panel"]
 anchor_top = 1.0
@@ -376,121 +364,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InteractablesPanel" type="Panel" parent="."]
-anchor_right = 1.0
-margin_top = -206.0
-theme = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="InteractablesPanel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 4
-custom_constants/margin_top = 4
-custom_constants/margin_left = 2
-custom_constants/margin_bottom = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="InteractablesPanel/MarginContainer"]
-margin_left = 2.0
-margin_top = 4.0
-margin_right = 146.0
-margin_bottom = 202.0
-custom_constants/separation = 4
-
-[node name="Panel" type="Panel" parent="InteractablesPanel/MarginContainer/HBoxContainer"]
-margin_right = 24.0
-margin_bottom = 198.0
-rect_min_size = Vector2( 24, 0 )
-
-[node name="MarginContainer" type="MarginContainer" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 2
-custom_constants/margin_top = 2
-custom_constants/margin_left = 2
-custom_constants/margin_bottom = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="InteractionOptionsContainer" type="VBoxContainer" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer"]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 22.0
-margin_bottom = 196.0
-custom_constants/separation = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LookButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
-margin_right = 20.0
-margin_bottom = 20.0
-focus_mode = 0
-texture_normal = ExtResource( 20 )
-texture_pressed = ExtResource( 20 )
-texture_hover = ExtResource( 19 )
-
-[node name="ListenButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
-margin_top = 21.0
-margin_right = 20.0
-margin_bottom = 41.0
-focus_mode = 0
-texture_normal = ExtResource( 21 )
-texture_pressed = ExtResource( 21 )
-texture_hover = ExtResource( 22 )
-
-[node name="SmellButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
-margin_top = 42.0
-margin_right = 20.0
-margin_bottom = 62.0
-focus_mode = 0
-texture_normal = ExtResource( 24 )
-texture_pressed = ExtResource( 24 )
-texture_hover = ExtResource( 25 )
-
-[node name="SpeakButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
-margin_top = 63.0
-margin_right = 20.0
-margin_bottom = 83.0
-focus_mode = 0
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 26 )
-texture_hover = ExtResource( 23 )
-
-[node name="UseButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-focus_mode = 0
-texture_normal = ExtResource( 29 )
-texture_pressed = ExtResource( 29 )
-texture_hover = ExtResource( 28 )
-
-[node name="GrabButton" type="TextureButton" parent="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-focus_mode = 0
-texture_normal = ExtResource( 30 )
-texture_pressed = ExtResource( 30 )
-texture_hover = ExtResource( 27 )
-
-[node name="InteractablesContainer" type="VBoxContainer" parent="InteractablesPanel/MarginContainer/HBoxContainer"]
-margin_left = 28.0
-margin_right = 144.0
-margin_bottom = 198.0
-size_flags_horizontal = 3
-custom_constants/separation = 2
-
-[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/LookButton" to="." method="_on_LookButton_pressed"]
-[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/ListenButton" to="." method="_on_ListenButton_pressed"]
-[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/SmellButton" to="." method="_on_SmellButton_pressed"]
-[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/SpeakButton" to="." method="_on_SpeakButton_pressed"]
-[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/UseButton" to="." method="_on_UseButton_pressed"]
-[connection signal="pressed" from="InteractablesPanel/MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/GrabButton" to="." method="_on_GrabButton_pressed"]
+[node name="LocalInteractablesPanel" parent="." instance=ExtResource( 12 )]
