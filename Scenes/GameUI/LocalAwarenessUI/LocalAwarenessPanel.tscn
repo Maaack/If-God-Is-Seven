@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Assets/Icons/run.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/MainUI/DarkTheme.tres" type="Theme" id=10]
 [ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/HomeMap.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/LocalInteractablesPanel.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Icons/light-bulb_white.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Icons/speaker_white.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=15]
@@ -363,5 +362,3 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="LocalInteractablesPanel" parent="." instance=ExtResource( 12 )]

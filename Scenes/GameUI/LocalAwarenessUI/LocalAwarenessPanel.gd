@@ -29,7 +29,6 @@ func update_location():
 		location_label.text = "%s - %s" % [map_instance.title, current_location.title]
 	else:
 		location_label.text = "%s" % map_instance.title
-	$LocalInteractablesPanel.current_location = current_location
 
 func _ready():
 	update_map()
