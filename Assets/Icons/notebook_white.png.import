@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/talk-black-button.png-8d359d1a0fcc53f3af49d7f5884785cd.stex"
+path="res://.import/notebook_white.png-11831ac5ee5472eef3f8e1ee7375af95.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buttons/talk-black-button.png"
-dest_files=[ "res://.import/talk-black-button.png-8d359d1a0fcc53f3af49d7f5884785cd.stex" ]
+source_file="res://Assets/Icons/notebook_white.png"
+dest_files=[ "res://.import/notebook_white.png-11831ac5ee5472eef3f8e1ee7375af95.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

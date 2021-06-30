@@ -1,18 +1,16 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Assets/Buttons/smell-black-button.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Buttons/notes-black-button.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/MainUI/SmallFontLightTheme.tres" type="Theme" id=2]
-[ext_resource path="res://Assets/Buttons/inspect-white-button.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Buttons/talk-white-button.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Buttons/inspect-black-button.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Buttons/listen-black-button.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Buttons/smell-white-button.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Buttons/talk-black-button.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Buttons/listen-white-button.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Buttons/grab-white-button.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Buttons/interact-white-button.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Buttons/interact-black-button.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Buttons/grab-black-button.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/apparel-black-button.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Buttons/speak-white-button.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Buttons/apparel-white-button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Buttons/inventory-white-button.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Buttons/notes-white-button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Buttons/speak-black-button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Buttons/inventory-black-button.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Buttons/wait-black-button.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Buttons/wait-white-button.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/GameUI/SelfAwarenessUI/SelfInteractablesPanel.gd" type="Script" id=14]
 
 [node name="SelfInteractablesPanel" type="Panel"]
@@ -30,18 +28,18 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 4
+custom_constants/margin_right = 2
 custom_constants/margin_top = 4
-custom_constants/margin_left = 2
+custom_constants/margin_left = 4
 custom_constants/margin_bottom = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-margin_left = 2.0
+margin_left = 4.0
 margin_top = 4.0
-margin_right = 146.0
+margin_right = 148.0
 margin_bottom = 316.0
 custom_constants/separation = 4
 
@@ -79,22 +77,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LookButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+[node name="ApparelButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
 margin_right = 20.0
 margin_bottom = 20.0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 3 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 5 )
 
-[node name="ListenButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+[node name="InventoryButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
 margin_top = 21.0
 margin_right = 20.0
 margin_bottom = 41.0
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 6 )
-texture_hover = ExtResource( 9 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 6 )
 
-[node name="SmellButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+[node name="NotesButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
 margin_top = 42.0
 margin_right = 20.0
 margin_bottom = 62.0
@@ -110,25 +108,10 @@ texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 4 )
 
-[node name="UseButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
+[node name="WaitButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
 margin_top = 84.0
 margin_right = 20.0
 margin_bottom = 104.0
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 12 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 11 )
-
-[node name="GrabButton" type="TextureButton" parent="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer"]
-margin_top = 105.0
-margin_right = 20.0
-margin_bottom = 125.0
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 13 )
-texture_hover = ExtResource( 10 )
-
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/LookButton" to="." method="_on_LookButton_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/ListenButton" to="." method="_on_ListenButton_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/SmellButton" to="." method="_on_SmellButton_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/SpeakButton" to="." method="_on_SpeakButton_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/UseButton" to="." method="_on_UseButton_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/MarginContainer/InteractionOptionsContainer/GrabButton" to="." method="_on_GrabButton_pressed"]
