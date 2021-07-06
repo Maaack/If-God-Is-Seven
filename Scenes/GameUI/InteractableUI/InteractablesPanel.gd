@@ -40,3 +40,6 @@ func _on_TravelUI_changed_location(location):
 func _on_InteractionsPanel_changed_interaction(interaction):
 	current_interaction = interaction
 	update_interactables()
+
+func _ready():
+	set_current_location(travel_ui.current_location)

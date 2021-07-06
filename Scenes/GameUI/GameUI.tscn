@@ -326,19 +326,18 @@ margin_right = 640.0
 margin_bottom = 100.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 custom_constants/margin_right = 150
 custom_constants/margin_top = 0
-custom_constants/margin_left = 150
-custom_constants/margin_bottom = 114
+custom_constants/margin_bottom = 100
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EventUI" parent="MarginContainer" instance=ExtResource( 42 )]
-margin_bottom = 206.0
+margin_left = 0.0
+margin_bottom = 220.0
 
 [connection signal="changed_location" from="HeaderUI/VBoxContainer/InteractableUI" to="." method="_on_InteractableUI_changed_location"]
