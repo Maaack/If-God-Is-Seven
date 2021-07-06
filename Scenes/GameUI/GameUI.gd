@@ -1,7 +1,7 @@
 extends Control
 
 
-func _on_LocalAwarenessUI_changed_location(location):
+func _on_InteractableUI_changed_location(location):
 	$Background.texture = location.background
-	$HeaderUI/TemporalAwarenessPanel.add_event("You enter %s" % location.title.to_upper())
-	$HeaderUI/TemporalAwarenessPanel.add_time(0, 1)
+	$HeaderUI/VBoxContainer/HBoxContainer/TemporalAwarenessPanel.add_event("You enter %s" % location.title.to_upper())
+	$HeaderUI/VBoxContainer/HBoxContainer/TemporalAwarenessPanel.add_time(0, 1)

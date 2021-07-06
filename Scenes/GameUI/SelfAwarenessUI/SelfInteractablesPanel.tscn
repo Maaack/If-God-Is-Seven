@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Buttons/notes-black-button.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/MainUI/SmallFontLightTheme.tres" type="Theme" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Buttons/inventory-black-button.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Buttons/wait-black-button.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Buttons/wait-white-button.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/InteractableButton.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/GameUI/SelfAwarenessUI/SelfInteractablesPanel.gd" type="Script" id=14]
 
 [node name="SelfInteractablesPanel" type="Panel"]
@@ -49,6 +50,8 @@ margin_bottom = 312.0
 rect_min_size = Vector2( 116, 0 )
 size_flags_horizontal = 3
 custom_constants/separation = 2
+
+[node name="InteractableButton" parent="MarginContainer/HBoxContainer/InteractablesContainer" instance=ExtResource( 12 )]
 
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer"]
 margin_left = 120.0

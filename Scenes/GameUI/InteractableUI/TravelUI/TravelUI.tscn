@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/GameUI/InteractableUI/TravelUI/TravelUI.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/HomeMap.tscn" type="PackedScene" id=4]
+
+[node name="TravelUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -524.0
+margin_bottom = -222.0
+rect_min_size = Vector2( 116, 98 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+current_map = ExtResource( 4 )
+current_location = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapContainer" type="Control" parent="VBoxContainer"]
+margin_right = 116.0
+margin_bottom = 89.0
+size_flags_vertical = 3
+
+[node name="TravelLabel" type="Label" parent="VBoxContainer"]
+margin_top = 89.0
+margin_right = 116.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.133333, 0.137255, 0.137255, 1 )
+text = "Go to..."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

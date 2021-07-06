@@ -1,11 +1,11 @@
 extends Panel
 
 
-onready var event_history_label = $MarginContainer/VBoxContainer/ScrollContainer/EventHistoryLabel
-onready var event_history_scroll = $MarginContainer/VBoxContainer/ScrollContainer
+onready var event_history_label = $VBoxContainer/MarginContainer/ScrollContainer/EventHistoryLabel
+onready var event_history_scroll = $VBoxContainer/MarginContainer/ScrollContainer
 onready var event_write_delay_timer = $EventWriteDelayTimer
-onready var time_label = $MarginContainer/VBoxContainer/Panel/TimeLabel
-onready var date_label = $MarginContainer/VBoxContainer/Panel/DateLabel
+onready var time_label = $VBoxContainer/Panel/TimeLabel
+onready var date_label = $VBoxContainer/Panel/DateLabel
 
 enum day_periods {AM, PM}
 

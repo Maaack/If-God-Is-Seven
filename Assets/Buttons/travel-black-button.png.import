@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/talk-white-button.png-c8d1a5623a67dc608b8a6b578089fe58.stex"
+path="res://.import/travel-black-button.png-09118a28bd27d45ca6e2b14b6eaa665c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buttons/talk-white-button.png"
-dest_files=[ "res://.import/talk-white-button.png-c8d1a5623a67dc608b8a6b578089fe58.stex" ]
+source_file="res://Assets/Buttons/travel-black-button.png"
+dest_files=[ "res://.import/travel-black-button.png-09118a28bd27d45ca6e2b14b6eaa665c.stex" ]
 
 [params]
 

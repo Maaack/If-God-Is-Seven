@@ -73,10 +73,6 @@
             * Take
             * Talk to
             * Interact with
-        * Talk
-            * Select character
-            * Always open?
-        * Pick up stuff
     * Popup Panel
         * Announce things on arrival to location
     * Temporal Awareness

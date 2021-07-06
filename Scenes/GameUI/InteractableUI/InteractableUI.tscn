@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/GameUI/InteractableUI/InteractablesPanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GameUI/InteractableUI/InteractableUI.gd" type="Script" id=2]
+
+[node name="InteractableUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 202 )
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractablesPanel" parent="." instance=ExtResource( 1 )]
+anchor_bottom = 1.0
+margin_bottom = 0.0
+size_flags_vertical = 3
+
+[connection signal="changed_location" from="InteractablesPanel" to="." method="_on_InteractablesPanel_changed_location"]

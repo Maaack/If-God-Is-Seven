@@ -1,8 +1,7 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/LocalAwarenessUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Icons/church.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Icons/camping-tent.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Icons/carousel.png" type="Texture" id=6]
@@ -41,9 +40,11 @@
 [ext_resource path="res://Assets/Icons/lockers.png" type="Texture" id=39]
 [ext_resource path="res://Assets/Icons/alarm-clock.png" type="Texture" id=40]
 [ext_resource path="res://Assets/Icons/school-bag.png" type="Texture" id=41]
+[ext_resource path="res://Scenes/GameUI/EventUI/EventUI.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Scenes/GameUI/TemporalAwarenessUI/TemporalAwarenessPanel.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Scenes/GameUI/GameUI.gd" type="Script" id=44]
 [ext_resource path="res://Scenes/GameUI/SelfAwarenessUI/SelfAwarenessUI.tscn" type="PackedScene" id=45]
+[ext_resource path="res://Scenes/GameUI/InteractableUI/InteractableUI.tscn" type="PackedScene" id=46]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -61,29 +62,12 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 4
-custom_constants/margin_top = 4
-custom_constants/margin_left = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="HeaderUI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="LocalAwarenessUI" parent="HeaderUI" instance=ExtResource( 3 )]
-margin_right = 150.0
-margin_bottom = 2.0
-
-[node name="SelfAwarenessUI" parent="HeaderUI" instance=ExtResource( 45 )]
-margin_bottom = 2.0
 
 [node name="LocationPanel" type="Panel" parent="HeaderUI"]
 visible = false
@@ -305,6 +289,56 @@ texture = ExtResource( 39 )
 position = Vector2( 115.244, 7.45299 )
 texture = ExtResource( 40 )
 
-[node name="TemporalAwarenessPanel" parent="HeaderUI" instance=ExtResource( 43 )]
+[node name="VBoxContainer" type="VBoxContainer" parent="HeaderUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[connection signal="changed_location" from="HeaderUI/LocalAwarenessUI" to="." method="_on_LocalAwarenessUI_changed_location"]
+[node name="InteractableUI" parent="HeaderUI/VBoxContainer" instance=ExtResource( 46 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 640.0
+margin_bottom = 220.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HeaderUI/VBoxContainer"]
+margin_top = 220.0
+margin_right = 640.0
+margin_bottom = 320.0
+custom_constants/separation = 0
+
+[node name="TemporalAwarenessPanel" parent="HeaderUI/VBoxContainer/HBoxContainer" instance=ExtResource( 43 )]
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 0.0
+margin_right = 490.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+
+[node name="SelfAwarenessUI" parent="HeaderUI/VBoxContainer/HBoxContainer" instance=ExtResource( 45 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 490.0
+margin_right = 640.0
+margin_bottom = 100.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 150
+custom_constants/margin_top = 0
+custom_constants/margin_left = 150
+custom_constants/margin_bottom = 114
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EventUI" parent="MarginContainer" instance=ExtResource( 42 )]
+margin_bottom = 206.0
+
+[connection signal="changed_location" from="HeaderUI/VBoxContainer/InteractableUI" to="." method="_on_InteractableUI_changed_location"]
