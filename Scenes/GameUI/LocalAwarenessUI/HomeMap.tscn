@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/EmptyMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/InteractableMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Textures/home_map_1bit.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/LocationButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=4]

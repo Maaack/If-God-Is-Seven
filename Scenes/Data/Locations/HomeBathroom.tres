@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Textures/bathroom_02.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/LocationData.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Data/Locations/LocationData.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Data/Interactables/Bathroom/Toothbrush.tres" type="Resource" id=3]
 [ext_resource path="res://Scenes/Data/Interactables/Bathroom/YourReflection.tres" type="Resource" id=4]
 

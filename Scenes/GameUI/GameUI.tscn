@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Data/Events/WakingUp.tres" type="Resource" id=3]
 [ext_resource path="res://Assets/Icons/church.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Icons/camping-tent.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Icons/carousel.png" type="Texture" id=6]
@@ -339,5 +340,6 @@ __meta__ = {
 [node name="EventUI" parent="MarginContainer" instance=ExtResource( 42 )]
 margin_left = 0.0
 margin_bottom = 220.0
+starting_event = ExtResource( 3 )
 
 [connection signal="changed_location" from="HeaderUI/VBoxContainer/InteractableUI" to="." method="_on_InteractableUI_changed_location"]
