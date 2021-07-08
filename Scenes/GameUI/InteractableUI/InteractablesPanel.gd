@@ -8,7 +8,7 @@ onready var interactables_container = $VBoxContainer/MarginContainer/VBoxContain
 onready var location_label = $VBoxContainer/DarkPanel/LocationLabel
 onready var travel_ui = $VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/TravelUI
 
-var interactable_button_scene = preload("res://Scenes/GameUI/LocalAwarenessUI/InteractableButton.tscn")
+var interactable_button_scene = preload("res://Scenes/GameUI/InteractableUI/InteractableButton.tscn")
 var current_map : PackedScene setget set_current_map
 var current_location : LocationData setget set_current_location
 var current_interaction : int = 0
