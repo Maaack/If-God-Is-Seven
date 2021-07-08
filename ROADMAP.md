@@ -92,9 +92,27 @@
     * Calendars show current date
 
 #### Sprint 5
-
+* Location short descriptions.
+    * Set expectation of possible interactions.
+* Use Interactions
+    * Add hours or minutes to clocks.
+    * Mark calendar days.
+    * Sleep in beds.
+    * Shut off alarm clocks.
+* Smell Interactions
+    * Pancakes in other rooms
 
 #### Sprint 6
+* Player Inventory
+    * Player as Interactable
+        * Container of other Interactables
+* Events
+    * X Close button
+    * Can Close state
+    * Streamline continuing if another event is chosen
+        * Auto continue if can close and play next event
+
+#### Sprint 7
 * Dialogue screen
     * Speaking character
         * Portrait
