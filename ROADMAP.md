@@ -73,10 +73,6 @@
             * Take
             * Talk to
             * Interact with
-        * Talk
-            * Select character
-            * Always open?
-        * Pick up stuff
     * Popup Panel
         * Announce things on arrival to location
     * Temporal Awareness
@@ -85,6 +81,20 @@
         * Add days to calendar when time > 24:00
     
 #### Sprint 4
+* UI Redesign
+    * Merge map and interactable window.
+* World manager
+    * Global time
+    * Updates objects
+    * Clock objects
+* Dynamic Event System
+    * Clocks read current time
+    * Calendars show current date
+
+#### Sprint 5
+
+
+#### Sprint 6
 * Dialogue screen
     * Speaking character
         * Portrait

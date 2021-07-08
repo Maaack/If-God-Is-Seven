@@ -1,8 +1,15 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/InteractableData.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Data/Interactables/ClockInteractableData.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Data/Events/ClockLookEvent.tres" type="Resource" id=2]
 
 [resource]
 script = ExtResource( 1 )
-title = "Clock"
-interaction_list = [ 0, 4, 5 ]
+title = "Alarm Clock"
+interaction_list = [ 0, 1, 4, 5 ]
+age_in_minutes = 0
+current_minute = 0
+current_hour = 9
+current_period = 0
+current_day = 20
+look_event = ExtResource( 2 )

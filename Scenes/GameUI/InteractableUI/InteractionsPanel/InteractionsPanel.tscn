@@ -1,0 +1,181 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Assets/Buttons/apparel-white-button.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Buttons/inventory-white-button.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Buttons/notes-white-button.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Buttons/speak-black-button.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Buttons/inventory-black-button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Buttons/notes-black-button.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Buttons/speak-white-button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Buttons/system-black-button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Buttons/wait-black-button.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Buttons/system-white-button.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Buttons/wait-white-button.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Buttons/apparel-black-button.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Buttons/travel-black-button.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/travel-white-button.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Buttons/grab-black-button.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Buttons/grab-white-button.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Buttons/listen-white-button.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Buttons/listen-black-button.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Buttons/look-white-button.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Buttons/look-black-button.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Buttons/smell-white-button.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Buttons/smell-black-button.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Buttons/interact-black-button.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Buttons/interact-white-button.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsPanel.gd" type="Script" id=25]
+
+[node name="InteractionsPanel" type="Panel"]
+margin_left = 120.0
+margin_right = 144.0
+margin_bottom = 193.0
+rect_min_size = Vector2( 24, 0 )
+script = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractionOptionsContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 22.0
+margin_bottom = 191.0
+custom_constants/separation = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LookButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ListenButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_top = 21.0
+margin_right = 20.0
+margin_bottom = 41.0
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmellButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_top = 42.0
+margin_right = 20.0
+margin_bottom = 62.0
+texture_normal = ExtResource( 22 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_top = 63.0
+margin_right = 20.0
+margin_bottom = 83.0
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 23 )
+texture_hover = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrabButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_top = 84.0
+margin_right = 20.0
+margin_bottom = 104.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeakButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_top = 105.0
+margin_right = 20.0
+margin_bottom = 125.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 7 )
+
+[node name="ApparelButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_top = 126.0
+margin_right = 20.0
+margin_bottom = 146.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 1 )
+
+[node name="InventoryButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_top = 147.0
+margin_right = 20.0
+margin_bottom = 167.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 2 )
+
+[node name="NotesButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+visible = false
+margin_top = 147.0
+margin_right = 20.0
+margin_bottom = 167.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 3 )
+
+[node name="TravelButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_top = 168.0
+margin_right = 20.0
+margin_bottom = 188.0
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
+
+[node name="WaitButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+visible = false
+margin_top = 189.0
+margin_right = 20.0
+margin_bottom = 209.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 11 )
+
+[node name="SystemButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+visible = false
+margin_top = 189.0
+margin_right = 20.0
+margin_bottom = 209.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 10 )
+
+[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/LookButton" to="." method="_on_LookButton_pressed"]
+[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/ListenButton" to="." method="_on_ListenButton_pressed"]
+[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/SmellButton" to="." method="_on_SmellButton_pressed"]
+[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/InteractButton" to="." method="_on_InteractButton_pressed"]
+[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/GrabButton" to="." method="_on_GrabButton_pressed"]
+[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/SpeakButton" to="." method="_on_SpeakButton_pressed"]
+[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/ApparelButton" to="." method="_on_ApparelButton_pressed"]
+[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/InventoryButton" to="." method="_on_InventoryButton_pressed"]
+[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/TravelButton" to="." method="_on_TravelButton_pressed"]

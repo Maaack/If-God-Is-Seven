@@ -9,10 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "InteractableData",
+"class": "CalendarInteractableData",
+"language": "GDScript",
+"path": "res://Scenes/Data/Interactables/CalendarInteractableData.gd"
+}, {
+"base": "InteractableData",
+"class": "ClockInteractableData",
+"language": "GDScript",
+"path": "res://Scenes/Data/Interactables/ClockInteractableData.gd"
+}, {
+"base": "Resource",
+"class": "EventData",
+"language": "GDScript",
+"path": "res://Scenes/Data/Events/EventData.gd"
+}, {
 "base": "Resource",
 "class": "InteractableData",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/LocalAwarenessUI/InteractableData.gd"
+"path": "res://Scenes/Data/Interactables/InteractableData.gd"
+}, {
+"base": "Control",
+"class": "InteractableMap",
+"language": "GDScript",
+"path": "res://Scenes/GameUI/LocalAwarenessUI/InteractableMap.gd"
 }, {
 "base": "TextureButton",
 "class": "LocationButton",
@@ -22,10 +42,14 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "LocationData",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/LocalAwarenessUI/LocationData.gd"
+"path": "res://Scenes/Data/Locations/LocationData.gd"
 } ]
 _global_script_class_icons={
+"CalendarInteractableData": "",
+"ClockInteractableData": "",
+"EventData": "",
 "InteractableData": "",
+"InteractableMap": "",
 "LocationButton": "",
 "LocationData": ""
 }
