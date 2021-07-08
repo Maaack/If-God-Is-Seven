@@ -11,7 +11,7 @@ onready var travel_ui = $VBoxContainer/MarginContainer/VBoxContainer/HBoxContain
 var interactable_button_scene = preload("res://Scenes/GameUI/InteractableUI/InteractableButton.tscn")
 var current_map : PackedScene setget set_current_map
 var current_location : LocationData setget set_current_location
-var current_interaction : int = 0
+export(InteractableData.interaction_types) var current_interaction : int = 0
 
 func _on_InteractionButton_pressed(interactable : InteractableData):
 	emit_signal("pressed_interactable", current_interaction, interactable)

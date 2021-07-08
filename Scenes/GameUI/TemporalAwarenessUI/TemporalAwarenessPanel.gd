@@ -13,7 +13,7 @@ var event_history : Array = []
 var current_minute : int = 0
 var current_hour : int = 9
 var current_period : int = day_periods.AM
-var current_day : int = 22
+var current_day : int = 20
 
 func add_event(event_text : String):
 	var text : String = ""

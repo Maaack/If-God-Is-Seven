@@ -115,15 +115,12 @@ scroll_horizontal_enabled = false
 
 [node name="EventHistoryLabel" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer"]
 margin_right = 636.0
-margin_bottom = 69.0
+margin_bottom = 33.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "You awaken...
-You are ANGELA.
-You feel HEALTHY.
-Your mind is SHARP. 
 You are in YOUR BEDROOM.
-You read the CALENDAR and CLOCK."
+"
 align = 1
 autowrap = true
 __meta__ = {

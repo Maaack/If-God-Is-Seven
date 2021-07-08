@@ -9,6 +9,7 @@ enum interaction_types{LOOK, LISTEN, SMELL, SPEAK, USE, GRAB, TRAVEL}
 export(String) var title : String
 export(Array, interaction_types) var interaction_list : Array
 export(int) var age_in_minutes : int = 0
+export(Resource) var look_event : Resource
 
 func add_time(minutes : int):
 	age_in_minutes += minutes

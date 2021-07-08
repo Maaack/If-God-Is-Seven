@@ -15,7 +15,6 @@ export(int) var current_minute : int = 0
 export(int) var current_hour : int = 9
 export(day_periods) var current_period : int = day_periods.AM
 export(int) var current_day : int = 20
-export(Resource) var look_event : Resource
 
 func add_time(minutes : int):
 	.add_time(minutes)
