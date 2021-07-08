@@ -13,7 +13,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -150.0
 margin_bottom = 220.0
-rect_min_size = Vector2( 150, 202 )
+rect_min_size = Vector2( 150, 220 )
 theme = ExtResource( 2 )
 script = ExtResource( 13 )
 __meta__ = {
@@ -110,5 +110,5 @@ margin_bottom = 193.0
 
 [node name="InteractionsPanel" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
 
-[connection signal="changed_location" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/TravelUI" to="." method="_on_TravelUI_changed_location"]
+[connection signal="pressed_location" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/TravelUI" to="." method="_on_TravelUI_pressed_location"]
 [connection signal="changed_interaction" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/InteractionsPanel" to="." method="_on_InteractionsPanel_changed_interaction"]

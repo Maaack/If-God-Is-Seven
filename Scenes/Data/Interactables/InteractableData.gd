@@ -12,3 +12,6 @@ export(int) var age_in_minutes : int = 0
 
 func add_time(minutes : int):
 	age_in_minutes += minutes
+
+func get_look_event():
+	pass

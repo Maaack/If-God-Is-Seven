@@ -27,10 +27,9 @@ func add_event(event_text : String):
 	event_history_label.text += event_text
 	event_history.append(event_text)
 
-func add_time(hours : int, minutes : int):
-	var total_hour = current_hour + hours
+func add_time(minutes : int):
 	var total_minute = current_minute + minutes
-	total_hour += total_minute / 60
+	var total_hour = current_hour + (total_minute / 60)
 	current_minute = total_minute % 60
 	current_period += total_hour / 12
 	current_hour = total_hour % 12

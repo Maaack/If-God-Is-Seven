@@ -6,10 +6,11 @@
 [ext_resource path="res://Scenes/MainUI/SmallFontLightTheme.tres" type="Theme" id=4]
 
 [node name="EventUI" type="Control"]
-margin_left = 150.0
-margin_right = 490.0
-margin_bottom = 204.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource( 4 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -38,8 +39,8 @@ __meta__ = {
 [node name="Control" type="Control" parent="EventPanel/MarginContainer"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 331.0
-margin_bottom = 196.0
+margin_right = 631.0
+margin_bottom = 312.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EventPanel/MarginContainer/Control"]
 anchor_right = 1.0
@@ -50,7 +51,7 @@ __meta__ = {
 }
 
 [node name="TitleLabel" type="Label" parent="EventPanel/MarginContainer/Control/VBoxContainer"]
-margin_right = 323.0
+margin_right = 623.0
 margin_bottom = 18.0
 custom_fonts/font = ExtResource( 2 )
 align = 1
@@ -62,14 +63,14 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EventPanel/MarginContainer/Control/VBoxContainer"]
 margin_top = 22.0
-margin_right = 323.0
-margin_bottom = 169.0
+margin_right = 623.0
+margin_bottom = 285.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="BodyTextureRect" type="TextureRect" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer"]
-margin_right = 159.0
-margin_bottom = 147.0
+margin_right = 309.0
+margin_bottom = 263.0
 size_flags_horizontal = 3
 stretch_mode = 4
 __meta__ = {
@@ -77,9 +78,9 @@ __meta__ = {
 }
 
 [node name="BodyLabel" type="Label" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer"]
-margin_left = 163.0
-margin_right = 323.0
-margin_bottom = 147.0
+margin_left = 313.0
+margin_right = 623.0
+margin_bottom = 263.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 align = 1
@@ -87,10 +88,10 @@ valign = 1
 autowrap = true
 
 [node name="ContinueButton" type="Button" parent="EventPanel/MarginContainer/Control/VBoxContainer"]
-margin_left = 137.0
-margin_top = 173.0
-margin_right = 186.0
-margin_bottom = 188.0
+margin_left = 287.0
+margin_top = 289.0
+margin_right = 336.0
+margin_bottom = 304.0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 1 )
 text = "Continue"

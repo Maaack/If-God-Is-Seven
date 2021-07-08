@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/GameUI/InteractableUI/TravelUI/TravelUI.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=3]
-[ext_resource path="res://Scenes/GameUI/LocalAwarenessUI/HomeMap.tscn" type="PackedScene" id=4]
 
 [node name="TravelUI" type="Control"]
 anchor_right = 1.0
@@ -15,8 +13,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-current_map = ExtResource( 4 )
-current_location = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
