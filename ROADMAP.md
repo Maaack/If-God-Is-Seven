@@ -93,12 +93,16 @@
 
 #### Sprint 5
 * Location short descriptions.
-    * Set expectation of possible interactions.
+    * Set expectation of possible interactions
 * Use Interactions
-    * Add hours or minutes to clocks.
-    * Mark calendar days.
-    * Sleep in beds.
-    * Shut off alarm clocks.
+    * Add hours or minutes to clocks
+    * Mark calendar days
+    * Sleep in beds
+    * Shut off alarm on clocks
+    * Change alarm time
+* Listen Interactions
+    * Alarm clock ringing
+    * Kitchen noises
 * Smell Interactions
     * Pancakes in other rooms
 
