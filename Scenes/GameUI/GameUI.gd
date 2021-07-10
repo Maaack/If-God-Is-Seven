@@ -4,25 +4,24 @@ extends Control
 onready var world_controller = $WorldController
 onready var event_container = $HeaderUI/VBoxContainer/HBoxContainer2/EventContainer
 onready var interactables_panel = $HeaderUI/VBoxContainer/HBoxContainer2/InteractablesPanel
-var event_ui_scene = preload("res://Scenes/GameUI/EventUI/EventUI.tscn")
 
 func is_event_active():
 	return event_container.get_child_count() > 0
 
-func new_event(event_data : EventData):
+func new_event(event_ui : EventUI):
 	if is_event_active():
 		return
-	var event_ui_instance = event_ui_scene.instance()
-	event_ui_instance.starting_event = event_data
-	event_container.add_child(event_ui_instance)
+	event_container.add_child(event_ui)
 
 func _on_InteractablesPanel_pressed_interactable(interaction : int, interactable : InteractableData):
-	var new_event_data : EventData
+	var new_event_ui : EventUI
 	match(interaction):
 		InteractableData.interaction_types.LOOK:
-			new_event_data = interactable.get_look_event()
-	if not new_event_data == null:
-		new_event(new_event_data)
+			new_event_ui = interactable.get_look_event()
+		InteractableData.interaction_types.USE:
+			new_event_ui = interactable.get_use_event()
+	if not new_event_ui == null:
+		new_event(new_event_ui)
 
 func _on_InteractablesPanel_pressed_location(location):
 	if is_event_active():

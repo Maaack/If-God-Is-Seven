@@ -1,8 +1,8 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Data/Events/WakingUp.tres" type="Resource" id=3]
+[ext_resource path="res://Scenes/GameUI/EventUI/FirstWakingUpEvent/FirstWakingUpEventUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Icons/church.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Icons/camping-tent.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Icons/carousel.png" type="Texture" id=6]
@@ -41,7 +41,6 @@
 [ext_resource path="res://Assets/Icons/lockers.png" type="Texture" id=39]
 [ext_resource path="res://Assets/Icons/alarm-clock.png" type="Texture" id=40]
 [ext_resource path="res://Assets/Icons/school-bag.png" type="Texture" id=41]
-[ext_resource path="res://Scenes/GameUI/EventUI/EventUI.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Scenes/GameUI/TemporalAwarenessUI/TemporalAwarenessPanel.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Scenes/GameUI/GameUI.gd" type="Script" id=44]
 [ext_resource path="res://Scenes/GameUI/SelfAwarenessUI/SelfAwarenessPanel.tscn" type="PackedScene" id=45]
@@ -81,6 +80,7 @@ margin_right = 196.0
 margin_bottom = 29.0
 __meta__ = {
 "_edit_group_": true,
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -108,11 +108,14 @@ __meta__ = {
 }
 
 [node name="TestPanel" type="Panel" parent="HeaderUI"]
+visible = false
 margin_left = 118.354
 margin_top = 326.456
 margin_right = 510.354
 margin_bottom = 399.456
 __meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -310,8 +313,7 @@ margin_right = 490.0
 margin_bottom = 220.0
 size_flags_horizontal = 3
 
-[node name="EventUI" parent="HeaderUI/VBoxContainer/HBoxContainer2/EventContainer" instance=ExtResource( 42 )]
-starting_event = ExtResource( 3 )
+[node name="FirstWakingUpEventUI" parent="HeaderUI/VBoxContainer/HBoxContainer2/EventContainer" instance=ExtResource( 3 )]
 
 [node name="InteractablesPanel" parent="HeaderUI/VBoxContainer/HBoxContainer2" instance=ExtResource( 46 )]
 anchor_left = 0.0
