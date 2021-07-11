@@ -22,14 +22,15 @@ __meta__ = {
 }
 
 [node name="ModButton" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2" index="0"]
-margin_left = 235.0
-margin_right = 296.0
+margin_left = 214.0
+margin_right = 275.0
 text = "Alarm/Mod"
 
 [node name="SetButton" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2" index="1"]
-margin_left = 312.0
-margin_right = 335.0
+margin_left = 291.0
+margin_right = 356.0
+text = "Snooze/Set"
 
 [node name="ContinueButton" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2" index="2"]
-margin_left = 351.0
-margin_right = 387.0
+margin_left = 372.0
+margin_right = 408.0

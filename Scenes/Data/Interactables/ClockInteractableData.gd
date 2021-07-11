@@ -11,8 +11,8 @@ const PERIODS_IN_DAY : int = 2
 
 enum day_periods {AM, PM}
 
-export(int) var current_minute : int = 59
 export(int) var current_hour : int = 8
+export(int) var current_minute : int = 59
 export(day_periods) var current_period : int = day_periods.AM
 export(int) var current_day : int = 20
 
