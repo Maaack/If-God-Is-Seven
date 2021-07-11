@@ -3,6 +3,9 @@ extends Control
 
 class_name EventUI
 
+signal attempted_waiting(minutes)
+signal added_historical_note(note)
+
 onready var title_label = $EventPanel/MarginContainer/Control/VBoxContainer/TitleLabel
 onready var body_label = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyLabel
 onready var body_texture_node = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyTextureRect

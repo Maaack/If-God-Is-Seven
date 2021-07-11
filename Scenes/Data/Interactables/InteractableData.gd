@@ -38,9 +38,3 @@ func get_event_ui(interaction_type : int):
 		return
 	event_ui.source_interactable = self
 	return event_ui
-
-func get_look_event():
-	return look_event.instance()
-
-func get_use_event():
-	return use_event.instance()

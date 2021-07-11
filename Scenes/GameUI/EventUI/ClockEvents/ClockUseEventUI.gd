@@ -48,4 +48,6 @@ func _on_SetButton_pressed():
 	continue_button.hide()
 	_reset_flashing()
 	if current_use_stage > PERIOD_STAGE:
+		# TODO : Say something about spending time to set the clock
+		emit_signal("attempted_waiting", 1)
 		queue_free()

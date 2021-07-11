@@ -1,9 +1,14 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/Data/Interactables/InteractableData.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Data/Interactables/BedInteractableData.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GameUI/EventUI/BedEvents/BedLookEventUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameUI/EventUI/BedEvents/BedUseEventUI.tscn" type="PackedScene" id=3]
 
 [resource]
 script = ExtResource( 1 )
 title = "Bed"
 interaction_list = [ 0, 4, 5, 2 ]
 age_in_minutes = 0
+look_event = ExtResource( 2 )
+use_event = ExtResource( 3 )
+made_state = 1
