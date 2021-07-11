@@ -57,7 +57,7 @@ func _on_FlashTimer_timeout():
 func _on_ModButton_pressed():
 	if source_interactable.alarm_ringing:
 		source_interactable.alarm_ringing = false
-		# TODO: Say something about the alarm stopping.
+		emit_signal("added_historical_note", "You silenced the ALARM CLOCK.")
 		queue_free()
 	else:
 		match(current_use_stage):
@@ -90,12 +90,16 @@ func _on_SetButton_pressed():
 	if source_interactable.alarm_ringing:
 		source_interactable.alarm_ringing = false
 		source_interactable.alarm_snoozing = true
-		# TODO: Say something about the alarm stopping.
+		emit_signal("added_historical_note", "You snoozed the ALARM CLOCK.")
 		queue_free()
 	else:
 		current_use_stage += 1
 		continue_button.hide()
 		_reset_flashing()
 		if current_use_stage > PERIOD_STAGE:
+			if not edit_alarm_mode:
+				emit_signal("added_historical_note", "You set the ALARM CLOCK's time to %s." % get_time_string())
+			else:
+				emit_signal("added_historical_note", "You set the ALARM CLOCK's alarm time to %s." % get_alarm_time_string())
 			emit_signal("attempted_waiting", 1)
 			queue_free()

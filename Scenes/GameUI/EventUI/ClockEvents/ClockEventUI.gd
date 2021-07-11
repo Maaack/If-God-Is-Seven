@@ -24,6 +24,9 @@ func get_hour_string():
 func get_minute_string():
 	return "%02d" % source_interactable.current_minute
 
+func get_time_string():
+	return "%s:%s %s" % [get_hour_string(), get_minute_string(), get_period_string()]
+
 func add_hours(hours : int):
 	source_interactable.add_hours(hours)
 

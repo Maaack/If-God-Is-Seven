@@ -24,6 +24,9 @@ func get_alarm_hour_string():
 func get_alarm_minute_string():
 	return "%02d" % source_interactable.alarm_minute
 
+func get_alarm_time_string():
+	return "%s:%s %s" % [get_alarm_hour_string(), get_alarm_minute_string(), get_alarm_period_string()]
+
 func add_alarm_hours(hours : int):
 	source_interactable.add_alarm_hours(hours)
 
