@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "ClockEventUI",
+"class": "AlarmClockEventUI",
+"language": "GDScript",
+"path": "res://Scenes/GameUI/EventUI/ClockEvents/AlarmClockEvents/AlarmClockEventUI.gd"
+}, {
 "base": "ClockInteractableData",
 "class": "AlarmClockInteractableData",
 "language": "GDScript",
@@ -60,6 +65,7 @@ _global_script_classes=[ {
 "path": "res://Scenes/Data/Locations/LocationData.gd"
 } ]
 _global_script_class_icons={
+"AlarmClockEventUI": "",
 "AlarmClockInteractableData": "",
 "CalendarEventUI": "",
 "CalendarInteractableData": "",

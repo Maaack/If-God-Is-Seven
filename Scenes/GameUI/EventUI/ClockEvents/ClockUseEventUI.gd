@@ -6,9 +6,9 @@ onready var minute_label = $EventPanel/MarginContainer/Control/VBoxContainer/HBo
 onready var period_label = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyCenter/Panel/PeriodLabel
 onready var flash_timer = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyCenter/Panel/FlashTimer
 
-enum {HOUR_STAGE, MINUTE_STAGE, PERIOD_STAGE}
+enum {INIT_STAGE, HOUR_STAGE, MINUTE_STAGE, PERIOD_STAGE}
 
-var current_use_stage : int = HOUR_STAGE
+var current_use_stage : int = INIT_STAGE
 
 func _ready():
 	hour_label.text = get_hour_string()
@@ -45,6 +45,7 @@ func _on_ModButton_pressed():
 
 func _on_SetButton_pressed():
 	current_use_stage += 1
+	continue_button.hide()
 	_reset_flashing()
 	if current_use_stage > PERIOD_STAGE:
 		queue_free()

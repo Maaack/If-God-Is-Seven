@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/GameUI/EventUI/ClockEvents/ClockUseEventUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GameUI/EventUI/ClockEvents/AlarmClockEvents/AlarmClockUseEventUI.gd" type="Script" id=2]
+
+[node name="AlarmClockUseEventUI" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="AlarmCheckBox" type="CheckBox" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyCenter/Panel" index="5"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -28.5
+margin_top = 6.0
+margin_right = 28.5
+margin_bottom = 28.0
+mouse_filter = 2
+text = "ALARM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModButton" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2" index="0"]
+margin_left = 235.0
+margin_right = 296.0
+text = "Alarm/Mod"
+
+[node name="SetButton" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2" index="1"]
+margin_left = 312.0
+margin_right = 335.0
+
+[node name="ContinueButton" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2" index="2"]
+margin_left = 351.0
+margin_right = 387.0

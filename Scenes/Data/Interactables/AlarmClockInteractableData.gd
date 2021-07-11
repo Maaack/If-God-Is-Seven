@@ -3,7 +3,6 @@ extends ClockInteractableData
 
 class_name AlarmClockInteractableData
 
-
 export(int) var alarm_minute : int = 0
 export(int) var alarm_hour : int = 9
 export(day_periods) var alarm_period : int = day_periods.AM
@@ -39,5 +38,3 @@ func add_time(minutes : int):
 	.add_time(minutes)
 	if current_hour == alarm_hour and current_minute == alarm_minute and current_period == alarm_period:
 		set_alarm_ringing(true)
-	else:
-		set_alarm_ringing(false)
