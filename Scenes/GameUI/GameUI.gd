@@ -29,6 +29,7 @@ func _on_InteractablesPanel_pressed_location(location):
 func _ready():
 	interactables_panel.current_map = world_controller.get_current_map()
 	interactables_panel.current_location = world_controller.get_current_location()
+	world_controller.add_time(1)
 
 func _on_WorldController_added_time(minutes):
 	$HeaderUI/VBoxContainer/HBoxContainer/TemporalAwarenessPanel.add_time(minutes)

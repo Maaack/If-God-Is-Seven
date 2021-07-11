@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Data/Interactables/AlarmClockInteractableData.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GameUI/EventUI/ClockEvents/ClockUseEventUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameUI/EventUI/ClockEvents/AlarmClockEvents/AlarmClockListenEventUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/GameUI/EventUI/ClockEvents/AlarmClockEvents/AlarmClockLookEventUI.tscn" type="PackedScene" id=4]
+
+[resource]
+script = ExtResource( 1 )
+title = "Alarm Clock"
+interaction_list = [ 0, 1, 4, 5 ]
+age_in_minutes = 0
+look_event = ExtResource( 4 )
+use_event = ExtResource( 2 )
+current_minute = 59
+current_hour = 8
+current_period = 0
+current_day = 20
+alarm_minute = 0
+alarm_hour = 9
+alarm_period = 0
+alarm_ringing = true
+alarm_listen_event = ExtResource( 3 )
