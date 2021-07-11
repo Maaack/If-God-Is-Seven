@@ -115,12 +115,11 @@ scroll_horizontal_enabled = false
 
 [node name="EventHistoryLabel" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer"]
 margin_right = 636.0
-margin_bottom = 33.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
 text = "You awaken...
-You are in YOUR BEDROOM.
-"
+You are in YOUR BEDROOM."
 align = 1
 autowrap = true
 __meta__ = {

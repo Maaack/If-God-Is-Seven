@@ -8,6 +8,11 @@ onready var body_label = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxC
 onready var body_texture_node = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyTextureRect
 onready var continue_button = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2/ContinueButton
 
+var source_interactable : InteractableData setget set_source_interactable
+
+func set_source_interactable(value : InteractableData):
+	source_interactable = value
+
 func get_title_text():
 	return title_label.text
 
@@ -22,11 +27,6 @@ func hide_continue_button():
 
 func show_continue_button():
 	continue_button.show()
-
-func set_event(event_data : EventData):
-	title_label.text = event_data.title
-	body_label.text = event_data.body
-	body_texture_node.texture = event_data.background
 
 func _on_ContinueButton_pressed():
 	queue_free()

@@ -3,10 +3,14 @@ extends EventUI
 
 class_name CalendarEventUI
 
-var calendar : CalendarInteractableData setget set_calendar
-
-func set_calendar(value : CalendarInteractableData):
-	if calendar != null:
-		print("Calendar already set for event")
+func set_source_interactable(value : InteractableData):
+	if not value is CalendarInteractableData:
+		print("Was not CalendarInteractableData")
 		return
-	calendar = value
+	source_interactable = value
+
+func get_day_offset_by_age():
+	return source_interactable.age_in_minutes / source_interactable.MINUTES_IN_DAY
+
+func get_current_day():
+	return source_interactable.current_day + get_day_offset_by_age()

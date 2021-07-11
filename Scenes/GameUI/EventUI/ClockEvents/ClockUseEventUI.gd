@@ -33,13 +33,13 @@ func _on_FlashTimer_timeout():
 func _on_ModButton_pressed():
 	match(current_use_stage):
 		HOUR_STAGE:
-			clock.add_hours(1)
+			add_hours(1)
 			hour_label.text = get_hour_string()
 		MINUTE_STAGE:
-			clock.add_minutes(1)
+			add_minutes(1)
 			minute_label.text = get_minute_string()
 		PERIOD_STAGE:
-			clock.add_periods(1)
+			add_periods(1)
 			period_label.text = get_period_string()
 	_reset_flashing()
 

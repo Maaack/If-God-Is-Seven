@@ -40,13 +40,3 @@ func add_time(minutes : int):
 	var periods : int = add_hours(hours)
 	var days : int= add_periods(periods)
 	current_day += days
-
-func get_look_event():
-	var look_event_ui = .get_look_event()
-	look_event_ui.clock = self
-	return look_event_ui
-	
-func get_use_event():
-	var use_event_ui = .get_use_event()
-	use_event_ui.clock = self
-	return use_event_ui

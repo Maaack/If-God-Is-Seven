@@ -14,12 +14,7 @@ func new_event(event_ui : EventUI):
 	event_container.add_child(event_ui)
 
 func _on_InteractablesPanel_pressed_interactable(interaction : int, interactable : InteractableData):
-	var new_event_ui : EventUI
-	match(interaction):
-		InteractableData.interaction_types.LOOK:
-			new_event_ui = interactable.get_look_event()
-		InteractableData.interaction_types.USE:
-			new_event_ui = interactable.get_use_event()
+	var new_event_ui : EventUI = interactable.get_event_ui(interaction)
 	if not new_event_ui == null:
 		new_event(new_event_ui)
 
