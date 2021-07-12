@@ -137,9 +137,12 @@
 * Player Inventory
     * Player as Interactable
         * Container of other Interactables
+* World Containers
+    * Drawer of Paper
 * Grab Interactions
     * Crucifix
     * Pencil
+    * Paper
     * Marker
 * Use Interactions
     * Mark Calendar days
@@ -151,7 +154,6 @@
     * Streamline continuing if another event is chosen
         * Auto continue if can close and play next event
 
-
 #### Sprint 8
 * Dialogue screen
     * Speaking character
@@ -162,3 +164,5 @@
         * Button
         * Sample text
         * Hint text
+* Speak Interactions
+    * Talk to your reflection

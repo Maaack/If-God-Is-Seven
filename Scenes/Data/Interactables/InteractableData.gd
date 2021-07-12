@@ -7,11 +7,12 @@ enum interaction_types{LOOK, LISTEN, SMELL, SPEAK, USE, GRAB, TRAVEL}
 
 
 export(String) var title : String
-export(Array, interaction_types) var interaction_list : Array
-export(int) var age_in_minutes : int = 0
 export(PackedScene) var look_event : PackedScene
 export(PackedScene) var listen_event : PackedScene
+export(PackedScene) var smell_event : PackedScene
 export(PackedScene) var use_event : PackedScene
+
+var age_in_minutes : int = 0
 
 func add_time(minutes : int):
 	age_in_minutes += minutes
@@ -22,6 +23,8 @@ func get_event_scene(interaction_type : int):
 			return look_event
 		interaction_types.LISTEN:
 			return listen_event
+		interaction_types.SMELL:
+			return smell_event
 		interaction_types.USE:
 			return use_event
 

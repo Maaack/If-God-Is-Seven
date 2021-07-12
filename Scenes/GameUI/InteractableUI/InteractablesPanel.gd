@@ -25,7 +25,7 @@ func update_interactables():
 	if not current_location is LocationData:
 		return
 	for interactable in current_location.interactables:
-		if not current_interaction in interactable.interaction_list:
+		if not interactable.has_event_scene(current_interaction):
 			continue
 		var interactable_button_instance = interactable_button_scene.instance()
 		interactables_container.add_child(interactable_button_instance)

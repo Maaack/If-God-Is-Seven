@@ -6,7 +6,5 @@
 [resource]
 script = ExtResource( 1 )
 title = "Calendar"
-interaction_list = [ 0, 4 ]
-age_in_minutes = 0
 look_event = ExtResource( 2 )
 current_day = 20

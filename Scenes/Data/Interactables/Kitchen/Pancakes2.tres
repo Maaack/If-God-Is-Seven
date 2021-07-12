@@ -5,5 +5,3 @@
 [resource]
 script = ExtResource( 1 )
 title = "Pancakes"
-interaction_list = [ 0, 2, 4, 5 ]
-age_in_minutes = 0

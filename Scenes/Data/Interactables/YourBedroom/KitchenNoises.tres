@@ -1,9 +1,9 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Data/Interactables/InteractableData.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GameUI/EventUI/KitchenEventsUI/KitchenNoisesListenEventUI.tscn" type="PackedScene" id=2]
 
 [resource]
 script = ExtResource( 1 )
 title = "Kitchen Noises"
-interaction_list = [ 1 ]
-age_in_minutes = 0
+listen_event = ExtResource( 2 )
