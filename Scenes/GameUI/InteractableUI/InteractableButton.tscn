@@ -3,6 +3,7 @@
 [node name="InteractableButton" type="Button"]
 margin_right = 116.0
 margin_bottom = 15.0
+focus_mode = 0
 text = "Interactable"
 __meta__ = {
 "_edit_use_anchors_": false

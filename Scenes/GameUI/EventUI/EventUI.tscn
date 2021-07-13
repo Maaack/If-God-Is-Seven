@@ -87,11 +87,25 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="ContinueButton" type="Button" parent="EventPanel/MarginContainer/Control/VBoxContainer"]
-margin_left = 287.0
+[node name="BodyCenter" type="CenterContainer" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer"]
+visible = false
+margin_left = 418.0
+margin_right = 623.0
+margin_bottom = 263.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="EventPanel/MarginContainer/Control/VBoxContainer"]
 margin_top = 289.0
-margin_right = 336.0
+margin_right = 623.0
 margin_bottom = 304.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2"]
+margin_left = 287.0
+margin_right = 336.0
+margin_bottom = 15.0
+focus_mode = 0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 1 )
 text = "Continue"
@@ -99,4 +113,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="EventPanel/MarginContainer/Control/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2/ContinueButton" to="." method="_on_ContinueButton_pressed"]

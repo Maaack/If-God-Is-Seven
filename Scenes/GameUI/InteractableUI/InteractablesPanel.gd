@@ -7,6 +7,7 @@ signal pressed_interactable(interaction, interactable)
 onready var interactables_container = $VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/InteractablesContainer
 onready var location_label = $VBoxContainer/DarkPanel/LocationLabel
 onready var travel_ui = $VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/TravelUI
+onready var interaction_label = $VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/MarginContainer/InteractactionLabel
 
 var interactable_button_scene = preload("res://Scenes/GameUI/InteractableUI/InteractableButton.tscn")
 var current_map : PackedScene setget set_current_map
@@ -24,7 +25,7 @@ func update_interactables():
 	if not current_location is LocationData:
 		return
 	for interactable in current_location.interactables:
-		if not current_interaction in interactable.interaction_list:
+		if not interactable.has_event_scene(current_interaction):
 			continue
 		var interactable_button_instance = interactable_button_scene.instance()
 		interactables_container.add_child(interactable_button_instance)
