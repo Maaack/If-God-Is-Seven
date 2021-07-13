@@ -20,12 +20,14 @@ text = "The bed looks %s."
 margin_left = 245.0
 margin_right = 278.0
 margin_bottom = 15.0
+focus_mode = 0
 text = "Sleep"
 
 [node name="MakeButton" type="Button" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2" index="1"]
 margin_left = 294.0
 margin_right = 326.0
 margin_bottom = 15.0
+focus_mode = 0
 text = "Make"
 
 [node name="ContinueButton" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2" index="2"]

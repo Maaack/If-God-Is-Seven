@@ -117,23 +117,6 @@
         * Fake distant signal
 
 #### Sprint 6
-* Weighted Signals from Interactables
-* Location short descriptions.
-    * Set expectation of possible interactions
-        * Requires weighted signals from objects in entire map.
-* Use Interactions
-    * Sleep in Beds
-        * Requires response to noise in room, specifically the alarm clock
-            * Requires weighted signals
-* Listen Interactions
-    * Kitchen noises
-        * Requires weighted signals
-* Smell Interactions
-    * Pancakes from other rooms
-        * Requires weighted signals
-
-
-#### Sprint 7
 * Player Inventory
     * Player as Interactable
         * Container of other Interactables
@@ -153,6 +136,22 @@
     * Can Close state
     * Streamline continuing if another event is chosen
         * Auto continue if can close and play next event
+
+#### Sprint 7
+* Weighted Signals from Interactables
+* Location short descriptions.
+    * Set expectation of possible interactions
+        * Requires weighted signals from objects in entire map.
+* Use Interactions
+    * Sleep in Beds
+        * Requires response to noise in room, specifically the alarm clock
+            * Requires weighted signals
+* Listen Interactions
+    * Kitchen noises
+        * Requires weighted signals
+* Smell Interactions
+    * Pancakes from other rooms
+        * Requires weighted signals
 
 #### Sprint 8
 * Dialogue screen
