@@ -66,17 +66,94 @@
 #### Sprint 3
 * UI Elements
     * Location-Specific Options Panel
-        * Talk
-            * Select character
-            * Always open?
-        * Pick up stuff
+        * Interactions
+            * Look At
+            * Listen To
+            * Smell
+            * Take
+            * Talk to
+            * Interact with
     * Popup Panel
         * Announce things on arrival to location
     * Temporal Awareness
         * Add comment when changing locations
         * Add time to clock when changing locations
+        * Add days to calendar when time > 24:00
     
 #### Sprint 4
+* UI Redesign
+    * Merge map and interactable window.
+* World manager
+    * Global time
+    * Updates objects
+    * Clock objects
+* Dynamic Event System
+    * Clocks read current time
+    * Calendars show current date
+
+#### Sprint 5
+* Look Interactions
+    * Posters
+    * Crucifix
+    * Bed
+        * Messy or Neat status
+* Use Interactions
+    * Clocks and Alarm Clocks
+        * Add hours or minutes to clocks
+        * Shut off alarm on clocks
+        * Change alarm time
+        * Snooze button
+    * Bed
+        * Make bed
+        * Sleep
+            * Ignore alarm for now
+* Listen Interactions
+    * Alarm Clock ringing
+    * Kitchen Noises
+        * Fake distant signal
+* Smell Interactions
+    * Bed
+    * Pancakes
+        * Fake distant signal
+
+#### Sprint 6
+* Player Inventory
+    * Player as Interactable
+        * Container of other Interactables
+* World Containers
+    * Drawer of Paper
+* Grab Interactions
+    * Crucifix
+    * Pencil
+    * Paper
+    * Marker
+* Use Interactions
+    * Mark Calendar days
+        * Requires marker in inventory or in location.
+        * Calendar with marker hanging off of it?
+* Events
+    * X Close button
+    * Can Close state
+    * Streamline continuing if another event is chosen
+        * Auto continue if can close and play next event
+
+#### Sprint 7
+* Weighted Signals from Interactables
+* Location short descriptions.
+    * Set expectation of possible interactions
+        * Requires weighted signals from objects in entire map.
+* Use Interactions
+    * Sleep in Beds
+        * Requires response to noise in room, specifically the alarm clock
+            * Requires weighted signals
+* Listen Interactions
+    * Kitchen noises
+        * Requires weighted signals
+* Smell Interactions
+    * Pancakes from other rooms
+        * Requires weighted signals
+
+#### Sprint 8
 * Dialogue screen
     * Speaking character
         * Portrait
@@ -86,3 +163,5 @@
         * Button
         * Sample text
         * Hint text
+* Speak Interactions
+    * Talk to your reflection

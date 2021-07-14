@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/GameUI/EventUI/EventUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GameUI/EventUI/ClockEvents/ClockLookEventUI.gd" type="Script" id=2]
+
+[node name="ClockLookEventUI" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="TitleLabel" parent="EventPanel/MarginContainer/Control/VBoxContainer" index="0"]
+text = "Checking the Time"
+
+[node name="BodyLabel" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer" index="1"]
+text = "The clock reads             ."
+
+[node name="TimeLabel" type="Label" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyLabel" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 15.0
+margin_top = -4.5
+margin_right = 64.0
+margin_bottom = 4.5
+text = "00:00 AM"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Data/Locations/LocationData.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+title = "Master Bedroom"
+background = ExtResource( 2 )
+interactables = [  ]
