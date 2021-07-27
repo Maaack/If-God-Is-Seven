@@ -7,3 +7,4 @@
 script = ExtResource( 1 )
 title = "Posters"
 look_event = ExtResource( 2 )
+conditions = [  ]

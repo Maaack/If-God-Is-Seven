@@ -9,3 +9,4 @@ script = ExtResource( 1 )
 title = "Toothbrush"
 look_event = ExtResource( 2 )
 use_event = ExtResource( 3 )
+conditions = [  ]

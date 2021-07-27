@@ -16,5 +16,11 @@ func get_made_state_flavor_text():
 		BedInteractableData.made_states.PERFECT:
 			return "You can't make beds look this good."
 
+func get_condition_text():
+	var conditions_text : String = source_interactable.get_conditions_string(InteractableData.interaction_types.LOOK)
+	if conditions_text.length() > 0:
+		return "%s\nIt looks %s." % [get_made_state_flavor_text(), conditions_text]
+	return "%s" % [get_made_state_flavor_text()]
+
 func _ready():
-	body_label.text = get_body_text() % [get_made_state_text(), get_made_state_flavor_text()]
+	body_label.text = get_body_text() % [get_made_state_text(), get_condition_text()]

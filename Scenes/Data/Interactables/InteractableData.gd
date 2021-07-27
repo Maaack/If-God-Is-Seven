@@ -11,6 +11,7 @@ export(PackedScene) var look_event : PackedScene
 export(PackedScene) var listen_event : PackedScene
 export(PackedScene) var smell_event : PackedScene
 export(PackedScene) var use_event : PackedScene
+export(Array, Resource) var conditions : Array
 
 var age_in_minutes : int = 0
 
@@ -41,3 +42,47 @@ func get_event_ui(interaction_type : int):
 		return
 	event_ui.source_interactable = self
 	return event_ui
+
+func _concat_three_or_more(list : Array) -> String:
+	var all_conditions : String = ""
+	for i in conditions.size():
+		var condition : ConditionData = conditions[i]
+		var condition_string : String = str(condition)
+		if i == conditions.size() - 1:
+			all_conditions += "and %s" % [condition_string]
+		else:
+			all_conditions += "%s, " % [condition_string]
+	return all_conditions
+
+func get_filtered_conditions(interaction_type : int) -> Array:
+	var filtered_conditions : Array = []
+	for condition in conditions:
+		if condition is ConditionData:
+			match(interaction_type):
+				interaction_types.LOOK:
+					if condition.can_look:
+						filtered_conditions.append(condition)
+				interaction_types.LISTEN:
+					if condition.can_listen:
+						filtered_conditions.append(condition)
+				interaction_types.SMELL:
+					if condition.can_smell:
+						filtered_conditions.append(condition)
+				interaction_types.USE:
+					if condition.can_feel:
+						filtered_conditions.append(condition)
+	return filtered_conditions
+
+func get_conditions_string(interaction_type : int) -> String:
+	var filtered_conditions : Array = get_filtered_conditions(interaction_type)
+	match(filtered_conditions.size()):
+		0:
+			return ""
+		1:
+			return "%s" % [str(filtered_conditions[0])]
+		2:
+			return "%s and %s" % [str(filtered_conditions[0]), str(filtered_conditions[1])]
+		_:
+			return _concat_three_or_more(filtered_conditions)
+		
+

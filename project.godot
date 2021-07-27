@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Data/Interactables/ClockInteractableData.gd"
 }, {
+"base": "Resource",
+"class": "ConditionData",
+"language": "GDScript",
+"path": "res://Scenes/Data/Conditions/ConditionData.gd"
+}, {
 "base": "Control",
 "class": "EventUI",
 "language": "GDScript",
@@ -83,6 +88,7 @@ _global_script_class_icons={
 "CalendarInteractableData": "",
 "ClockEventUI": "",
 "ClockInteractableData": "",
+"ConditionData": "",
 "EventUI": "",
 "InteractableData": "",
 "InteractableMap": "",

@@ -7,3 +7,4 @@
 script = ExtResource( 1 )
 title = "Pancakes"
 smell_event = ExtResource( 2 )
+conditions = [  ]

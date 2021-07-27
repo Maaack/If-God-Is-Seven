@@ -7,3 +7,4 @@
 script = ExtResource( 1 )
 title = "Kitchen Noises"
 listen_event = ExtResource( 2 )
+conditions = [  ]

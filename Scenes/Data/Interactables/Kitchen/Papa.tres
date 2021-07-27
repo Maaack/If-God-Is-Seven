@@ -7,3 +7,4 @@
 script = ExtResource( 1 )
 title = "Papa"
 look_event = ExtResource( 2 )
+conditions = [  ]
