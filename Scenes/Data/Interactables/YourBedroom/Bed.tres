@@ -1,9 +1,7 @@
-[gd_resource type="Resource" load_steps=8 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Data/Interactables/BedInteractableData.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GameUI/EventUI/BedEvents/BedLookEventUI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/GameUI/EventUI/BedEvents/BedUseEventUI.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/GameUI/EventUI/BedEvents/BedSmellEventUI.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GameUI/EventUI/BedEvents/BedInteractionEventUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Data/Conditions/Bed/Messy.tres" type="Resource" id=5]
 [ext_resource path="res://Scenes/Data/Conditions/Bed/Damp.tres" type="Resource" id=6]
 [ext_resource path="res://Scenes/Data/Conditions/Bed/Stinky.tres" type="Resource" id=7]
@@ -12,7 +10,7 @@
 script = ExtResource( 1 )
 title = "Bed"
 look_event = ExtResource( 2 )
-smell_event = ExtResource( 4 )
-use_event = ExtResource( 3 )
+smell_event = ExtResource( 2 )
+use_event = ExtResource( 2 )
 conditions = [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
 made_state = 1

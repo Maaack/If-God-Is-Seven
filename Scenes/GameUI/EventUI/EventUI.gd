@@ -12,6 +12,7 @@ onready var body_texture_node = $EventPanel/MarginContainer/Control/VBoxContaine
 onready var continue_button = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2/ContinueButton
 
 var init_body_text : String
+var interaction_type : int
 var source_interactable : InteractableData setget set_source_interactable
 
 func set_source_interactable(value : InteractableData):
@@ -37,3 +38,54 @@ func _on_ContinueButton_pressed():
 
 func _ready():
 	init_body_text = body_label.text
+
+func get_interaction_type():
+	return interaction_type
+
+func get_source_interactive_conditions() -> Array:
+	var filtered_conditions : Array = []
+	for condition in source_interactable.conditions:
+		if condition is ConditionData:
+			if condition.intensity == 0:
+				continue
+			if condition.is_interactable(interaction_type):
+				filtered_conditions.append(condition)
+	return filtered_conditions
+
+func _concat_three_or_more(conditions : Array) -> String:
+	var all_conditions : String = ""
+	for i in conditions.size():
+		var condition : ConditionData = conditions[i]
+		var condition_string : String = str(condition)
+		if i == conditions.size() - 1:
+			all_conditions += "and %s" % [condition_string]
+		else:
+			all_conditions += "%s, " % [condition_string]
+	return all_conditions
+
+func get_source_conditions_string() -> String:
+	var filtered_conditions : Array = get_source_interactive_conditions()
+	match(filtered_conditions.size()):
+		0:
+			return ""
+		1:
+			return "%s" % [str(filtered_conditions[0])]
+		2:
+			return "%s and %s" % [str(filtered_conditions[0]), str(filtered_conditions[1])]
+		_:
+			return _concat_three_or_more(filtered_conditions)
+
+func get_interaction_verb() -> String:
+	match(get_interaction_type()):
+		InteractionConstants.interaction_types.LOOK:
+			return 'looks'
+		InteractionConstants.interaction_types.LISTEN:
+			return 'sounds'
+		InteractionConstants.interaction_types.SMELL:
+			return 'smells'
+		InteractionConstants.interaction_types.FEEL:
+			return 'feels'
+		InteractionConstants.interaction_types.USE:
+			return 'feels'
+		_:
+			return ''

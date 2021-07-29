@@ -3,29 +3,36 @@ extends Resource
 
 class_name ConditionData
 
-enum intensity_adverbs{NONE, BARELY, SLIGHTLY, MODERATELY, VERY, EXTREMELY}
-
 export(String) var adjective : String
-export(intensity_adverbs) var intensity : int = 1
+export(int, 0, 8) var intensity : int = 1
 export(bool) var can_look : bool
 export(bool) var can_listen : bool
 export(bool) var can_smell : bool
 export(bool) var can_feel : bool
+export(Array, String) var intensity_adverbs : Array = [
+	"",
+	"barely",
+	"slightly",
+	"moderately",
+	"very",
+	"extremely"
+	]
+
+func is_interactable(interaction_type : int):
+	match(interaction_type):
+		InteractionConstants.interaction_types.LOOK:
+			return can_look
+		InteractionConstants.interaction_types.LISTEN:
+			return can_listen
+		InteractionConstants.interaction_types.SMELL:
+			return can_smell
+		InteractionConstants.interaction_types.USE:
+			return can_feel
 
 func get_adverb() -> String:
-	match(intensity):
-		intensity_adverbs.BARELY:
-			return "barely"
-		intensity_adverbs.SLIGHTLY:
-			return "slightly"
-		intensity_adverbs.MODERATELY:
-			return "moderately"
-		intensity_adverbs.VERY:
-			return "very"
-		intensity_adverbs.EXTREMELY:
-			return "extremely"
-		intensity_adverbs.NONE, _:
-			return ""
+	if intensity < 0 or intensity >= intensity_adverbs.size():
+		return ""
+	return intensity_adverbs[intensity]
 
 func get_adverb_with_space() -> String:
 	var adverb : String = get_adverb()

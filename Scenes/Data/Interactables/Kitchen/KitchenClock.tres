@@ -9,6 +9,7 @@ script = ExtResource( 1 )
 title = "Kitchen Clock"
 look_event = ExtResource( 2 )
 use_event = ExtResource( 3 )
+conditions = [  ]
 current_hour = 8
 current_minute = 59
 current_period = 0
