@@ -5,11 +5,10 @@ class_name BedEventUI
 
 const MADE_CONDITION = preload("res://Scenes/Data/Conditions/Bed/Made.tres")
 const MESSY_CONDITION = preload("res://Scenes/Data/Conditions/Bed/Messy.tres")
-const DAMP_CONDITION = preload("res://Scenes/Data/Conditions/Bed/Damp.tres")
-const STINKY_CONDITION = preload("res://Scenes/Data/Conditions/Bed/Stinky.tres")
+const DAMP_SWEAT_CONDITION = preload("res://Scenes/Data/Conditions/Bed/DampWithSweat.tres")
+const STINKY_SWEAT_CONDITION = preload("res://Scenes/Data/Conditions/Bed/StinkyWithSweat.tres")
 
-export(int) var max_made_intensity : int = 4
-export(int) var min_messy_intensity : int = 1
+export(int) var made_intensity_max : int = 4
 
 func set_source_interactable(value : InteractableData):
 	if not value is BedInteractableData:
@@ -17,44 +16,66 @@ func set_source_interactable(value : InteractableData):
 		return
 	source_interactable = value
 
-func _get_made_state_flavor_text():
-	match(source_interactable.made_state):
-		BedInteractableData.made_states.TERRIBLE:
-			return "It doesn't look like a bed you want to sleep in."
-		BedInteractableData.made_states.BAD:
-			return "It looks like you didn't sleep well last night."
-		BedInteractableData.made_states.POOR:
-			return "It looks like you didn't make your bed, yet."
-		BedInteractableData.made_states.FAIR:
-			return "It looks like you lazily made your bed. Good enough."
-		BedInteractableData.made_states.GOOD:
-			return "It looks like you took the time to carefully make your bed."
-		BedInteractableData.made_states.PERFECT:
-			return "You can't make beds look this good."
+func _get_stinky_flavor_text():
+	var condition : ConditionData = _get_source_condition_or_new(STINKY_SWEAT_CONDITION)
+	if condition.is_interactable(get_interaction_type()):
+		match(condition.intensity):
+			1, 2:
+				return "It's really only noticeable if you're up in them."
+			3:
+				return "That could still be embarrasing if someone caught a whiff."
+			4:
+				return "That stink is really bad."
+			5:
+				return "The smell is gag inducing."
+	return ""
+
+func _get_damp_flavor_text():
+	var condition : ConditionData = _get_source_condition_or_new(DAMP_SWEAT_CONDITION)
+	if condition.is_interactable(get_interaction_type()):
+		match(condition.intensity):
+			1, 2:
+				return "Hopefully the sheets are able to dry before you go to sleep again."
+			3, 4, 5:
+				return "Sheets this wet beg the question whether it's just sweat."
+	return ""
+
+func _get_made_state_flavor_text() -> String:
+	var condition : ConditionData = _get_source_condition_or_new(MADE_CONDITION)
+	if condition.is_interactable(get_interaction_type()):
+		match(condition.intensity):
+			0:
+				return "It looks like you didn't make your bed."
+			1:
+				return "It still looks like you didn't make your bed..."
+			2:
+				return "It looks like someone lazily made the bed. Like \"good enough.\""
+			3:
+				return "It looks like time was taken to carefully make this bed."
+			4:
+				return "This is the best you can make a bed look."
+			5:
+				return "You literally cannot make beds look this made."
+	return ""
+
+func _get_flavor_text():
+	var all_text : String = ""
+	var flavor_texts : Array = [_get_stinky_flavor_text(), _get_damp_flavor_text(), _get_made_state_flavor_text()]
+	for flavor_text in flavor_texts:
+		if flavor_text == "":
+			continue
+		all_text += flavor_text + " "
+	return all_text.trim_suffix(" ")
 
 func _ready():
-	body_label.text = get_body_text() % [get_interaction_verb(), get_source_conditions_string(), _get_made_state_flavor_text()]
+	body_label.text = get_body_text() % [get_interaction_verb(), get_source_conditions_string(), _get_flavor_text()]
 
 func _clean_bed() -> bool:
-	var messy_condition = source_interactable.get_condition_by_adjective(MESSY_CONDITION.adjective)
-	if messy_condition == null:
-		messy_condition = MESSY_CONDITION.duplicate()
-	if messy_condition.intensity <= min_messy_intensity:
-		return false
-	messy_condition.intensity -= 1
-	source_interactable.set_condition(messy_condition)
-	return true
+	return _alter_source_condition(MESSY_CONDITION, -1)
 
 func _make_bed() -> bool:
-	var made_condition = source_interactable.get_condition_by_adjective(MADE_CONDITION.adjective)
-	if made_condition == null:
-		made_condition = MADE_CONDITION.duplicate()
-	if made_condition.intensity >= max_made_intensity:
-		return false
-	made_condition.intensity += 1
-	source_interactable.set_condition(made_condition)
-	return true
-	
+	return _alter_source_condition(MADE_CONDITION, 1, 0, made_intensity_max)
+
 func _on_MakeButton_pressed():
 	if _clean_bed():
 		emit_signal("added_historical_note", "You clean some of the mess from the bed.")

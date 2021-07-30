@@ -41,19 +41,11 @@ func get_event_ui(interaction_type : int):
 	event_ui.interaction_type = interaction_type
 	return event_ui
 
-func get_condition_by_adjective(match_adjective : String):
-	for condition in conditions:
-		if condition is ConditionData:
-			if condition.adjective == match_adjective:
-				return condition
-	return null
+func get_conditions() -> Array:
+	return conditions
 
-func has_condition(match_adjective : String, min_intensity : int = 1, max_intensity : int = 16) -> bool:
-	var condition : ConditionData = get_condition_by_adjective(match_adjective)
-	if condition is ConditionData:
-		if condition.intensity >= min_intensity and condition.intensity <= max_intensity:
-			return true
-	return false
+func get_condition_by_adjective(match_adjective : String):
+	return ConditionData.match_adjective_in_conditions(match_adjective, get_conditions())
 
 func set_condition(new_condition : ConditionData):
 	var old_condition : ConditionData = get_condition_by_adjective(new_condition.adjective)

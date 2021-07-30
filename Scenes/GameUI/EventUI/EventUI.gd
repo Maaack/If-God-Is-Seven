@@ -44,13 +44,37 @@ func get_interaction_type():
 
 func get_source_interactive_conditions() -> Array:
 	var filtered_conditions : Array = []
-	for condition in source_interactable.conditions:
+	for condition in source_interactable.get_conditions():
 		if condition is ConditionData:
 			if condition.intensity == 0:
 				continue
 			if condition.is_interactable(interaction_type):
 				filtered_conditions.append(condition)
 	return filtered_conditions
+
+func get_source_condition_by_adjective(adjective : String):
+	return source_interactable.get_condition_by_adjective(adjective)
+
+func _alter_source_condition(condition : ConditionData, intensity_delta : int, min_limit : int = -1,  max_limit : int = -1):
+	if max_limit < 0:
+		max_limit = condition.intensity_adverbs.size() - 1
+	if min_limit < 0:
+		min_limit = 0
+	var match_condition = get_source_condition_by_adjective(condition.adjective)
+	if match_condition == null:
+		match_condition = condition.duplicate()
+	if (intensity_delta < 0 and match_condition.intensity <= min_limit) or \
+		(intensity_delta > 0 and match_condition.intensity >= max_limit):
+		return false
+	match_condition.intensity += intensity_delta
+	source_interactable.set_condition(match_condition)
+	return true
+
+func _get_source_condition_or_new(condition : ConditionData):
+	var match_condition : ConditionData = get_source_condition_by_adjective(condition.adjective)
+	if match_condition == null:
+		return condition.duplicate()
+	return match_condition
 
 func _concat_three_or_more(conditions : Array) -> String:
 	var all_conditions : String = ""

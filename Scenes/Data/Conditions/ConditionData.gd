@@ -42,3 +42,10 @@ func get_adverb_with_space() -> String:
 
 func _to_string():
 	return "%s%s" % [get_adverb_with_space(), adjective]
+
+static func match_adjective_in_conditions(match_adjective : String, in_conditions : Array):
+	for condition in in_conditions:
+		if condition.adjective == match_adjective:
+			return condition
+	return null
+

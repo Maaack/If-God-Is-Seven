@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-adjective = "stinky"
+adjective = "damp with sweat"
 intensity = 4
-can_look = false
+can_look = true
 can_listen = false
-can_smell = true
-can_feel = false
+can_smell = false
+can_feel = true
 intensity_adverbs = [ "", "barely", "slightly", "moderately", "very", "extremely" ]
