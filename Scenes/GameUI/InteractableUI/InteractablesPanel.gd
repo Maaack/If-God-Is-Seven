@@ -32,6 +32,9 @@ func update_interactables():
 		interactable_button_instance.text = interactable.title
 		interactable_button_instance.connect("pressed", self, "_on_InteractionButton_pressed", [interactable])
 
+func refresh():
+	update_interactables()
+
 func set_current_map(value : PackedScene):
 	current_map = value
 	travel_ui.current_map = current_map
@@ -43,11 +46,11 @@ func set_current_location(value : LocationData):
 		location_label.text = "%s" % [current_location.title]
 	else:
 		location_label.text = "???"
-	update_interactables()
+	refresh()
 
 func _on_InteractionsPanel_changed_interaction(interaction):
 	current_interaction = interaction
-	update_interactables()
+	refresh()
 
 func _ready():
 	set_current_location(travel_ui.current_location)

@@ -62,7 +62,7 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 22.0
 margin_right = 150.0
-margin_bottom = 241.0
+margin_bottom = 221.0
 size_flags_vertical = 3
 custom_constants/margin_right = 2
 custom_constants/margin_top = 1
@@ -76,17 +76,17 @@ __meta__ = {
 margin_left = 4.0
 margin_top = 1.0
 margin_right = 148.0
-margin_bottom = 215.0
+margin_bottom = 195.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 margin_right = 144.0
-margin_bottom = 214.0
+margin_bottom = 194.0
 size_flags_vertical = 3
 custom_constants/separation = 4
 
 [node name="ActionsContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 116.0
-margin_bottom = 214.0
+margin_bottom = 194.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 0
@@ -111,7 +111,7 @@ autowrap = true
 
 [node name="InteractablesContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer"]
 margin_right = 116.0
-margin_bottom = 116.0
+margin_bottom = 96.0
 rect_min_size = Vector2( 116, 0 )
 size_flags_vertical = 3
 custom_constants/separation = 2
@@ -122,12 +122,11 @@ __meta__ = {
 [node name="TravelUI" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer" instance=ExtResource( 12 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 116.0
+margin_top = 96.0
 margin_right = 116.0
-margin_bottom = 214.0
+margin_bottom = 194.0
 
 [node name="InteractionsPanel" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
-margin_bottom = 214.0
 
 [connection signal="pressed_location" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/TravelUI" to="." method="_on_TravelUI_pressed_location"]
 [connection signal="changed_interaction" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/InteractionsPanel" to="." method="_on_InteractionsPanel_changed_interaction"]

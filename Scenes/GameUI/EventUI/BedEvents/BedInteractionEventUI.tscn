@@ -13,7 +13,7 @@ text = "Checking the Bed"
 [node name="BodyTextureRect" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer" index="0"]
 texture = ExtResource( 3 )
 
-[node name="BodyLabel" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer" index="1"]
+[node name="BodyLabel" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer" index="2"]
 text = "The bed %s %s.
 %s"
 
