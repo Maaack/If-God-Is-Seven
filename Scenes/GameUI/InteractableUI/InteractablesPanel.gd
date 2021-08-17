@@ -17,20 +17,29 @@ export(InteractionConstants.interaction_types) var current_interaction : int = 0
 func _on_InteractionButton_pressed(interactable : InteractableData):
 	emit_signal("pressed_interactable", current_interaction, interactable)
 
-func update_interactables():
-	for child in interactables_container.get_children():
-		child.queue_free()
-		yield(interactables_container, "draw")
-	travel_ui.visible = bool(current_interaction == InteractionConstants.interaction_types.TRAVEL)
+func _get_current_interactables():
+	var current_interactables : Array = []
 	if not current_location is LocationData:
-		return
+		return current_interactables
 	for interactable in current_location.interactables:
 		if not interactable.has_event_scene(current_interaction):
 			continue
-		var interactable_button_instance = interactable_button_scene.instance()
-		interactables_container.add_child(interactable_button_instance)
-		interactable_button_instance.text = interactable.title
-		interactable_button_instance.connect("pressed", self, "_on_InteractionButton_pressed", [interactable])
+		current_interactables.append(interactable)
+	return current_interactables
+
+func update_interactables():
+	var current_interactables : Array = _get_current_interactables()
+	for child in interactables_container.get_children():
+		child.hide()
+	travel_ui.visible = bool(current_interaction == InteractionConstants.interaction_types.TRAVEL)
+	for i in range(current_interactables.size()):
+		var interactable = current_interactables[i]
+		var child = interactables_container.get_child(i)
+		if child.is_connected("pressed", self, "_on_InteractionButton_pressed"):
+			child.disconnect("pressed", self, "_on_InteractionButton_pressed")
+		child.text = interactable.title
+		child.connect("pressed", self, "_on_InteractionButton_pressed", [interactable])
+		child.show()
 
 func refresh():
 	update_interactables()
