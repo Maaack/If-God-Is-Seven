@@ -57,31 +57,42 @@ func toggle_edit_alarm():
 	alarm_checkbox.pressed = edit_alarm_mode
 	_update_time_labels()
 
+func _get_flashing_flavor_text() -> String:
+	if source_interactable.alarm_ringing:
+		return "The clock face is flashing."
+	return ""
+
+func _get_ringing_flavor_text() -> String:
+	if source_interactable.alarm_ringing:
+		return "The clock alarm is buzzing loudly."
+	return ""
+
+func _get_flavor_text() -> String:
+	match(get_interaction_type()):
+		InteractionConstants.interaction_types.LOOK:
+			return _get_flashing_flavor_text()
+		InteractionConstants.interaction_types.LISTEN:
+			return _get_ringing_flavor_text()
+	return ""
+
+func _refresh_body_text():
+	body_label.text = get_body_text() % [get_look_time(), _get_flavor_text()]
+
 func _ready():
-	_update_time_labels()
 	alarm_checkbox.pressed = source_interactable.alarm_ringing
 
-func _reset_flashing():
-	hour_label.show()
-	minute_label.show()
-	period_label.show()
-	flash_timer.start()
+func _flash_full_face():
+	hour_label.visible = !bool(hour_label.visible)
+	minute_label.visible = hour_label.visible
+	period_label.visible = hour_label.visible
+	separator_label.visible = hour_label.visible
+	alarm_checkbox.pressed = hour_label.visible
 
 func _on_FlashTimer_timeout():
 	if source_interactable.alarm_ringing:
-			hour_label.visible = !bool(hour_label.visible)
-			minute_label.visible = hour_label.visible
-			period_label.visible = hour_label.visible
-			separator_label.visible = hour_label.visible
-			alarm_checkbox.pressed = hour_label.visible
+		_flash_full_face()
 	else:
-		match(current_use_stage):
-			HOUR_STAGE:
-				hour_label.visible = !bool(hour_label.visible)
-			MINUTE_STAGE:
-				minute_label.visible = !bool(minute_label.visible)
-			PERIOD_STAGE:
-				period_label.visible = !bool(period_label.visible)
+		_flash_current_stage()
 
 func _on_ModButton_pressed():
 	if source_interactable.alarm_ringing:
@@ -125,6 +136,7 @@ func _on_SetButton_pressed():
 		current_use_stage += 1
 		continue_button.hide()
 		_reset_flashing()
+		_flash_current_stage()
 		if current_use_stage > PERIOD_STAGE:
 			if not edit_alarm_mode:
 				emit_signal("added_historical_note", "You set the ALARM CLOCK's time to %s." % get_time_string())

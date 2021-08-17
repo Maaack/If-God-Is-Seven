@@ -49,11 +49,17 @@ func add_periods(periods : int):
 func get_look_time():
 	return "%s:%s %s" % [get_hour_string(), get_minute_string(), get_period_string()]
 
-func refresh():
+func _refresh_clock_face():
 	hour_label.text = get_hour_string()
 	minute_label.text = get_minute_string()
-	period_label.text = get_period_string()
+	period_label.text = get_period_string()	
+
+func _refresh_body_text():
 	body_label.text = get_body_text() % [get_look_time()]
+
+func refresh():
+	_refresh_clock_face()
+	_refresh_body_text()
 
 func _ready():
 	refresh()
@@ -64,7 +70,7 @@ func _reset_flashing():
 	period_label.show()
 	flash_timer.start()
 
-func _on_FlashTimer_timeout():
+func _flash_current_stage():
 	match(current_use_stage):
 		HOUR_STAGE:
 			hour_label.visible = !bool(hour_label.visible)
@@ -72,6 +78,9 @@ func _on_FlashTimer_timeout():
 			minute_label.visible = !bool(minute_label.visible)
 		PERIOD_STAGE:
 			period_label.visible = !bool(period_label.visible)
+
+func _on_FlashTimer_timeout():
+	_flash_current_stage()
 
 func _on_ModButton_pressed():
 	match(current_use_stage):
@@ -90,6 +99,7 @@ func _on_SetButton_pressed():
 	current_use_stage += 1
 	continue_button.hide()
 	_reset_flashing()
+	_flash_current_stage()
 	if current_use_stage > PERIOD_STAGE:
 		emit_signal("added_historical_note", "You set the time to %s." % get_time_string())
 		emit_signal("attempted_waiting", 1)
