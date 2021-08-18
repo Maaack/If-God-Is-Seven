@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/MainUI/SmallFontLightTheme.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/GameUI/InteractableUI/InteractableButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/TravelUI/TravelUI.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/InteractablesPanel.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=28]
@@ -19,7 +20,7 @@ script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-current_interaction = 6
+current_interaction = 7
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -62,7 +63,7 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 22.0
 margin_right = 150.0
-margin_bottom = 220.0
+margin_bottom = 259.0
 size_flags_vertical = 3
 custom_constants/margin_right = 2
 custom_constants/margin_top = 1
@@ -76,17 +77,17 @@ __meta__ = {
 margin_left = 4.0
 margin_top = 1.0
 margin_right = 148.0
-margin_bottom = 194.0
+margin_bottom = 233.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 margin_right = 144.0
-margin_bottom = 193.0
+margin_bottom = 232.0
 size_flags_vertical = 3
 custom_constants/separation = 4
 
 [node name="ActionsContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 116.0
-margin_bottom = 193.0
+margin_bottom = 232.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 0
@@ -111,7 +112,7 @@ autowrap = true
 
 [node name="InteractablesContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer"]
 margin_right = 116.0
-margin_bottom = 95.0
+margin_bottom = 232.0
 rect_min_size = Vector2( 116, 0 )
 size_flags_vertical = 3
 custom_constants/separation = 2
@@ -119,12 +120,58 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="InteractableButton" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/InteractablesContainer" instance=ExtResource( 3 )]
+visible = false
+
+[node name="InteractableButton2" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/InteractablesContainer" instance=ExtResource( 3 )]
+visible = false
+margin_top = 17.0
+margin_bottom = 32.0
+focus_mode = 2
+
+[node name="InteractableButton3" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/InteractablesContainer" instance=ExtResource( 3 )]
+visible = false
+margin_top = 34.0
+margin_bottom = 49.0
+focus_mode = 2
+
+[node name="InteractableButton4" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/InteractablesContainer" instance=ExtResource( 3 )]
+visible = false
+margin_top = 51.0
+margin_bottom = 66.0
+focus_mode = 2
+
+[node name="InteractableButton5" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/InteractablesContainer" instance=ExtResource( 3 )]
+visible = false
+margin_top = 68.0
+margin_bottom = 83.0
+focus_mode = 2
+
+[node name="InteractableButton6" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/InteractablesContainer" instance=ExtResource( 3 )]
+visible = false
+margin_top = 85.0
+margin_bottom = 100.0
+focus_mode = 2
+
+[node name="InteractableButton7" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/InteractablesContainer" instance=ExtResource( 3 )]
+visible = false
+margin_top = 102.0
+margin_bottom = 117.0
+focus_mode = 2
+
+[node name="InteractableButton8" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer/InteractablesContainer" instance=ExtResource( 3 )]
+visible = false
+margin_top = 119.0
+margin_bottom = 134.0
+focus_mode = 2
+
 [node name="TravelUI" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ActionsContainer" instance=ExtResource( 12 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 95.0
+margin_top = 134.0
 margin_right = 116.0
-margin_bottom = 193.0
+margin_bottom = 232.0
 
 [node name="InteractionsPanel" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
 

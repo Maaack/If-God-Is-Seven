@@ -16,16 +16,21 @@ var current_period : int = day_periods.AM
 var current_day : int = 20
 
 func add_event(event_text : String):
-	var text : String = ""
-	for event in event_history:
-		text += event + "\n"
-	event_history_label.text = text
+	event_history_label.text += "\n"
 	yield(event_history_scroll, "draw")
 	event_history_scroll.scroll_vertical += 16
 	event_write_delay_timer.start()
 	yield(event_write_delay_timer, "timeout")
-	event_history_label.text += event_text
 	event_history.append(event_text)
+	var text : String = ""
+	var first_flag : bool = true
+	for event in event_history:
+		if first_flag:
+			first_flag = false
+			text = event
+			continue
+		text += "\n" + event
+	event_history_label.text = text
 
 func add_time(minutes : int):
 	var total_minute = current_minute + minutes

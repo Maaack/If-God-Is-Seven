@@ -117,6 +117,16 @@
         * Fake distant signal
 
 #### Sprint 6
+* Conditions
+    * Bed
+        * Messy
+        * Damp
+        * Stinky with sweat
+    * Self
+        * Wet
+        * Stinky with sweat
+
+#### Sprint 7
 * Player Inventory
     * Player as Interactable
         * Container of other Interactables
@@ -137,7 +147,7 @@
     * Streamline continuing if another event is chosen
         * Auto continue if can close and play next event
 
-#### Sprint 7
+#### Sprint 8
 * Weighted Signals from Interactables
 * Location short descriptions.
     * Set expectation of possible interactions
@@ -153,7 +163,7 @@
     * Pancakes from other rooms
         * Requires weighted signals
 
-#### Sprint 8
+#### Sprint 9
 * Dialogue screen
     * Speaking character
         * Portrait

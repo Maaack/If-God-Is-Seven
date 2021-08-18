@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Data/Interactables/ClockInteractableData.gd"
 }, {
+"base": "Resource",
+"class": "ConditionData",
+"language": "GDScript",
+"path": "res://Scenes/Data/Conditions/ConditionData.gd"
+}, {
 "base": "Control",
 "class": "EventUI",
 "language": "GDScript",
@@ -63,6 +68,11 @@ _global_script_classes=[ {
 "class": "InteractableMap",
 "language": "GDScript",
 "path": "res://Scenes/GameUI/LocalAwarenessUI/InteractableMap.gd"
+}, {
+"base": "Reference",
+"class": "InteractionConstants",
+"language": "GDScript",
+"path": "res://Scenes/Data/Interactables/InteractionConstants.gd"
 }, {
 "base": "TextureButton",
 "class": "LocationButton",
@@ -83,9 +93,11 @@ _global_script_class_icons={
 "CalendarInteractableData": "",
 "ClockEventUI": "",
 "ClockInteractableData": "",
+"ConditionData": "",
 "EventUI": "",
 "InteractableData": "",
 "InteractableMap": "",
+"InteractionConstants": "",
 "LocationButton": "",
 "LocationData": ""
 }
@@ -112,4 +124,5 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.133333, 0.137255, 0.137255, 1 )
 environment/default_environment="res://default_env.tres"
