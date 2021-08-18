@@ -1,14 +1,13 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Data/Interactables/ClockInteractableData.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GameUI/EventUI/ClockEvents/ClockLookEventUI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/GameUI/EventUI/ClockEvents/ClockUseEventUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/GameUI/EventUI/ClockEvents/ClockInteractionEventUI.tscn" type="PackedScene" id=2]
 
 [resource]
 script = ExtResource( 1 )
 title = "Kitchen Clock"
-look_event = ExtResource( 2 )
-use_event = ExtResource( 3 )
+interaction_event = ExtResource( 2 )
+interactions_array = [ 0, 4 ]
 conditions = [  ]
 current_hour = 8
 current_minute = 59

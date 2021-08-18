@@ -122,14 +122,20 @@
         * Messy
         * Damp
         * Stinky with sweat
-    * Self
-        * Wet
-        * Stinky with sweat
 
 #### Sprint 7
+* UI Redesigns
+
+### Backlog
+#### Sprint ?
 * Player Inventory
     * Player as Interactable
         * Container of other Interactables
+    * Conditions
+        * Wet
+        * Stinky with sweat
+      
+#### Sprint ?
 * World Containers
     * Drawer of Paper
 * Grab Interactions
@@ -147,7 +153,7 @@
     * Streamline continuing if another event is chosen
         * Auto continue if can close and play next event
 
-#### Sprint 8
+#### Sprint ?
 * Weighted Signals from Interactables
 * Location short descriptions.
     * Set expectation of possible interactions
@@ -163,7 +169,7 @@
     * Pancakes from other rooms
         * Requires weighted signals
 
-#### Sprint 9
+#### Sprint ?
 * Dialogue screen
     * Speaking character
         * Portrait

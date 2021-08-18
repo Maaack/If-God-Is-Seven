@@ -29,3 +29,11 @@ func _on_InventoryButton_pressed():
 
 func _on_TravelButton_pressed():
 		emit_signal("changed_interaction", InteractionConstants.interaction_types.TRAVEL)
+
+
+func _on_MapButton_pressed():
+	pass # Replace with function body.
+
+
+func _on_TouchButton_pressed():
+	emit_signal("changed_interaction", InteractionConstants.interaction_types.FEEL)

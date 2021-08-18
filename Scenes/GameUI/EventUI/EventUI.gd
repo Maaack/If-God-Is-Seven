@@ -5,6 +5,7 @@ class_name EventUI
 
 signal attempted_waiting(minutes)
 signal added_historical_note(note)
+signal ended_event
 
 onready var title_label = $EventPanel/MarginContainer/Control/VBoxContainer/TitleLabel
 onready var body_label = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyLabel
@@ -33,6 +34,10 @@ func hide_continue_button():
 func show_continue_button():
 	continue_button.show()
 
+func end_event():
+	emit_signal("ended_event")
+	queue_free()
+
 func _on_ContinueButton_pressed():
 	queue_free()
 
@@ -48,7 +53,7 @@ func get_source_interactive_conditions() -> Array:
 		if condition is ConditionData:
 			if condition.intensity == 0:
 				continue
-			if condition.is_interactable(interaction_type):
+			if condition.can_interact(interaction_type):
 				filtered_conditions.append(condition)
 	return filtered_conditions
 
