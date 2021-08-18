@@ -6,8 +6,5 @@
 script = ExtResource( 1 )
 adjective = "messy"
 intensity = 3
-can_look = true
-can_listen = false
-can_smell = false
-can_feel = true
+interactions_array = [ 0, 4 ]
 intensity_adverbs = [ "", "barely", "slightly", "moderately", "very", "extremely" ]

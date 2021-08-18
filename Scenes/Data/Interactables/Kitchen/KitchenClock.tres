@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource( 1 )
 title = "Kitchen Clock"
-look_event = ExtResource( 2 )
-use_event = ExtResource( 2 )
+interaction_event = ExtResource( 2 )
+interactions_array = [ 0, 4 ]
 conditions = [  ]
 current_hour = 8
 current_minute = 59

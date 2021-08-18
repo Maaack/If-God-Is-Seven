@@ -6,8 +6,5 @@
 script = ExtResource( 1 )
 adjective = "stinky with sweat"
 intensity = 3
-can_look = false
-can_listen = false
-can_smell = true
-can_feel = false
+interactions_array = [ 2 ]
 intensity_adverbs = [ "", "barely", "slightly", "moderately", "very", "extremely" ]

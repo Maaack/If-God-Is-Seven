@@ -18,7 +18,7 @@ func set_source_interactable(value : InteractableData):
 
 func _get_stinky_flavor_text():
 	var condition : ConditionData = _get_source_condition_or_new(STINKY_SWEAT_CONDITION)
-	if condition.is_interactable(get_interaction_type()):
+	if condition.can_interact(get_interaction_type()):
 		match(condition.intensity):
 			1, 2:
 				return "It's really only noticeable if you're up in them."
@@ -32,7 +32,7 @@ func _get_stinky_flavor_text():
 
 func _get_damp_flavor_text():
 	var condition : ConditionData = _get_source_condition_or_new(DAMP_SWEAT_CONDITION)
-	if condition.is_interactable(get_interaction_type()):
+	if condition.can_interact(get_interaction_type()):
 		match(condition.intensity):
 			1, 2:
 				return "Hopefully the sheets are able to dry before you go to sleep again."
@@ -42,7 +42,7 @@ func _get_damp_flavor_text():
 
 func _get_made_state_flavor_text() -> String:
 	var condition : ConditionData = _get_source_condition_or_new(MADE_CONDITION)
-	if condition.is_interactable(get_interaction_type()):
+	if condition.can_interact(get_interaction_type()):
 		match(condition.intensity):
 			0:
 				return "It looks like you didn't make your bed."

@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource( 1 )
 title = "Toothbrush"
-look_event = ExtResource( 3 )
-use_event = ExtResource( 3 )
+interaction_event = ExtResource( 3 )
+interactions_array = [ 0, 4 ]
 conditions = [  ]

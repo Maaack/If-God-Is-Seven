@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource( 1 )
 title = "Alarm Clock"
-look_event = ExtResource( 2 )
-use_event = ExtResource( 2 )
+interaction_event = ExtResource( 2 )
+interactions_array = [ 0 ]
 conditions = [  ]
 current_hour = 8
 current_minute = 59
@@ -17,4 +17,3 @@ alarm_hour = 9
 alarm_minute = 0
 alarm_period = 0
 alarm_ringing = true
-alarm_listen_event = ExtResource( 2 )

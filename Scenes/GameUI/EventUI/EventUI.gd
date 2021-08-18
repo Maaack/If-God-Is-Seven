@@ -53,7 +53,7 @@ func get_source_interactive_conditions() -> Array:
 		if condition is ConditionData:
 			if condition.intensity == 0:
 				continue
-			if condition.is_interactable(interaction_type):
+			if condition.can_interact(interaction_type):
 				filtered_conditions.append(condition)
 	return filtered_conditions
 
