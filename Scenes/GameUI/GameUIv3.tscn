@@ -13,7 +13,7 @@
 [ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=48]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.133333, 0.137255, 0.137255, 1 )
+bg_color = Color( 0, 0, 0, 1 )
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0

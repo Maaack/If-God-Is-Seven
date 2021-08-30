@@ -87,7 +87,7 @@ margin_top = 6.0
 margin_right = 347.0
 margin_bottom = 55.0
 custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0.133333, 0.137255, 0.137255, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "If God is Seven"
 align = 1
 valign = 2
@@ -117,7 +117,7 @@ margin_left = 6.0
 margin_top = 4.0
 margin_right = 347.0
 margin_bottom = 20.0
-custom_colors/font_color = Color( 0.133333, 0.137255, 0.137255, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "then this is 0.1.0"
 align = 1
 
@@ -157,7 +157,7 @@ margin_left = 8.0
 margin_top = 46.0
 margin_right = 351.0
 margin_bottom = 233.0
-custom_colors/font_color = Color( 0.133333, 0.137255, 0.137255, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "
 Game by
 Marek Belski

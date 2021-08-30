@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Backgrounds/TitleScreenCrownShyness.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GameView/MirrorViewContainer.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "New Anim"
 length = 4.0
 tracks/0/type = "value"
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "New Anim"
 length = 8.0
 tracks/0/type = "value"
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "New Anim"
 length = 8.0
 tracks/0/type = "value"
@@ -111,7 +111,7 @@ valign = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel"]
 autoplay = "New Anim"
-"anims/New Anim" = SubResource( 3 )
+"anims/New Anim" = SubResource( 1 )
 
 [node name="Panel2" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -144,7 +144,7 @@ align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel2"]
 autoplay = "New Anim"
-"anims/New Anim" = SubResource( 4 )
+"anims/New Anim" = SubResource( 2 )
 
 [node name="BlackoutFilmBars" parent="." instance=ExtResource( 1 )]
 
@@ -167,6 +167,7 @@ __meta__ = {
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 margin_right = 138.0
 margin_bottom = 22.0
+focus_mode = 0
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -176,6 +177,7 @@ __meta__ = {
 margin_top = 34.0
 margin_right = 138.0
 margin_bottom = 56.0
+focus_mode = 0
 text = "Credits"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -185,6 +187,7 @@ __meta__ = {
 margin_top = 68.0
 margin_right = 138.0
 margin_bottom = 90.0
+focus_mode = 0
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -192,4 +195,4 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer"]
 autoplay = "New Anim"
-"anims/New Anim" = SubResource( 5 )
+"anims/New Anim" = SubResource( 3 )
