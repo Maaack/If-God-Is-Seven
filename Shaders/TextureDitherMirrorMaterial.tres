@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://Assets/1BitBlackAndWhite.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/bayer16.png" type="Texture" id=2]
+[ext_resource path="res://Shaders/TextureDitherMirror.shader" type="Shader" id=3]
+
+[resource]
+shader = ExtResource( 3 )
+shader_param/bit_depth = 32
+shader_param/contrast = 0.5
+shader_param/offset = -0.5
+shader_param/pixel_size = 1
+shader_param/x_mirror_offset = 0.5
+shader_param/dither_texture = ExtResource( 2 )
+shader_param/color_palette = ExtResource( 1 )
