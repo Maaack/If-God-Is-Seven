@@ -7,7 +7,6 @@ export(int) var alarm_hour : int = 9
 export(int) var alarm_minute : int = 0
 export(day_periods) var alarm_period : int = day_periods.AM
 export(bool) var alarm_ringing : bool = false setget set_alarm_ringing
-export(PackedScene) var alarm_listen_event : PackedScene
 
 var snooze_hour : int = 0
 var snooze_minute : int = 0
@@ -53,10 +52,10 @@ func add_snooze_periods(periods : int):
 func set_alarm_ringing(value : bool):
 	alarm_ringing = value
 	if alarm_ringing:
-		listen_event = alarm_listen_event
+		add_interaction_type(InteractionConstants.interaction_types.LISTEN)
 	else:
 		alarm_snoozing = false
-		listen_event = null
+		remove_interaction_type(InteractionConstants.interaction_types.LISTEN)
 
 func add_snooze_time(snooze_minutes : int = 5):
 	var hours : int = add_snooze_minutes(snooze_minutes)

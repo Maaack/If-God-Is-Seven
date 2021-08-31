@@ -77,6 +77,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BodyCenter" type="CenterContainer" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer"]
+visible = false
+margin_left = 418.0
+margin_right = 623.0
+margin_bottom = 263.0
+size_flags_horizontal = 3
+
 [node name="BodyLabel" type="Label" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer"]
 margin_left = 313.0
 margin_right = 623.0
@@ -86,13 +93,6 @@ size_flags_vertical = 3
 align = 1
 valign = 1
 autowrap = true
-
-[node name="BodyCenter" type="CenterContainer" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer"]
-visible = false
-margin_left = 418.0
-margin_right = 623.0
-margin_bottom = 263.0
-size_flags_horizontal = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="EventPanel/MarginContainer/Control/VBoxContainer"]
 margin_top = 289.0

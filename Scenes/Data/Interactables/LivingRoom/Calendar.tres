@@ -1,10 +1,12 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Data/Interactables/CalendarInteractableData.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GameUI/EventUI/CalendarEvents/CalendarLookEventUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameUI/EventUI/CalendarEvents/CalendarInteractionEventUI.tscn" type="PackedScene" id=2]
 
 [resource]
 script = ExtResource( 1 )
 title = "Calendar"
-look_event = ExtResource( 2 )
+interaction_event = ExtResource( 2 )
+interactions_array = [ 0, 1, 2, 4 ]
+conditions = [  ]
 current_day = 20
