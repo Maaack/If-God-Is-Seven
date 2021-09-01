@@ -4,7 +4,7 @@ extends ViewportContainer
 
 onready var scene_container = $Viewport
 
-export var current_scene : PackedScene setget set_scene
+export(PackedScene) var current_scene : PackedScene setget set_scene
 var current_scene_instance
 
 func set_scene(value : PackedScene):
