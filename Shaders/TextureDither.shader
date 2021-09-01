@@ -19,8 +19,9 @@ void fragment()
 	// sample the screen texture at the desired output resolution (according to pixel_size)
 	// this will effectively pixelate the resulting output
 	vec2 screen_size = vec2(textureSize(TEXTURE, 0)) / float(pixel_size);
+	vec2 center_pixel_offset = vec2(1.0) / vec2(screen_size * float(2.0));
 	vec2 screen_sample_uv = floor(UV * screen_size) / screen_size;
-	vec3 screen_col = texture(TEXTURE, screen_sample_uv).rgb;
+	vec3 screen_col = texture(TEXTURE, screen_sample_uv + center_pixel_offset).rgb;
 	
 	// calculate pixel luminosity (https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color)
 	float lum = (screen_col.r * 0.299) + (screen_col.g * 0.587) + (screen_col.b * 0.114);
