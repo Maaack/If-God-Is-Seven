@@ -1,19 +1,47 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/GameUI/EventUI/FirstWakingUpEvent/FirstWakingUpEventUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GameUI/GameUIv2.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/GameUI/TextInteractionUI/TextInteractionPanel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsDarkPanel/InteractionsPanel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsPanel.tscn" type="PackedScene" id=42]
-[ext_resource path="res://Scenes/GameUI/SelfAwarenessUI/SelfAwarenessPanel.tscn" type="PackedScene" id=45]
-[ext_resource path="res://Scenes/GameUI/InteractableUI/InteractablesPanel.tscn" type="PackedScene" id=46]
 [ext_resource path="res://Scenes/GameUI/WorldController/WorldController.tscn" type="PackedScene" id=47]
 [ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=48]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeOut"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -51,95 +79,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HeaderUI" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HeaderUI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -616.0
-custom_constants/separation = 0
-alignment = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="HeaderUI/VBoxContainer"]
-margin_right = 24.0
-margin_bottom = 320.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 0
-
-[node name="EventContainer" type="Control" parent="HeaderUI/VBoxContainer/HBoxContainer2"]
-margin_right = 24.0
-margin_bottom = 320.0
-rect_min_size = Vector2( 0, 320 )
-size_flags_horizontal = 3
-
-[node name="FirstWakingUpEventUI" parent="HeaderUI/VBoxContainer/HBoxContainer2/EventContainer" instance=ExtResource( 3 )]
-visible = false
-
-[node name="InteractablesPanel" parent="HeaderUI/VBoxContainer/HBoxContainer2" instance=ExtResource( 46 )]
-visible = false
-anchor_left = 0.0
-anchor_right = 0.0
-margin_left = 466.0
-margin_right = 616.0
-margin_bottom = 320.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HeaderUI/VBoxContainer"]
-visible = false
-margin_top = 220.0
-margin_right = 640.0
-margin_bottom = 220.0
-custom_constants/separation = 0
-
-[node name="SelfAwarenessPanel" parent="HeaderUI/VBoxContainer/HBoxContainer" instance=ExtResource( 45 )]
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 150.0
-margin_bottom = 100.0
-
-[node name="InteractionsPanel" parent="HeaderUI/VBoxContainer" instance=ExtResource( 6 )]
-visible = false
-anchor_top = 0.0
-anchor_bottom = 0.0
-margin_top = 320.0
-margin_right = 640.0
-margin_bottom = 345.0
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+custom_constants/margin_right = 540
 custom_constants/margin_top = 50
 custom_constants/margin_bottom = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InteractionsPanel" parent="MarginContainer" instance=ExtResource( 42 )]
-margin_left = 0.0
+[node name="MouseReactArea" type="Control" parent="MarginContainer"]
 margin_top = 50.0
+margin_right = 100.0
+margin_bottom = 270.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractionsPanel" parent="MarginContainer/MouseReactArea" instance=ExtResource( 42 )]
+margin_left = 0.0
 margin_right = 24.0
-margin_bottom = 264.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/MouseReactArea/InteractionsPanel"]
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
+
+[node name="FadeOutTimer" type="Timer" parent="MarginContainer/MouseReactArea/InteractionsPanel"]
+one_shot = true
 
 [node name="WorldController" parent="." instance=ExtResource( 47 )]
 current_location = ExtResource( 48 )
 
-[connection signal="pressed_interactable" from="HeaderUI/VBoxContainer/HBoxContainer2/InteractablesPanel" to="." method="_on_InteractablesPanel_pressed_interactable"]
-[connection signal="pressed_location" from="HeaderUI/VBoxContainer/HBoxContainer2/InteractablesPanel" to="." method="_on_InteractablesPanel_pressed_location"]
+[connection signal="mouse_entered" from="MarginContainer/MouseReactArea" to="." method="_on_MouseReactArea_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/MouseReactArea" to="." method="_on_MouseReactArea_mouse_exited"]
+[connection signal="timeout" from="MarginContainer/MouseReactArea/InteractionsPanel/FadeOutTimer" to="." method="_on_FadeOutTimer_timeout"]
 [connection signal="added_time" from="WorldController" to="." method="_on_WorldController_added_time"]

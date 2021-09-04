@@ -2,37 +2,37 @@ extends Control
 
 
 onready var world_controller = $WorldController
-onready var event_container = $HeaderUI/VBoxContainer/HBoxContainer2/EventContainer
-onready var interactables_panel = $HeaderUI/VBoxContainer/HBoxContainer2/InteractablesPanel
 onready var text_interactable_panel = $BottomFilmBar/TextInteractionPanel
+onready var interactions_animations_player = $MarginContainer/MouseReactArea/InteractionsPanel/AnimationPlayer
+onready var fade_out_timer = $MarginContainer/MouseReactArea/InteractionsPanel/FadeOutTimer
 
-func is_event_active():
-	return event_container.get_child_count() > 0
+enum visibility_settings{FADE_OUT, FADE_IN, SHOW}
+var interactions_visibility : bool = true
 
-func new_event(event_ui : EventUI):
-	if is_event_active():
-		return
-	event_container.add_child(event_ui)
-	event_ui.connect("attempted_waiting", world_controller, "add_time")
-	event_ui.connect("added_historical_note", text_interactable_panel, "add_text")
-
-func _on_InteractablesPanel_pressed_interactable(interaction : int, interactable : InteractableData):
-	var new_event_ui : EventUI = interactable.get_event_ui(interaction)
-	if not new_event_ui == null:
-		new_event(new_event_ui)
-
-func _on_InteractablesPanel_pressed_location(location):
-	if is_event_active():
-		return
-	world_controller.travel_to(location)
-	interactables_panel.current_location = location
-	$Background.texture = location.background
-	text_interactable_panel.add_text("You enter %s" % location.title.to_upper())
+func show_interactions(value : bool):
+	var time_to_end : float = 0.0
+	if interactions_animations_player.is_playing():
+		time_to_end = interactions_animations_player.current_animation_length - interactions_animations_player.current_animation_position
+	if value and not interactions_visibility:
+		interactions_animations_player.play("FadeIn")
+	elif not value and interactions_visibility:
+		interactions_animations_player.play("FadeOut")
+	interactions_visibility = value
+	if interactions_animations_player.is_playing():
+		interactions_animations_player.seek(time_to_end)
 
 func _ready():
-	interactables_panel.current_map = world_controller.get_current_map()
-	interactables_panel.current_location = world_controller.get_current_location()
 	world_controller.add_time(1)
 
 func _on_WorldController_added_time(minutes):
 	text_interactable_panel.add_time(minutes)
+
+func _on_MouseReactArea_mouse_entered():
+	fade_out_timer.stop()
+	show_interactions(true)
+
+func _on_MouseReactArea_mouse_exited():
+	fade_out_timer.start()
+
+func _on_FadeOutTimer_timeout():
+	show_interactions(false)
