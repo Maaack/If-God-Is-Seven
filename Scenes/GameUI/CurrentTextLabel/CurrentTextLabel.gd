@@ -1,6 +1,8 @@
 extends Label
 
 
+signal next_text_displayed(text)
+
 export(float) var base_wait_time = 1.0
 export(float) var word_wait_time = 0.4
 var text_buffer : Array = []
@@ -13,11 +15,12 @@ func _display_next_text():
 	text = next_text
 	$TextWaitTimer.wait_time = base_wait_time + (word_wait_time * word_count)
 	$TextWaitTimer.start()
+	emit_signal("next_text_displayed", next_text)
 
 func add_text(value : String):
 	text_buffer.append(value)
 	if $TextWaitTimer.is_stopped():
-		$TextWaitTimer.start()
+		_display_next_text()
 
 func _on_TextWaitTimer_timeout():
 	text = ""

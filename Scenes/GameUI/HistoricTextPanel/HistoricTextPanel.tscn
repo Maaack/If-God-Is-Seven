@@ -10,7 +10,6 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 0, 50 )
-mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 1 )
@@ -25,12 +24,14 @@ wait_time = 0.2
 one_shot = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 640.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 640, 50 )
 mouse_filter = 2
 custom_constants/margin_right = 2
 custom_constants/margin_top = 2
 custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,20 +39,23 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 margin_left = 2.0
 margin_top = 2.0
-margin_right = 642.0
-margin_bottom = 52.0
-rect_min_size = Vector2( 640, 50 )
-mouse_filter = 1
+margin_right = 638.0
+margin_bottom = 48.0
+mouse_filter = 2
+scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LogLabel" type="Label" parent="MarginContainer/ScrollContainer"]
-margin_right = 640.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 640, 50 )
+margin_right = 636.0
+margin_bottom = 46.0
 size_flags_horizontal = 3
+size_flags_vertical = 7
 custom_fonts/font = ExtResource( 2 )
+text = "
+"
+valign = 2
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false

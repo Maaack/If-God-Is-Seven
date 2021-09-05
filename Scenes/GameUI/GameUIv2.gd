@@ -2,15 +2,13 @@ extends Control
 
 
 onready var world_controller = $WorldController
-onready var historic_text_panel = $BottomFilmBar/HistoricTextPanel
-onready var current_text_panel = $BottomFilmBar/CurrentTextLabel
-onready var historic_text_animations_player = $BottomFilmBar/AnimationPlayer
+onready var subtitle_ui = $BottomFilmBar/SubtitleUI
+onready var travel_ui = $TravelPanel/TravelUI
 onready var interactions_animations_player = $MarginContainer/MouseReactArea/InteractionsPanel/AnimationPlayer
 onready var fade_out_timer = $MarginContainer/MouseReactArea/InteractionsPanel/FadeOutTimer
 
 export(Resource) var start_location : Resource
 var interactions_visibility : bool = true
-var historical_text_visibility : bool = false
 var button_scene = preload("res://Scenes/SceneEditor/SceneInteractableButton.tscn")
 
 func set_location(value : LocationData):
@@ -45,31 +43,19 @@ func show_interactions(value : bool):
 	if interactions_animations_player.is_playing():
 		interactions_animations_player.seek(time_to_end)
 
-func show_historical_text(value : bool):
-	var time_to_end : float = 0.0
-	if historic_text_animations_player.is_playing():
-		time_to_end = historic_text_animations_player.current_animation_length - historic_text_animations_player.current_animation_position
-	if value and not historical_text_visibility:
-		historic_text_animations_player.play("HistoricTextFadeIn")
-	elif not value and historical_text_visibility:
-		historic_text_animations_player.play("HistoricTextFadeOut")
-	historical_text_visibility = value
-	if historic_text_animations_player.is_playing():
-		historic_text_animations_player.seek(time_to_end)
-
 func _add_story_text(value : String):
-	historic_text_panel.add_text(value)
-	current_text_panel.add_text(value)
+	subtitle_ui.add_text(value)
 
 func _ready():
+	travel_ui.current_map = world_controller.get_current_map()
+	travel_ui.current_location = world_controller.get_current_location()
 	world_controller.add_time(1)
 	set_location(start_location)
 	_add_story_text("Something happens and you insta die!")
 	_add_story_text("Oh well...")
-	
 
 func _on_WorldController_added_time(minutes):
-	historic_text_panel.add_time(minutes)
+	subtitle_ui.add_time(minutes)
 
 func _on_MouseReactArea_mouse_entered():
 	fade_out_timer.stop()
@@ -81,8 +67,11 @@ func _on_MouseReactArea_mouse_exited():
 func _on_FadeOutTimer_timeout():
 	show_interactions(false)
 
-func _on_BottomFilmBar_mouse_entered():
-	show_historical_text(true)
+func _on_TravelUI_pressed_location(location):
+	world_controller.travel_to(location)
+	set_location(location)
+	_add_story_text("You enter %s" % location.title)
 
-func _on_BottomFilmBar_mouse_exited():
-	show_historical_text(false)
+func _on_TextureRect_mouse_entered():
+	subtitle_ui.show_historical_text(false)
+

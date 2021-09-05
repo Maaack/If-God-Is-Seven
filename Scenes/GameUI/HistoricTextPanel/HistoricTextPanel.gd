@@ -48,4 +48,3 @@ func add_time(minutes : int):
 	current_hour = total_hour % 12
 	current_day += current_period / 2
 	current_period %= 2
-
