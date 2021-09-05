@@ -1,8 +1,8 @@
 extends Panel
 
 
-onready var log_label = $ScrollContainer/LogLabel
-onready var event_history_scroll = $ScrollContainer
+onready var log_label = $MarginContainer/ScrollContainer/LogLabel
+onready var event_history_scroll = $MarginContainer/ScrollContainer
 onready var event_write_delay_timer = $EventWriteDelayTimer
 
 enum day_periods {AM, PM}

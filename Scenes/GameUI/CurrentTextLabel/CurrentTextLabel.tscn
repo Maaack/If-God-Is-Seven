@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/GameUI/CurrentTextLabel/CurrentTextLabel.gd" type="Script" id=2]
+
+[node name="CurrentTextLabel" type="Label"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Something happens and you see some things in the room."
+align = 1
+valign = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextWaitTimer" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+
+[connection signal="timeout" from="TextWaitTimer" to="." method="_on_TextWaitTimer_timeout"]
