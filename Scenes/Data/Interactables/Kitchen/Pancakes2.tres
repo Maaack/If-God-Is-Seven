@@ -7,3 +7,4 @@ script = ExtResource( 1 )
 title = "Pancakes"
 interactions_array = [  ]
 conditions = [  ]
+scene_position = Vector2( 0, 0 )

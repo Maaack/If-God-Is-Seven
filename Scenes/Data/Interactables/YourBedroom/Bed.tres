@@ -12,4 +12,5 @@ title = "Bed"
 interaction_event = ExtResource( 2 )
 interactions_array = [ 0, 2, 4 ]
 conditions = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
+scene_position = Vector2( 250, 228 )
 made_state = 1

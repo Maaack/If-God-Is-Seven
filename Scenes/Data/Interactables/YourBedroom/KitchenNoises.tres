@@ -9,3 +9,4 @@ title = "Kitchen Noises"
 interaction_event = ExtResource( 2 )
 interactions_array = [ 1 ]
 conditions = [  ]
+scene_position = Vector2( 498, 68 )

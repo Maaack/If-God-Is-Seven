@@ -9,3 +9,4 @@ title = "Toothbrush"
 interaction_event = ExtResource( 3 )
 interactions_array = [ 0, 4 ]
 conditions = [  ]
+scene_position = Vector2( 244, 114 )

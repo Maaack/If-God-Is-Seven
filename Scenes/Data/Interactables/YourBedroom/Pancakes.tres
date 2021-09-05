@@ -9,3 +9,4 @@ title = "Pancakes"
 interaction_event = ExtResource( 2 )
 interactions_array = [ 2 ]
 conditions = [  ]
+scene_position = Vector2( 498, 104 )

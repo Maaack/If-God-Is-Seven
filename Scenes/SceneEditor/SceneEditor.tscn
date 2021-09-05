@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/MainUI/SmallFontLightTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/SceneEditor/SceneEditor.gd" type="Script" id=4]
+
+[node name="SceneEditor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 270.0, 50.0 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 24.0, 616.0 ]
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="ButtonContainer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

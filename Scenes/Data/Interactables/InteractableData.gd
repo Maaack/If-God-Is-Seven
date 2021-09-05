@@ -1,3 +1,4 @@
+tool
 extends Resource
 
 
@@ -12,6 +13,7 @@ export(Array, InteractionConstants.interaction_types) var interactions_array : A
 	InteractionConstants.interaction_types.FEEL,
 ]
 export(Array, Resource) var conditions : Array
+export var scene_position : Vector2
 
 var age_in_minutes : int = 0
 
