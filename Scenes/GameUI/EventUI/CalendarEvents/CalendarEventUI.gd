@@ -20,3 +20,4 @@ func get_look_date():
 
 func _ready():
 	body_label.text = get_body_text() % get_look_date()
+	log_event_text("The calendar reads %s" % get_look_date())

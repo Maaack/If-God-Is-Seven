@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/MainUI/SmallFontLightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/GameUI/SubtitleUI/SubtitleUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/GameUI/GameUIv2.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/TravelUI/TravelUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/GameUI/HintArrow/HintArrow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsPanel.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Scenes/GameUI/WorldController/WorldController.tscn" type="PackedScene" id=47]
 [ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=48]
@@ -52,7 +53,8 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-start_location = ExtResource( 48 )
+current_location = ExtResource( 48 )
+interaction_type = 5
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -93,25 +95,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MouseReactArea" type="Control" parent="MarginContainer"]
-margin_top = 50.0
-margin_right = 100.0
-margin_bottom = 270.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="InteractionsPanel" parent="MarginContainer/MouseReactArea" instance=ExtResource( 42 )]
+[node name="InteractionsPanel" parent="MarginContainer" instance=ExtResource( 42 )]
 margin_left = 0.0
+margin_top = 50.0
 margin_right = 24.0
+margin_bottom = 264.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/MouseReactArea/InteractionsPanel"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/InteractionsPanel"]
 anims/FadeIn = SubResource( 2 )
 anims/FadeOut = SubResource( 3 )
 
-[node name="FadeOutTimer" type="Timer" parent="MarginContainer/MouseReactArea/InteractionsPanel"]
+[node name="FadeOutTimer" type="Timer" parent="MarginContainer/InteractionsPanel"]
 one_shot = true
 
 [node name="ButtonContainer" type="Control" parent="."]
@@ -126,6 +122,7 @@ __meta__ = {
 current_location = ExtResource( 48 )
 
 [node name="TravelPanel" type="Panel" parent="."]
+visible = false
 margin_left = 25.7387
 margin_top = 157.25
 margin_right = 138.739
@@ -138,9 +135,28 @@ __meta__ = {
 margin_right = -22.0
 margin_bottom = -26.0
 
-[connection signal="mouse_entered" from="TextureRect" to="." method="_on_TextureRect_mouse_entered"]
-[connection signal="mouse_entered" from="MarginContainer/MouseReactArea" to="." method="_on_MouseReactArea_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/MouseReactArea" to="." method="_on_MouseReactArea_mouse_exited"]
-[connection signal="timeout" from="MarginContainer/MouseReactArea/InteractionsPanel/FadeOutTimer" to="." method="_on_FadeOutTimer_timeout"]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_top = 50
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EventContainer" type="Control" parent="MarginContainer2"]
+margin_top = 50.0
+margin_right = 640.0
+margin_bottom = 270.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HintArrow" parent="." instance=ExtResource( 6 )]
+
+[connection signal="changed_interaction" from="MarginContainer/InteractionsPanel" to="." method="_on_InteractionsPanel_changed_interaction"]
+[connection signal="timeout" from="MarginContainer/InteractionsPanel/FadeOutTimer" to="." method="_on_FadeOutTimer_timeout"]
 [connection signal="added_time" from="WorldController" to="." method="_on_WorldController_added_time"]
 [connection signal="pressed_location" from="TravelPanel/TravelUI" to="." method="_on_TravelUI_pressed_location"]

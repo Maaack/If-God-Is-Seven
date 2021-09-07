@@ -56,6 +56,7 @@ func _refresh_clock_face():
 
 func _refresh_body_text():
 	body_label.text = get_body_text() % [get_look_time()]
+	log_event_text("The clock reads %s" % get_look_time())
 
 func refresh():
 	_refresh_clock_face()
@@ -101,6 +102,6 @@ func _on_SetButton_pressed():
 	_reset_flashing()
 	_flash_current_stage()
 	if current_use_stage > PERIOD_STAGE:
-		emit_signal("added_historical_note", "You set the time to %s." % get_time_string())
+		log_event_text("You set the time to %s." % get_time_string())
 		emit_signal("attempted_waiting", 1)
 		end_event()

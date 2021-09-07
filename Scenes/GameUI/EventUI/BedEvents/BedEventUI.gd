@@ -18,7 +18,7 @@ func set_source_interactable(value : InteractableData):
 
 func _get_stinky_flavor_text():
 	var condition : ConditionData = _get_source_condition_or_new(STINKY_SWEAT_CONDITION)
-	if condition.can_interact(get_interaction_type()):
+	if condition.is_interactable(get_interaction_type()):
 		match(condition.intensity):
 			1, 2:
 				return "It's really only noticeable if you're up in them."
@@ -32,7 +32,7 @@ func _get_stinky_flavor_text():
 
 func _get_damp_flavor_text():
 	var condition : ConditionData = _get_source_condition_or_new(DAMP_SWEAT_CONDITION)
-	if condition.can_interact(get_interaction_type()):
+	if condition.is_interactable(get_interaction_type()):
 		match(condition.intensity):
 			1, 2:
 				return "Hopefully the sheets are able to dry before you go to sleep again."
@@ -42,7 +42,7 @@ func _get_damp_flavor_text():
 
 func _get_made_state_flavor_text() -> String:
 	var condition : ConditionData = _get_source_condition_or_new(MADE_CONDITION)
-	if condition.can_interact(get_interaction_type()):
+	if condition.is_interactable(get_interaction_type()):
 		match(condition.intensity):
 			0:
 				return "It looks like you didn't make your bed."
@@ -69,6 +69,8 @@ func _get_flavor_text():
 
 func _ready():
 	body_label.text = get_body_text() % [get_interaction_verb(), get_source_conditions_string(), _get_flavor_text()]
+	log_event_text("The bed %s %s." % [get_interaction_verb(), get_source_conditions_string()])
+	log_event_text(_get_flavor_text())
 
 func _clean_bed() -> bool:
 	return _alter_source_condition(MESSY_CONDITION, -1)
@@ -78,15 +80,15 @@ func _make_bed() -> bool:
 
 func _on_MakeButton_pressed():
 	if _clean_bed():
-		emit_signal("added_historical_note", "You clean some of the mess from the bed.")
+		log_event_text("You clean some of the mess from the bed.")
 	if _make_bed():
-		emit_signal("added_historical_note", "You made the bed for a bit.")
+		log_event_text("You made the bed for a bit.")
 	else:
-		emit_signal("added_historical_note", "You failed to make the bed look better.")
+		log_event_text("You failed to make the bed look better.")
 	emit_signal("attempted_waiting", 1)
 	queue_free()
 
 func _on_SleepButton_pressed():
-	emit_signal("added_historical_note", "You slept in the bed for a full 24 hours!")
+	log_event_text("You slept in the bed for a full 24 hours!")
 	emit_signal("attempted_waiting", 1440)
 	queue_free()

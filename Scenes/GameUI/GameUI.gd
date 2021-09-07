@@ -12,10 +12,10 @@ func is_event_active():
 func new_event(event_ui : EventUI):
 	if is_event_active():
 		return
-	event_container.add_child(event_ui)
 	event_ui.connect("attempted_waiting", world_controller, "add_time")
-	event_ui.connect("added_historical_note", temporal_awareness_panel, "add_event")
+	event_ui.connect("logged_event", temporal_awareness_panel, "add_event")
 	event_ui.connect("ended_event", self, "refresh")
+	event_container.add_child(event_ui)
 
 func refresh():
 	interactables_panel.refresh()

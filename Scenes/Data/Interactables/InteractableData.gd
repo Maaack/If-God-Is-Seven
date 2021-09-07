@@ -20,21 +20,21 @@ var age_in_minutes : int = 0
 func add_time(minutes : int):
 	age_in_minutes += minutes
 
-func can_interact(interaction_type : int):
+func is_interactable(interaction_type : int):
 	return interaction_type in interactions_array
 
 func add_interaction_type(interaction_type : int):
-	if can_interact(interaction_type):
+	if is_interactable(interaction_type):
 		return
 	interactions_array.append(interaction_type)
 
 func remove_interaction_type(interaction_type : int):
-	if not can_interact(interaction_type):
+	if not is_interactable(interaction_type):
 		return
 	interactions_array.erase(interaction_type)
 
 func get_event_ui(interaction_type : int):
-	if not can_interact(interaction_type):
+	if not is_interactable(interaction_type):
 		return
 	if interaction_event == null:
 		return

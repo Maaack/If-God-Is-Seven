@@ -9,5 +9,9 @@ script = ExtResource( 2 )
 [node name="TitleLabel" parent="EventPanel/MarginContainer/Control/VBoxContainer" index="0"]
 text = "Checking the Date"
 
+[node name="BodyTextureRect" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 623.0
+
 [node name="BodyLabel" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer" index="2"]
+visible = false
 text = "The calendar reads %s."

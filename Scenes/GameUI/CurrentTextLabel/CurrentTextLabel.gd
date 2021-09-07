@@ -7,6 +7,9 @@ export(float) var base_wait_time = 1.0
 export(float) var word_wait_time = 0.4
 var text_buffer : Array = []
 
+func _can_display_next_text():
+	return $TextWaitTimer.is_stopped() and $TextClearTimer.is_stopped()
+
 func _display_next_text():
 	if text_buffer.size() < 1:
 		return
@@ -19,9 +22,12 @@ func _display_next_text():
 
 func add_text(value : String):
 	text_buffer.append(value)
-	if $TextWaitTimer.is_stopped():
+	if _can_display_next_text():
 		_display_next_text()
 
 func _on_TextWaitTimer_timeout():
 	text = ""
+	$TextClearTimer.start()
+
+func _on_TextClearTimer_timeout():
 	_display_next_text()

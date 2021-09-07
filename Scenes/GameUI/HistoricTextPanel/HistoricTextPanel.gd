@@ -23,9 +23,11 @@ func _get_time_text():
 	return "%02d:%02d %s" % [display_hour, current_minute, display_period]
 
 func add_text(append_text : String):
-	log_label.text += "\n"
+	var new_lines : int = append_text.count("\n") + 1
+	for i in range(new_lines):
+		log_label.text += "\n"
 	yield(event_history_scroll, "draw")
-	event_history_scroll.scroll_vertical += 16
+	event_history_scroll.scroll_vertical += 16 * new_lines
 	event_write_delay_timer.start()
 	yield(event_write_delay_timer, "timeout")
 	var full_log : String = "[06/%d %s] %s" % [current_day, _get_time_text(), append_text]

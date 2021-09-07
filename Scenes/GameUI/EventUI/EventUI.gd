@@ -4,7 +4,7 @@ extends Control
 class_name EventUI
 
 signal attempted_waiting(minutes)
-signal added_historical_note(note)
+signal logged_event(note)
 signal ended_event
 
 onready var title_label = $EventPanel/MarginContainer/Control/VBoxContainer/TitleLabel
@@ -12,9 +12,13 @@ onready var body_label = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxC
 onready var body_texture_node = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyTextureRect
 onready var continue_button = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer2/ContinueButton
 
-var init_body_text : String
 var interaction_type : int
 var source_interactable : InteractableData setget set_source_interactable
+
+func log_event_text(text : String):
+	if text == "":
+		return
+	emit_signal("logged_event", text)
 
 func set_source_interactable(value : InteractableData):
 	source_interactable = value
@@ -41,9 +45,6 @@ func end_event():
 func _on_ContinueButton_pressed():
 	queue_free()
 
-func _ready():
-	init_body_text = body_label.text
-
 func get_interaction_type():
 	return interaction_type
 
@@ -53,7 +54,7 @@ func get_source_interactive_conditions() -> Array:
 		if condition is ConditionData:
 			if condition.intensity == 0:
 				continue
-			if condition.can_interact(interaction_type):
+			if condition.is_interactable(interaction_type):
 				filtered_conditions.append(condition)
 	return filtered_conditions
 
