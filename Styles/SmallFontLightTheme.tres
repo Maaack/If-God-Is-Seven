@@ -1,15 +1,15 @@
 [gd_resource type="Theme" load_steps=11 format=2]
 
-[ext_resource path="res://Scenes/MainUI/NormalButtonStyleBox.tres" type="StyleBox" id=1]
-[ext_resource path="res://Scenes/MainUI/HoverButtonStyleBox.tres" type="StyleBox" id=2]
-[ext_resource path="res://Scenes/MainUI/PressedButtonStyleBox.tres" type="StyleBox" id=3]
+[ext_resource path="res://Styles/NormalButtonStyleBox.tres" type="StyleBox" id=1]
+[ext_resource path="res://Styles/HoverButtonStyleBox.tres" type="StyleBox" id=2]
+[ext_resource path="res://Styles/PressedButtonStyleBox.tres" type="StyleBox" id=3]
 [ext_resource path="res://Assets/Textures/checkbox_normal_2.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Scenes/MainUI/PanelStyleBox.tres" type="StyleBox" id=6]
+[ext_resource path="res://Styles/TinyFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Styles/PanelStyleBox.tres" type="StyleBox" id=6]
 [ext_resource path="res://Assets/Textures/checkbox_inverted_pressed_2.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/MainUI/WhiteStyleBoxt.tres" type="StyleBox" id=8]
-[ext_resource path="res://Scenes/MainUI/BlackWhiteBorderStyleBoxt.tres" type="StyleBox" id=9]
-[ext_resource path="res://Scenes/MainUI/BlackWhiteBorderVScrollStyleBoxt.tres" type="StyleBox" id=10]
+[ext_resource path="res://Styles/WhiteStyleBoxt.tres" type="StyleBox" id=8]
+[ext_resource path="res://Styles/BlackWhiteBorderStyleBoxt.tres" type="StyleBox" id=9]
+[ext_resource path="res://Styles/BlackWhiteBorderVScrollStyleBoxt.tres" type="StyleBox" id=10]
 
 [resource]
 default_font = ExtResource( 5 )

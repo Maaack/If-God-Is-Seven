@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/MainUI/DarkTheme.tres" type="Theme" id=1]
-[ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Styles/DarkTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Styles/TinyFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/Icons/alarm-clock-2_white.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Icons/calendar_white.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/GameUI/TemporalAwarenessUI/TemporalAwarenessPanel.gd" type="Script" id=5]

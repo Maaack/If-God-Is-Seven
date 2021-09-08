@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/MainUI/SmallFontDarkTheme.tres" type="Theme" id=1]
-[ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Styles/SmallFontDarkTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Styles/TinyFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/GameUI/HistoricTextPanel/HistoricTextPanel.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=1]
@@ -41,7 +41,6 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = 638.0
 margin_bottom = 48.0
-mouse_filter = 2
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false

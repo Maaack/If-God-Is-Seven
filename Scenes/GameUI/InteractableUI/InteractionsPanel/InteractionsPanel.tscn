@@ -27,7 +27,7 @@
 [ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsPanel.gd" type="Script" id=25]
 [ext_resource path="res://Assets/Buttons/white-bg/map-black-button.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Buttons/black-bg/map-white-button.png" type="Texture" id=27]
-[ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=28]
+[ext_resource path="res://Styles/LightTheme.tres" type="Theme" id=28]
 [ext_resource path="res://Assets/Buttons/white-bg/dither_black_button.png" type="Texture" id=29]
 
 [node name="InteractionsPanel" type="Panel"]

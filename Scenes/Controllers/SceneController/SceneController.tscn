@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Styles/LightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/Controllers/SceneController/SceneController.gd" type="Script" id=2]
 
 [node name="SceneController" type="Control"]

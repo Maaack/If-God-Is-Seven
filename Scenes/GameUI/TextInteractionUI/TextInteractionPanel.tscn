@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/MainUI/SmallFontDarkTheme.tres" type="Theme" id=1]
-[ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Styles/SmallFontDarkTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Styles/TinyFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/GameUI/TextInteractionUI/TextInteractionPanel.gd" type="Script" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
