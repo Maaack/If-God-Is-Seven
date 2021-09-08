@@ -105,7 +105,7 @@ _global_script_class_icons={
 [application]
 
 config/name="If God Is Seven"
-run/main_scene="res://Scenes/MainUI/MainUI.tscn"
+run/main_scene="res://Scenes/MainView/MainView.tscn"
 config/icon="res://icon.png"
 
 [display]
