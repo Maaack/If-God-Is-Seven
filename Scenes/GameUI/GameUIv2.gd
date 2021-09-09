@@ -4,6 +4,7 @@ extends Control
 onready var world_controller = $WorldController
 onready var subtitle_ui = $BottomFilmBar/SubtitleUI
 onready var event_container = $MarginContainer2/EventContainer
+onready var button_container_node = $ButtonContainer
 onready var travel_panel = $TravelPanel
 onready var interactions_animations_player = $MarginContainer/InteractionsPanel/AnimationPlayer
 onready var fade_out_timer = $MarginContainer/InteractionsPanel/FadeOutTimer
@@ -17,7 +18,6 @@ var button_scene = preload("res://Scenes/SceneEditor/SceneInteractableButton.tsc
 var interactable_button_map : Dictionary = {}
 
 func _clear_buttons():
-	var button_container_node = $ButtonContainer
 	interactable_button_map.clear()
 	if button_container_node == null:
 		return
@@ -29,7 +29,17 @@ func _update_background():
 		return
 	$TextureRect.texture = current_location.background
 
+func is_event_active():
+	return event_container.get_child_count() > 0
+
 func _update_button_visibilty():
+	if button_container_node == null:
+		return
+	if is_event_active():
+		button_container_node.hide()
+		return
+	else:
+		button_container_node.show()
 	for interactable in interactable_button_map:
 		var button_instance : Control = interactable_button_map[interactable]
 		if interactable is InteractableData:
@@ -44,9 +54,6 @@ func _update_button_visibilty():
 	else:
 		travel_panel.hide()
 
-func is_event_active():
-	return event_container.get_child_count() > 0
-
 func refresh():
 	_update_button_visibilty()
 
@@ -56,7 +63,9 @@ func new_event(event_ui : EventUI):
 	event_ui.connect("attempted_waiting", world_controller, "add_time")
 	event_ui.connect("logged_event", self, "_add_subtitle")
 	event_ui.connect("ended_event", self, "refresh")
+	event_ui.connect("tree_exited", self, "refresh")
 	event_container.add_child(event_ui)
+	_update_button_visibilty()
 
 func _on_InteractableButton_pressed(interactable : InteractableData):
 	var new_event_ui : EventUI = interactable.get_event_ui(interaction_type)
@@ -64,7 +73,6 @@ func _on_InteractableButton_pressed(interactable : InteractableData):
 		new_event(new_event_ui)
 
 func _update_buttons():
-	var button_container_node = $ButtonContainer
 	if button_container_node == null:
 		return
 	for interactable in current_location.interactables:
@@ -85,7 +93,6 @@ func set_interaction_type(value : int):
 	_update_button_visibilty()
 
 func set_location(value : LocationData):
-	var button_container_node = $ButtonContainer
 	current_location = value
 	_clear_buttons()
 	if current_location == null:

@@ -4,7 +4,7 @@ extends Label
 signal next_text_displayed(text)
 
 export(float) var base_wait_time = 1.0
-export(float) var word_wait_time = 0.4
+export(float) var word_wait_time = 0.25
 var text_buffer : Array = []
 
 func _can_display_next_text():

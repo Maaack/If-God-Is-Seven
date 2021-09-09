@@ -1,4 +1,4 @@
-extends EventUI
+extends InteractableEventUI
 
 
 class_name BedEventUI

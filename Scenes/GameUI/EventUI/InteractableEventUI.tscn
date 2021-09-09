@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Styles/TinyFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Styles/SmallFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Scenes/GameUI/EventUI/EventUI.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/GameUI/EventUI/InteractableEventUI.gd" type="Script" id=3]
 [ext_resource path="res://Styles/SmallFontLightTheme.tres" type="Theme" id=4]
 
-[node name="EventUI" type="Control"]
+[node name="InteractableEventUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2

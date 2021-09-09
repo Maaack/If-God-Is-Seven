@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Data/Interactables/AlarmClockInteractableData.gd"
 }, {
-"base": "EventUI",
+"base": "InteractableEventUI",
 "class": "BedEventUI",
 "language": "GDScript",
 "path": "res://Scenes/GameUI/EventUI/BedEvents/BedEventUI.gd"
@@ -29,7 +29,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Data/Interactables/BedInteractableData.gd"
 }, {
-"base": "EventUI",
+"base": "InteractableEventUI",
 "class": "CalendarEventUI",
 "language": "GDScript",
 "path": "res://Scenes/GameUI/EventUI/CalendarEvents/CalendarEventUI.gd"
@@ -39,7 +39,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Data/Interactables/CalendarInteractableData.gd"
 }, {
-"base": "EventUI",
+"base": "InteractableEventUI",
 "class": "ClockEventUI",
 "language": "GDScript",
 "path": "res://Scenes/GameUI/EventUI/ClockEvents/ClockEventUI.gd"
@@ -63,6 +63,11 @@ _global_script_classes=[ {
 "class": "InteractableData",
 "language": "GDScript",
 "path": "res://Scenes/Data/Interactables/InteractableData.gd"
+}, {
+"base": "EventUI",
+"class": "InteractableEventUI",
+"language": "GDScript",
+"path": "res://Scenes/GameUI/EventUI/InteractableEventUI.gd"
 }, {
 "base": "Control",
 "class": "InteractableMap",
@@ -96,6 +101,7 @@ _global_script_class_icons={
 "ConditionData": "",
 "EventUI": "",
 "InteractableData": "",
+"InteractableEventUI": "",
 "InteractableMap": "",
 "InteractionConstants": "",
 "LocationButton": "",
