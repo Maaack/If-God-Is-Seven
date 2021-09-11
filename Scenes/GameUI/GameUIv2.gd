@@ -45,6 +45,10 @@ func _update_button_visibilty():
 		if interactable is InteractableData:
 			if interactable.is_interactable(interaction_type):
 				button_instance.visible = true
+				if interactable.has_interacted(interaction_type):
+					button_instance.set_gray(true)
+				else:
+					button_instance.set_gray(false)
 			else:
 				button_instance.visible = false
 	if travel_panel == null:

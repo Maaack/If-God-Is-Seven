@@ -16,12 +16,17 @@ export(Array, Resource) var conditions : Array
 export var scene_position : Vector2
 
 var age_in_minutes : int = 0
+var interaction_count : int = 0
+var interactions_had_array : Array = []
 
 func add_time(minutes : int):
 	age_in_minutes += minutes
 
 func is_interactable(interaction_type : int):
 	return interaction_type in interactions_array
+
+func has_interacted(interaction_type : int):
+	return interaction_type in interactions_had_array
 
 func add_interaction_type(interaction_type : int):
 	if is_interactable(interaction_type):
@@ -43,6 +48,9 @@ func get_event_ui(interaction_type : int):
 		return
 	event_ui.source_interactable = self
 	event_ui.interaction_type = interaction_type
+	interaction_count += 1
+	if not has_interacted(interaction_type):
+		interactions_had_array.append(interaction_type)
 	return event_ui
 
 func get_conditions() -> Array:

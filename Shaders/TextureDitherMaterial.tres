@@ -6,7 +6,7 @@
 
 [resource]
 shader = ExtResource( 3 )
-shader_param/bit_depth = 32
+shader_param/bit_depth = 16
 shader_param/contrast = 0.5
 shader_param/offset = -0.5
 shader_param/pixel_size = 1
