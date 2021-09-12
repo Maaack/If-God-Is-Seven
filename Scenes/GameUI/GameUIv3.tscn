@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Styles/SmallFontLightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/GameUI/GameUIv2.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/TravelUI/TravelUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GameUI/HintArrow/HintArrow.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/GameUI/MouseCursor/MouseCursor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsPanel.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Scenes/GameUI/WorldController/WorldController.tscn" type="PackedScene" id=47]
 [ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=48]
@@ -155,6 +156,8 @@ __meta__ = {
 }
 
 [node name="HintArrow" parent="." instance=ExtResource( 6 )]
+
+[node name="MouseCursor" parent="." instance=ExtResource( 7 )]
 
 [connection signal="changed_interaction" from="MarginContainer/InteractionsPanel" to="." method="_on_InteractionsPanel_changed_interaction"]
 [connection signal="timeout" from="MarginContainer/InteractionsPanel/FadeOutTimer" to="." method="_on_FadeOutTimer_timeout"]

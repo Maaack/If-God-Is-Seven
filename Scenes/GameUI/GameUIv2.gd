@@ -24,6 +24,16 @@ func _clear_buttons():
 	for child in button_container_node.get_children():
 		child.queue_free()
 
+func _force_mouse_cursor_pointer():
+	if $MouseCursor == null:
+		return
+	$MouseCursor.set_interaction_type(InteractionConstants.interaction_types.POINT)	
+
+func _update_mouse_cursor():
+	if $MouseCursor == null:
+		return
+	$MouseCursor.set_interaction_type(interaction_type)
+
 func _update_background():
 	if $TextureRect == null:
 		return
@@ -59,6 +69,7 @@ func _update_button_visibilty():
 		travel_panel.hide()
 
 func refresh():
+	_update_mouse_cursor()
 	_update_button_visibilty()
 
 func new_event(event_ui : EventUI):
@@ -69,6 +80,7 @@ func new_event(event_ui : EventUI):
 	event_ui.connect("ended_event", self, "refresh")
 	event_ui.connect("tree_exited", self, "refresh")
 	event_container.add_child(event_ui)
+	_force_mouse_cursor_pointer()
 	_update_button_visibilty()
 
 func _on_InteractableButton_pressed(interactable : InteractableData):
@@ -94,6 +106,7 @@ func set_interaction_type(value : int):
 	interaction_type = value
 	if interaction_type == null:
 		return
+	_update_mouse_cursor()
 	_update_button_visibilty()
 
 func set_location(value : LocationData):
