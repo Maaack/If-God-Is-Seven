@@ -55,7 +55,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 current_location = ExtResource( 48 )
-interaction_type = 5
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -156,6 +155,10 @@ __meta__ = {
 }
 
 [node name="HintArrow" parent="." instance=ExtResource( 6 )]
+margin_left = -296.0
+margin_top = -96.0
+margin_right = -256.0
+margin_bottom = -56.0
 
 [node name="MouseCursor" parent="." instance=ExtResource( 7 )]
 

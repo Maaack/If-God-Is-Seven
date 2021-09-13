@@ -10,12 +10,15 @@ onready var interactions_animations_player = $MarginContainer/InteractionsPanel/
 onready var fade_out_timer = $MarginContainer/InteractionsPanel/FadeOutTimer
 
 export(Resource) var current_location : Resource
-export(InteractionConstants.interaction_types) var interaction_type : int = InteractionConstants.interaction_types.LOOK setget set_interaction_type
 
+var interaction_type : int = InteractionConstants.interaction_types.POINT setget set_interaction_type
 var interactions_visibility : bool = true
 var interactions_force_show : bool = true
 var button_scene = preload("res://Scenes/SceneEditor/SceneInteractableButton.tscn")
 var interactable_button_map : Dictionary = {}
+
+func _hide_hint_1():
+	$HintArrow.fade_out()
 
 func _clear_buttons():
 	interactable_button_map.clear()
@@ -69,6 +72,7 @@ func _update_button_visibilty():
 		travel_panel.hide()
 
 func refresh():
+	_hide_hint_1()
 	_update_mouse_cursor()
 	_update_button_visibilty()
 
@@ -106,8 +110,7 @@ func set_interaction_type(value : int):
 	interaction_type = value
 	if interaction_type == null:
 		return
-	_update_mouse_cursor()
-	_update_button_visibilty()
+	refresh()
 
 func set_location(value : LocationData):
 	current_location = value
