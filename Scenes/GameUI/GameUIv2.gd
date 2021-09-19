@@ -143,6 +143,7 @@ func _ready():
 	travel_ui.current_location = world_controller.get_current_location()
 	world_controller.add_time(1)
 	set_location(current_location)
+	_update_mouse_cursor()
 	_add_subtitle("You stir from your sleep...")
 	_add_subtitle("The alarm clock is buzzing loudly!")
 

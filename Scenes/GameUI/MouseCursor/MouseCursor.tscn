@@ -1,46 +1,56 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/GameUI/MouseCursor/MouseCursor.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Icons/16x16/white/arrow-pointer-outlined.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Icons/16x16/white/feel.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Icons/16x16/white/smell.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Icons/16x16/white/take.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Icons/16x16/white/travel.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Icons/16x16/white/speak.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Icons/16x16/white/look.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Icons/16x16/white/listen.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/feel.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/arrow-pointer.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/listen.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/look.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/speak.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/travel.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/take.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/smell.png" type="Texture" id=9]
+[ext_resource path="res://Shaders/OutlineMaterial.tres" type="Material" id=10]
 
 [node name="MouseCursor" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="ArrowPointer" type="Sprite" parent="."]
+visible = false
+material = ExtResource( 10 )
 position = Vector2( 5, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Feel" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 3 )
+material = ExtResource( 10 )
+texture = ExtResource( 2 )
 
 [node name="Listen" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 9 )
+material = ExtResource( 10 )
+texture = ExtResource( 4 )
 
 [node name="Look" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 8 )
+material = ExtResource( 10 )
+texture = ExtResource( 5 )
 
 [node name="Smell" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 4 )
+material = ExtResource( 10 )
+texture = ExtResource( 9 )
 
 [node name="Speak" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 7 )
+material = ExtResource( 10 )
+texture = ExtResource( 6 )
 
 [node name="Take" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 5 )
+material = ExtResource( 10 )
+texture = ExtResource( 8 )
 
 [node name="Travel" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 6 )
+material = ExtResource( 10 )
+texture = ExtResource( 7 )
