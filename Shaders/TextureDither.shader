@@ -1,7 +1,5 @@
 /* 
-This shader is under MIT license. Feel free to use, improve and 
-change this shader according to your needs and consider sharing 
-the modified result to godotshaders.com.
+This shader is under MIT license.
 */
 
 shader_type canvas_item;
@@ -10,8 +8,6 @@ uniform sampler2D dither_texture;
 uniform sampler2D color_palette;
 
 uniform int bit_depth = 32;
-uniform float contrast = 0;
-uniform float offset = 0;
 uniform int pixel_size = 1;
 
 void fragment() 
@@ -20,56 +16,42 @@ void fragment()
 	// this will effectively pixelate the resulting output
 	vec2 screen_size = vec2(textureSize(TEXTURE, 0)) / float(pixel_size);
 	vec2 screen_sample_uv = floor(UV * screen_size) / screen_size;
-	vec3 screen_col = texture(TEXTURE, screen_sample_uv + TEXTURE_PIXEL_SIZE / 2.0).rgb;
+	vec3 screen_color = texture(TEXTURE, screen_sample_uv + TEXTURE_PIXEL_SIZE / 2.0).rgb;
 	
 	// calculate pixel luminosity (https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color)
-	float lum = (screen_col.r * 0.299) + (screen_col.g * 0.587) + (screen_col.b * 0.114);
-	
-	// adjust with contrast and offset parameters
-	lum = (lum - 0.5 + offset) * contrast + 0.5;
+	float lum = (screen_color.r * 0.299) + (screen_color.g * 0.587) + (screen_color.b * 0.114);
 	lum = clamp(lum, 0.0, 1.0);
 	
-	// reduce luminosity bit depth to give a more banded visual if desired	
+	// reduce luminosity bit depth to give a more banded visual if desired
 	float bits = float(bit_depth);
 	lum = floor(lum * bits) / bits;
 	
+	ivec2 color_size = textureSize(color_palette, 0);
+	float color_count = float(color_size.x);
+	float color_texel_size = 1.0 / color_count;
+
 	// to support multicolour palettes, we want to dither between the two colours on the palette
 	// which are adjacent to the current pixel luminosity.
-	// to do this, we need to determine which 'band' lum falls into, calculate the upper and lower
-	// bound of that band, then later we will use the dither texture to pick either the upper or 
-	// lower colour.
-	
-	// get the palette texture size mapped so it is 1px high (so the x value however many colour bands there are)
-	ivec2 col_size = textureSize(color_palette, 0);
-	col_size /= col_size.y;
-	
-	float col_x = float(col_size.x); // colour boundaries is 1 less than the number of colour bands
-	float col_texel_size = 1.0 / col_x; // the size of one colour boundary
-	
-	lum = max(lum - 0.00001, 0.0); // makes sure our floor calculation below behaves when lum == 1.0
-	float lum_lower = floor(lum * col_x) * col_texel_size;
-	float lum_upper = (floor(lum * col_x) + 1.0) * col_texel_size;
-	float lum_scaled = lum * col_x - floor(lum * col_x); // calculates where lum lies between the upper and lower bound
+	float lum_floor = floor(max(lum - 0.001, 0) * (color_count - 1.0));
+	float lum_lower_x = lum_floor * color_texel_size + color_texel_size / 2.0;
+	float lum_upper_x = (lum_floor + 1.0) * color_texel_size + color_texel_size / 2.0;
 	
 	// map the dither texture onto the screen. there are better ways of doing this that makes the dither pattern 'stick'
 	// with objects in the 3D world, instead of being mapped onto the screen. see lucas pope's details posts on how he 
 	// achieved this in Obra Dinn: https://forums.tigsource.com/index.php?topic=40832.msg1363742#msg1363742
 	ivec2 noise_size = textureSize(dither_texture, 0);
-	vec2 inv_noise_size = vec2(1.0 / float(noise_size.x), 1.0 / float(noise_size.y));
-	vec2 noise_uv = UV * inv_noise_size * vec2(float(screen_size.x), float(screen_size.y));
+	vec2 noise_pixel_size = vec2(1.0 / float(noise_size.x), 1.0 / float(noise_size.y));
+	vec2 noise_uv = (screen_sample_uv * noise_pixel_size * screen_size);
 	float threshold = texture(dither_texture, noise_uv).r;
 	
 	// adjust the dither slightly so min and max aren't quite at 0.0 and 1.0
 	// otherwise we wouldn't get fullly dark and fully light dither patterns at lum 0.0 and 1.0
 	threshold = threshold * 0.99 + 0.005;
-	
-	// the lower lum_scaled is, the fewer pixels will be below the dither threshold, and thus will use the lower bound colour,
-	// and vice-versa
-	float ramp_val = lum_scaled < threshold ? 0.0f : 1.0f;
+
+	float ramp_val = lum < threshold ? 0.0f : 1.0f;
 	// sample at the lower bound colour if ramp_val is 0.0, upper bound colour if 1.0
-	float col_sample = mix(lum_lower, lum_upper, ramp_val);
-	vec3 final_col = texture(color_palette, vec2(col_sample, 0.5)).rgb;
+	vec2 color_sample_uv = vec2(mix(lum_lower_x, lum_upper_x, ramp_val), 0.5);
+	vec3 final_color = texture(color_palette, color_sample_uv).rgb;
 	
-	// return the final colour!
-	COLOR.rgb = final_col;
+	COLOR.rgb = final_color;
 }

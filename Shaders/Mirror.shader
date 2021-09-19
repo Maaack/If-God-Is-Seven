@@ -1,3 +1,6 @@
+/* 
+This shader is under MIT license.
+*/
 shader_type canvas_item;
 
 uniform float x_mirror = 0.5;
