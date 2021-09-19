@@ -11,6 +11,14 @@ func update_interactions_available(interactions_array : Array):
 	$MarginContainer/InteractionOptionsContainer/GrabButton.disabled = not InteractionConstants.interaction_types.GRAB in interactions_array
 	$MarginContainer/InteractionOptionsContainer/SpeakButton.disabled = not InteractionConstants.interaction_types.SPEAK in interactions_array
 
+func update_interaction_type_set(interaction_type : int):
+	$MarginContainer/InteractionOptionsContainer/LookButton.pressed = InteractionConstants.interaction_types.LOOK == interaction_type
+	$MarginContainer/InteractionOptionsContainer/ListenButton.pressed = InteractionConstants.interaction_types.LISTEN == interaction_type
+	$MarginContainer/InteractionOptionsContainer/SmellButton.pressed = InteractionConstants.interaction_types.SMELL == interaction_type
+	$MarginContainer/InteractionOptionsContainer/FeelButton.pressed = InteractionConstants.interaction_types.FEEL == interaction_type
+	$MarginContainer/InteractionOptionsContainer/GrabButton.pressed = InteractionConstants.interaction_types.GRAB == interaction_type
+	$MarginContainer/InteractionOptionsContainer/SpeakButton.pressed = InteractionConstants.interaction_types.SPEAK == interaction_type
+
 func _on_LookButton_pressed():
 	emit_signal("changed_interaction", InteractionConstants.interaction_types.LOOK)
 

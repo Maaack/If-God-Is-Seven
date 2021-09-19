@@ -23,7 +23,7 @@ func _hide_hint_1():
 
 func _clear_buttons():
 	interactable_button_map.clear()
-	interaction_types_available.clear()
+	interaction_types_available = [InteractionConstants.interaction_types.TRAVEL]
 	if button_container_node == null:
 		return
 	for child in button_container_node.get_children():
@@ -32,7 +32,7 @@ func _clear_buttons():
 func _force_mouse_cursor_pointer():
 	if $MouseCursor == null:
 		return
-	$MouseCursor.set_interaction_type(InteractionConstants.interaction_types.POINT)	
+	$MouseCursor.set_interaction_type(InteractionConstants.interaction_types.POINT)
 
 func _update_mouse_cursor():
 	if $MouseCursor == null:
@@ -78,6 +78,15 @@ func _update_button_visibilty():
 		travel_panel.show()
 	else:
 		travel_panel.hide()
+
+func _cycle_interaction():
+	interaction_type += 1
+	while(not interaction_type in interaction_types_available):
+		interaction_type += 1
+		if interaction_type >= InteractionConstants.interaction_types.size():
+			interaction_type = 0
+	$MarginContainer/InteractionsPanel.update_interaction_type_set(interaction_type)
+	set_interaction_type(interaction_type)
 
 func refresh():
 	_hide_hint_1()
@@ -172,11 +181,18 @@ func _on_TravelUI_pressed_location(location):
 func _on_InteractionsPanel_changed_interaction(interaction : int):
 	set_interaction_type(interaction)
 
-func _input(event):
-	if event is InputEventMouseMotion:
+func _handle_mouse_motion(event : InputEventMouseMotion):
 		if event.position.x < 50:
 			show_interactions_menu(true)
 			interactions_force_show = false
 		elif not interactions_force_show and interactions_visibility and fade_out_timer.is_stopped():
 			fade_out_timer.start()
 		subtitle_ui.show_historical_text(event.position.y > get_rect().size.y - 50)
+	
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		_handle_mouse_motion(event)
+	elif event.is_action_pressed("ui_cycle_interaction"):
+		_cycle_interaction()
+		
