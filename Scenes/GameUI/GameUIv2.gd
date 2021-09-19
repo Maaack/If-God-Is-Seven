@@ -16,12 +16,14 @@ var interactions_visibility : bool = true
 var interactions_force_show : bool = true
 var button_scene = preload("res://Scenes/SceneEditor/SceneInteractableButton.tscn")
 var interactable_button_map : Dictionary = {}
+var interaction_types_available : Array = []
 
 func _hide_hint_1():
 	$HintArrow.fade_out()
 
 func _clear_buttons():
 	interactable_button_map.clear()
+	interaction_types_available.clear()
 	if button_container_node == null:
 		return
 	for child in button_container_node.get_children():
@@ -44,6 +46,9 @@ func _update_background():
 
 func is_event_active():
 	return event_container.get_child_count() > 0
+
+func _update_interaction_types_button_visibility():
+	$MarginContainer/InteractionsPanel.update_interactions_available(interaction_types_available)
 
 func _update_button_visibilty():
 	if button_container_node == null:
@@ -104,7 +109,9 @@ func _update_buttons():
 			button_instance.set_position(interactable.scene_position)
 			button_instance.connect("pressed", self, "_on_InteractableButton_pressed", [interactable])
 			interactable_button_map[interactable] = button_instance
+			interaction_types_available.append_array(interactable.interactions_array)
 	_update_button_visibilty()
+	_update_interaction_types_button_visibility()
 
 func set_interaction_type(value : int):
 	interaction_type = value
@@ -156,7 +163,7 @@ func _on_FadeOutTimer_timeout():
 func _on_TravelUI_pressed_location(location):
 	world_controller.travel_to(location)
 	set_location(location)
-	_add_subtitle("You enter %s" % location.title)
+	_add_subtitle("You enter %s." % location.title)
 
 func _on_InteractionsPanel_changed_interaction(interaction : int):
 	set_interaction_type(interaction)

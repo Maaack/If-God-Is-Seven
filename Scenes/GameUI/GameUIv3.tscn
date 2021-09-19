@@ -96,9 +96,7 @@ __meta__ = {
 }
 
 [node name="InteractionsPanel" parent="MarginContainer" instance=ExtResource( 42 )]
-margin_left = 0.0
 margin_top = 50.0
-margin_right = 24.0
 margin_bottom = 264.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
