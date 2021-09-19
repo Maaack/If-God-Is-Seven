@@ -47,6 +47,9 @@ func _update_background():
 func is_event_active():
 	return event_container.get_child_count() > 0
 
+func _update_map():
+	$TravelPanel/TravelUI.set_current_location(current_location)
+	
 func _update_interaction_types_button_visibility():
 	$MarginContainer/InteractionsPanel.update_interactions_available(interaction_types_available)
 
@@ -126,6 +129,7 @@ func set_location(value : LocationData):
 		return
 	_update_background()
 	_update_buttons()
+	_update_map()
 
 func show_interactions_menu(value : bool):
 	if value:

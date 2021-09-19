@@ -41,7 +41,6 @@ func _on_mouse_exited_location(location_button : LocationButton):
 	emit_signal("mouse_exited_location", location_button.location)
 
 func _on_pressed_location(location_button : LocationButton):
-	location_button.pressed = false
 	emit_signal("pressed_location", location_button.location)
 
 func _ready():
