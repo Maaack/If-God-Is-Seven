@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scenes/GameView/BlackoutFilmBars.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Styles/LightTheme.tres" type="Theme" id=2]
-[ext_resource path="res://Styles/TitleFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Styles/TitleFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/TitleScreen/TitleScreenScene.gd" type="Script" id=2]
+[ext_resource path="res://Styles/LightTheme.tres" type="Theme" id=3]
 [ext_resource path="res://Assets/Music/sawsquarenoise - Tittle Screen.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Scenes/Backgrounds/TitleScreenCrownShyness.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/GameView/MirrorViewContainer.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/GameView/TitleScreenScene.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/TitleScreen/CreditsBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/ViewContainers/MirrorViewContainer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/TitleScreen/BlackoutFilmBars.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -72,13 +73,13 @@ tracks/1/keys = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 277.32, -74.1501 )
-theme = ExtResource( 2 )
-script = ExtResource( 7 )
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MirrorViewContainer" parent="." instance=ExtResource( 6 )]
+[node name="MirrorViewContainer" parent="." instance=ExtResource( 7 )]
 current_scene = ExtResource( 5 )
 
 [node name="Panel" type="Panel" parent="."]
@@ -107,7 +108,7 @@ margin_left = 6.0
 margin_top = 6.0
 margin_right = 347.0
 margin_bottom = 55.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
 text = "If God is Seven"
 align = 1
 valign = 2
@@ -149,7 +150,7 @@ align = 1
 autoplay = "New Anim"
 "anims/New Anim" = SubResource( 2 )
 
-[node name="BlackoutFilmBars" parent="." instance=ExtResource( 1 )]
+[node name="BlackoutFilmBars" parent="." instance=ExtResource( 8 )]
 
 [node name="MouseDetect" type="Control" parent="."]
 anchor_right = 1.0
@@ -212,7 +213,17 @@ stream = ExtResource( 4 )
 volume_db = -13.921
 autoplay = true
 
+[node name="Credits" parent="." instance=ExtResource( 6 )]
+margin_top = 50.0
+margin_bottom = -45.0
+
+[node name="Label" parent="Credits/MarginContainer" index="0"]
+margin_bottom = 175.0
+
 [connection signal="gui_input" from="MouseDetect" to="." method="_on_MouseDetect_gui_input"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Credits/CloseCreditsButton" to="." method="_on_CloseCreditsButton_pressed"]
+
+[editable path="Credits"]

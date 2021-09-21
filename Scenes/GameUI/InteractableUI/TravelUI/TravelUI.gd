@@ -44,4 +44,3 @@ func _on_MapControl_mouse_exited_location(location):
 func _on_MapControl_pressed_location(location):
 	emit_signal("pressed_location", location)
 
-

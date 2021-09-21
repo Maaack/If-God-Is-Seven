@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/GameView/TitleScreenScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/TitleScreen/TitleScreenScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Controllers/SceneController/SceneController.tscn" type="PackedScene" id=2]
 
 [node name="MainSceneController" instance=ExtResource( 2 )]

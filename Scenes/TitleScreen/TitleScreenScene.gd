@@ -3,7 +3,7 @@ extends Control
 
 signal scene_changed(scene)
 
-var start_game_scene = preload("res://Scenes/GameUI/GameUIv3.tscn")
+var start_game_scene = preload("res://Scenes/GameUI/GameUI.tscn")
 var click_counter = 0
 var ff_clicks_threshold = 2
 

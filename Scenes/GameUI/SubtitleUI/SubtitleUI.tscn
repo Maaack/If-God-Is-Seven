@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/GameUI/SubtitleUI/SubtitleUI.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GameUI/HistoricTextPanel/HistoricTextPanel.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/GameUI/CurrentTextLabel/CurrentTextLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/GameUI/SubtitleUI/HistoricTextPanel/HistoricTextPanel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/GameUI/SubtitleUI/CurrentTextLabel/CurrentTextLabel.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 

@@ -72,7 +72,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "InteractableMap",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/LocalAwarenessUI/InteractableMap.gd"
+"path": "res://Scenes/GameUI/Maps/InteractableMap.gd"
 }, {
 "base": "Reference",
 "class": "InteractionConstants",
@@ -82,7 +82,7 @@ _global_script_classes=[ {
 "base": "TextureButton",
 "class": "LocationButton",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/LocalAwarenessUI/LocationButton.gd"
+"path": "res://Scenes/GameUI/Maps/LocationButton.gd"
 }, {
 "base": "Resource",
 "class": "LocationData",

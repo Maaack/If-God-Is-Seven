@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/GameView/ViewContainer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/ViewContainers/ViewContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Shaders/MirrorMaterial.tres" type="Material" id=2]
 
 [node name="MirrorViewContainer" instance=ExtResource( 1 )]
