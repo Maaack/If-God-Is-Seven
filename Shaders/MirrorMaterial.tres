@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Shaders/Mirror.shader" type="Shader" id=3]
+
+[resource]
+shader = ExtResource( 3 )
+shader_param/x_mirror = 0.5
+shader_param/x_offset = 0.0

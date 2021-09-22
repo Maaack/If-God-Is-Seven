@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/GameUI/EventUI/TextEventUI.gd" type="Script" id=1]
+[ext_resource path="res://Styles/SmallFontLightTheme.tres" type="Theme" id=4]
+
+[node name="TextEventUI" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 257.0
+margin_top = 144.0
+margin_right = 383.0
+margin_bottom = 175.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 123.0
+margin_bottom = 28.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BodyLabel" type="Label" parent="PanelContainer/MarginContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 112.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "A small body of text."
+align = 1
+valign = 1
