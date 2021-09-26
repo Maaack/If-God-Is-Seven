@@ -126,6 +126,13 @@
 #### Sprint 7
 * UI Redesigns
 
+#### Sprint 8
+* Planning
+  * Full demo story
+  * Locations
+  * Characters
+  * Interactions
+
 ### Backlog
 #### Sprint ?
 * Player Inventory
