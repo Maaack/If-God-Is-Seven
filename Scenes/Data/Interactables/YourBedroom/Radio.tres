@@ -7,3 +7,4 @@ script = ExtResource( 1 )
 title = "Radio"
 interactions_array = [  ]
 conditions = [  ]
+scene_position = Vector2( 32, 80 )

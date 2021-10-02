@@ -77,6 +77,8 @@ func _get_flavor_text() -> String:
 
 func _refresh_body_text():
 	body_label.text = get_body_text() % [get_look_time(), _get_flavor_text()]
+	log_event_text("The clock reads %s" % get_look_time())
+	log_event_text(_get_flavor_text())
 
 func _ready():
 	alarm_checkbox.pressed = source_interactable.alarm_ringing
@@ -97,7 +99,7 @@ func _on_FlashTimer_timeout():
 func _on_ModButton_pressed():
 	if source_interactable.alarm_ringing:
 		source_interactable.alarm_ringing = false
-		emit_signal("added_historical_note", "You silenced the ALARM CLOCK.")
+		log_event_text("You silenced the alarm clock.")
 		end_event()
 	else:
 		match(current_use_stage):
@@ -130,7 +132,7 @@ func _on_SetButton_pressed():
 	if source_interactable.alarm_ringing:
 		source_interactable.alarm_ringing = false
 		source_interactable.alarm_snoozing = true
-		emit_signal("added_historical_note", "You snoozed the ALARM CLOCK.")
+		log_event_text("You snoozed the alarm clock.")
 		end_event()
 	else:
 		current_use_stage += 1
@@ -139,9 +141,9 @@ func _on_SetButton_pressed():
 		_flash_current_stage()
 		if current_use_stage > PERIOD_STAGE:
 			if not edit_alarm_mode:
-				emit_signal("added_historical_note", "You set the ALARM CLOCK's time to %s." % get_time_string())
+				log_event_text("You set the alarm clock's time to %s." % get_time_string())
 			else:
-				emit_signal("added_historical_note", "You set the ALARM CLOCK's alarm time to %s." % get_alarm_time_string())
+				log_event_text("You set the alarm clock's alarm time to %s." % get_alarm_time_string())
 			emit_signal("attempted_waiting", 1)
 			end_event()
 

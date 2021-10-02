@@ -21,7 +21,7 @@ func _get_current_interactables():
 	if not current_location is LocationData:
 		return current_interactables
 	for interactable in current_location.interactables:
-		if not interactable.can_interact(current_interaction):
+		if not interactable.is_interactable(current_interaction):
 			continue
 		current_interactables.append(interactable)
 	return current_interactables

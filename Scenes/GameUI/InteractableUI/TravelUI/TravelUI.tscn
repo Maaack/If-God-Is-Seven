@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/GameUI/InteractableUI/TravelUI/TravelUI.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/MainUI/TinyFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Styles/TinyFont.tres" type="DynamicFont" id=2]
 
 [node name="TravelUI" type="Control"]
 anchor_right = 1.0
@@ -32,7 +32,7 @@ margin_top = 89.0
 margin_right = 116.0
 margin_bottom = 98.0
 custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0.133333, 0.137255, 0.137255, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Go to..."
 align = 1
 __meta__ = {

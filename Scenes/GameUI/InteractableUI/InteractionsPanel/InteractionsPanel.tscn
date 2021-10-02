@@ -1,40 +1,42 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
-[ext_resource path="res://Assets/Buttons/apparel-white-button.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Buttons/inventory-white-button.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Buttons/notes-white-button.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Buttons/speak-black-button.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Buttons/inventory-black-button.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Buttons/notes-black-button.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Buttons/speak-white-button.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Buttons/system-black-button.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Buttons/wait-black-button.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Buttons/system-white-button.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Buttons/wait-white-button.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Buttons/apparel-black-button.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Buttons/travel-black-button.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Buttons/travel-white-button.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Buttons/grab-black-button.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Buttons/grab-white-button.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Buttons/listen-white-button.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Buttons/listen-black-button.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Buttons/look-white-button.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Buttons/look-black-button.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Buttons/smell-white-button.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Buttons/smell-black-button.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Buttons/interact-black-button.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Buttons/interact-white-button.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Buttons/black-bg/apparel-white-button.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Buttons/black-bg/inventory-white-button.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Buttons/black-bg/notes-white-button.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Buttons/white-bg/speak-black-button.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Buttons/white-bg/inventory-black-button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Buttons/white-bg/notes-black-button.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Buttons/black-bg/speak-white-button.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Buttons/white-bg/system-black-button.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Buttons/white-bg/wait-black-button.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Buttons/black-bg/system-white-button.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Buttons/black-bg/wait-white-button.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Buttons/white-bg/apparel-black-button.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Buttons/white-bg/travel-black-button.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/black-bg/travel-white-button.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Buttons/white-bg/grab-black-button.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Buttons/black-bg/grab-white-button.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Buttons/black-bg/listen-white-button.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Buttons/white-bg/listen-black-button.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Buttons/black-bg/look-white-button.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Buttons/white-bg/look-black-button.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Buttons/black-bg/smell-white-button.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Buttons/white-bg/smell-black-button.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Buttons/white-bg/interact-black-button.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Buttons/black-bg/interact-white-button.png" type="Texture" id=24]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsPanel.gd" type="Script" id=25]
-[ext_resource path="res://Assets/Buttons/map-black-button.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Buttons/map-white-button.png" type="Texture" id=27]
-[ext_resource path="res://Scenes/MainUI/LightTheme.tres" type="Theme" id=28]
-[ext_resource path="res://Assets/Buttons/dither_black_button.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Buttons/white-bg/map-black-button.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Buttons/black-bg/map-white-button.png" type="Texture" id=27]
+[ext_resource path="res://Styles/LightTheme.tres" type="Theme" id=28]
+[ext_resource path="res://Assets/Buttons/white-bg/dither_black_button.png" type="Texture" id=29]
+[ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsButtonGroup.tres" type="ButtonGroup" id=30]
+[ext_resource path="res://Assets/Buttons/white-bg/light_gray_button.png" type="Texture" id=31]
 
 [node name="InteractionsPanel" type="Panel"]
-margin_left = 120.0
-margin_right = 144.0
-margin_bottom = 194.0
-rect_min_size = Vector2( 24, 194 )
+margin_right = 24.0
+margin_bottom = 214.0
+rect_min_size = Vector2( 24, 214 )
+mouse_filter = 1
 theme = ExtResource( 28 )
 script = ExtResource( 25 )
 __meta__ = {
@@ -44,6 +46,7 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 custom_constants/margin_right = 2
 custom_constants/margin_top = 2
 custom_constants/margin_left = 2
@@ -56,7 +59,7 @@ __meta__ = {
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 22.0
-margin_bottom = 192.0
+margin_bottom = 212.0
 custom_constants/separation = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -65,10 +68,13 @@ __meta__ = {
 [node name="LookButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
 margin_right = 20.0
 margin_bottom = 20.0
+mouse_filter = 1
+toggle_mode = true
+group = ExtResource( 30 )
 texture_normal = ExtResource( 20 )
-texture_pressed = ExtResource( 20 )
-texture_hover = ExtResource( 19 )
-texture_disabled = ExtResource( 29 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 20 )
+texture_disabled = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -77,10 +83,13 @@ __meta__ = {
 margin_top = 21.0
 margin_right = 20.0
 margin_bottom = 41.0
+mouse_filter = 1
+toggle_mode = true
+group = ExtResource( 30 )
 texture_normal = ExtResource( 18 )
-texture_pressed = ExtResource( 18 )
-texture_hover = ExtResource( 17 )
-texture_disabled = ExtResource( 29 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 18 )
+texture_disabled = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -89,10 +98,13 @@ __meta__ = {
 margin_top = 42.0
 margin_right = 20.0
 margin_bottom = 62.0
+mouse_filter = 1
+toggle_mode = true
+group = ExtResource( 30 )
 texture_normal = ExtResource( 22 )
-texture_pressed = ExtResource( 22 )
-texture_hover = ExtResource( 21 )
-texture_disabled = ExtResource( 29 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
+texture_disabled = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -101,85 +113,113 @@ __meta__ = {
 margin_top = 63.0
 margin_right = 20.0
 margin_bottom = 83.0
+mouse_filter = 1
+toggle_mode = true
+group = ExtResource( 30 )
 texture_normal = ExtResource( 23 )
-texture_pressed = ExtResource( 23 )
-texture_hover = ExtResource( 24 )
-texture_disabled = ExtResource( 29 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 23 )
+texture_disabled = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GrabButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
-visible = false
 margin_top = 84.0
 margin_right = 20.0
 margin_bottom = 104.0
+mouse_filter = 1
+toggle_mode = true
+group = ExtResource( 30 )
 texture_normal = ExtResource( 15 )
-texture_pressed = ExtResource( 15 )
-texture_hover = ExtResource( 16 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 15 )
+texture_disabled = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SpeakButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
-margin_top = 84.0
-margin_right = 20.0
-margin_bottom = 104.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 7 )
-texture_disabled = ExtResource( 29 )
-
-[node name="InventoryButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
 margin_top = 105.0
 margin_right = 20.0
 margin_bottom = 125.0
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 2 )
-texture_disabled = ExtResource( 29 )
+mouse_filter = 1
+toggle_mode = true
+group = ExtResource( 30 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 31 )
 
-[node name="ApparelButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+[node name="InventoryButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
 margin_top = 126.0
 margin_right = 20.0
 margin_bottom = 146.0
+mouse_filter = 1
+disabled = true
+toggle_mode = true
+group = ExtResource( 30 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 31 )
+
+[node name="ApparelButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_top = 147.0
+margin_right = 20.0
+margin_bottom = 167.0
+mouse_filter = 1
+disabled = true
+toggle_mode = true
+group = ExtResource( 30 )
 texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 12 )
-texture_hover = ExtResource( 1 )
-texture_disabled = ExtResource( 29 )
+texture_pressed = ExtResource( 1 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 31 )
 
 [node name="NotesButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
 visible = false
 margin_top = 147.0
 margin_right = 20.0
 margin_bottom = 167.0
+mouse_filter = 1
+toggle_mode = true
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 31 )
 
 [node name="MapButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
-margin_top = 147.0
-margin_right = 20.0
-margin_bottom = 167.0
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 26 )
-texture_hover = ExtResource( 27 )
-texture_disabled = ExtResource( 29 )
-
-[node name="LeaveButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
 margin_top = 168.0
 margin_right = 20.0
 margin_bottom = 188.0
+mouse_filter = 1
+disabled = true
+toggle_mode = true
+group = ExtResource( 30 )
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 26 )
+texture_hover = ExtResource( 27 )
+texture_disabled = ExtResource( 31 )
+
+[node name="TravelButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
+margin_top = 189.0
+margin_right = 20.0
+margin_bottom = 209.0
+mouse_filter = 1
+toggle_mode = true
+group = ExtResource( 30 )
 texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 13 )
-texture_hover = ExtResource( 14 )
-texture_disabled = ExtResource( 29 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 13 )
+texture_disabled = ExtResource( 31 )
 
 [node name="WaitButton" type="TextureButton" parent="MarginContainer/InteractionOptionsContainer"]
 visible = false
 margin_top = 189.0
 margin_right = 20.0
 margin_bottom = 209.0
+mouse_filter = 1
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 11 )
@@ -190,6 +230,7 @@ visible = false
 margin_top = 189.0
 margin_right = 20.0
 margin_bottom = 209.0
+mouse_filter = 1
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 10 )
@@ -203,4 +244,4 @@ texture_hover = ExtResource( 10 )
 [connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/InventoryButton" to="." method="_on_InventoryButton_pressed"]
 [connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/ApparelButton" to="." method="_on_ApparelButton_pressed"]
 [connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/MapButton" to="." method="_on_MapButton_pressed"]
-[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/LeaveButton" to="." method="_on_TravelButton_pressed"]
+[connection signal="pressed" from="MarginContainer/InteractionOptionsContainer/TravelButton" to="." method="_on_TravelButton_pressed"]

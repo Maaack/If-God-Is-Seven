@@ -21,7 +21,7 @@ export(Array, String) var intensity_adverbs : Array = [
 	]
 
 
-func can_interact(interaction_type : int):
+func is_interactable(interaction_type : int):
 	return interaction_type in interactions_array
 
 func get_adverb() -> String:

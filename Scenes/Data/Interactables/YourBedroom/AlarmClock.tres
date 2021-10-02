@@ -7,8 +7,9 @@
 script = ExtResource( 1 )
 title = "Alarm Clock"
 interaction_event = ExtResource( 2 )
-interactions_array = [ 0 ]
+interactions_array = [ 0, 1 ]
 conditions = [  ]
+scene_position = Vector2( 26, 228 )
 current_hour = 8
 current_minute = 59
 current_period = 0
