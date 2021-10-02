@@ -131,31 +131,36 @@
 32. Pick out flowers
 33. Dad buys flowers
 34. Drive to cemetery
-35. On the way to cemetery, police cars pass with sirens blaring
-36. Arrive at cemetery
-37. Police cars are parked at the main entrance
-38. Dad comments that it's probably a case of vandalism against a Jewish family's tombstone
-39. Take the side entrance closer to Mom's grave
-40. See a grave on the way that has been dug up
-41. Dad says that maybe they were moved to be with another family member
-42. Brother runs ahead
-43. Hear brother scream a gut-wrenching "Noooooo!"
-44. Mom's grave has been disturbed!
-45. Entire coffin has been dug up and the body has been removed
-46. Dad says to hold your brother
-47. Dad runs off toward the direction of the police
-48. See Mom's wedding ring still in the casket
-49. Brother wants to crawl in and get it
-50. Dad eventually comes back with an investigator
-51. Dad says there are numerous graves that have been dug up and robbed
-52. Investigator says that a group of devil-worshipping fanatics have suddenly become very active
-53. Dad remarks that these people are heathens, no sense of morality, hold nothing sacred, yada yada
-54. Brother screams that they must find his Mom, don't let them do anything to her soul
-55. Dad comforts brother that her soul is in heaven, her body was only the vessel
-56. Brother retorts asking "then why did they take her body if there's no soul left in it? Why do we come here?"
-57. A chilling snicker from the 
-58. Dad takes brother to the car to calm him down
-59. Investigator stays behind to ask you some questions
-60. You may or may not know the answers to his questions
-61. Investigator points out that you are in a peculiar form of shock, some people shut down emotionally, or are in a haze.
-62. 
+35. Brother asks you, do you think God is listening to my prayers?
+36. Only Yes is available, No option blacked out
+37. Brother, "I prayed that mommy would come back."
+38. On the way to cemetery, police cars pass with sirens blaring
+39. Arrive at cemetery
+40. Police cars are parked at the main entrance
+41. Dad comments that it's probably a case of vandalism against a Jewish family's tombstone
+42. Take the side entrance closer to Mom's grave
+43. See a grave on the way that has been dug up
+44. Dad says that maybe they were moved to be with another family member
+45. Brother runs ahead
+46. Hear brother scream a gut-wrenching "Noooooo!"
+47. Mom's grave has been disturbed!
+48. Entire coffin has been dug up and the body has been removed
+49. Dad says to hold your brother
+50. Dad runs off toward the direction of the police
+51. See Mom's wedding ring still in the casket
+52. Brother wants to crawl in and get it
+53. Dad eventually comes back with an investigator
+54. Dad says there are numerous graves that have been dug up and robbed
+55. Investigator says that a group of devil-worshipping fanatics have suddenly become very active
+56. Dad remarks that these people are heathens, no sense of morality, hold nothing sacred, yada yada
+57. Brother screams that they must find his Mom, don't let them do anything to her soul
+58. Dad comforts brother that her soul is in heaven, her body was only the vessel
+59. Brother retorts asking "then why did they take her body if there's no soul left in it? Why do we come here?"
+60. A chilling snicker from the 
+61. Dad takes brother to the car to calm him down
+62. Investigator stays behind to ask you some questions
+63. You may or may not know the answers to his questions
+64. Investigator points out that you are in a peculiar form of shock, some people shut down emotionally, or are in a haze.
+65. Investigator gets a call on his walkie-talkie, "Another fire started at the lumber yard, we caught a cultist!"
+66. Investigator leaves abruptly.
+67. You are alone...
