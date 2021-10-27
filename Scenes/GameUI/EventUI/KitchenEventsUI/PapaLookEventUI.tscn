@@ -7,5 +7,5 @@
 [node name="TitleLabel" parent="EventPanel/MarginContainer/Control/VBoxContainer" index="0"]
 text = "It's Papa"
 
-[node name="BodyLabel" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer" index="1"]
+[node name="BodyLabel" parent="EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer" index="2"]
 text = "Papa is dutifully cooking pancakes in the kitchen for breakfast."

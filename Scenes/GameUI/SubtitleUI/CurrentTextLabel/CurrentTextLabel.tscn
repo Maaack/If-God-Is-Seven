@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Styles/TinyFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/GameUI/SubtitleUI/CurrentTextLabel/CurrentTextLabel.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GameUI/SubtitleUI/CurrentTextLabel/ClickSoundsPlayer.tscn" type="PackedScene" id=4]
 
 [node name="CurrentTextLabel" type="Label"]
 anchor_right = 1.0
@@ -23,5 +24,10 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="Tween" type="Tween" parent="."]
+
+[node name="ClickSoundsPlayer" parent="." instance=ExtResource( 4 )]
+
 [connection signal="timeout" from="TextWaitTimer" to="." method="_on_TextWaitTimer_timeout"]
 [connection signal="timeout" from="TextClearTimer" to="." method="_on_TextClearTimer_timeout"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

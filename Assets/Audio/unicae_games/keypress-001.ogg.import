@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/keypress-001.ogg-3166471cab3d2053b6c003faf7200a83.oggstr"
+
+[deps]
+
+source_file="res://Assets/Audio/unicae_games/keypress-001.ogg"
+dest_files=[ "res://.import/keypress-001.ogg-3166471cab3d2053b6c003faf7200a83.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

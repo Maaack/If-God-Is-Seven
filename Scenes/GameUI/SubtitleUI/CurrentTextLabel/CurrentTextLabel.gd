@@ -4,7 +4,8 @@ extends Label
 signal next_text_displayed(text)
 
 export(float) var base_wait_time = 1.0
-export(float) var word_wait_time = 0.25
+export(float) var word_wait_time = 0.1
+export(float) var line_wait_time = 1.5
 var text_buffer : Array = []
 
 func _can_display_next_text():
@@ -14,10 +15,16 @@ func _display_next_text():
 	if text_buffer.size() < 1:
 		return
 	var next_text : String = text_buffer.pop_front()
-	var word_count : int = next_text.split(" ").size()
+	percent_visible = 0.0
 	text = next_text
-	$TextWaitTimer.wait_time = base_wait_time + (word_wait_time * word_count)
+	var word_count : int = next_text.split(" ").size()
+	var wait_time : float = base_wait_time + (word_wait_time * word_count)
+	$Tween.interpolate_property(self, "percent_visible", 0.0, 1.0, wait_time)
+	$Tween.start()
+	$ClickSoundsPlayer.play("Typing")
+	$TextWaitTimer.wait_time = wait_time + line_wait_time
 	$TextWaitTimer.start()
+
 	emit_signal("next_text_displayed", next_text)
 
 func add_text(value : String):
@@ -31,3 +38,6 @@ func _on_TextWaitTimer_timeout():
 
 func _on_TextClearTimer_timeout():
 	_display_next_text()
+
+func _on_Tween_tween_all_completed():
+	$ClickSoundsPlayer.stop()
