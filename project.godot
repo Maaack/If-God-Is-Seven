@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/GameUI/Events2/BaseEventUI.gd"
 }, {
-"base": "EventUI",
-"class": "BasicEventUI",
-"language": "GDScript",
-"path": "res://Scenes/GameUI/EventUI/BasicEventUI.gd"
-}, {
 "base": "InteractableEventUI",
 "class": "BedEventUI",
 "language": "GDScript",
@@ -107,13 +102,12 @@ _global_script_classes=[ {
 "base": "EventData",
 "class": "NoteEventData",
 "language": "GDScript",
-"path": "res://Scenes/Data/Interactables/NoteEventData.gd"
+"path": "res://Scenes/Data/Interactables/NoteInteractions/NoteEventData.gd"
 } ]
 _global_script_class_icons={
 "AlarmClockEventUI": "",
 "AlarmClockInteractableData": "",
 "BaseEventUI": "",
-"BasicEventUI": "",
 "BedEventUI": "",
 "BedInteractableData": "",
 "CalendarEventUI": "",

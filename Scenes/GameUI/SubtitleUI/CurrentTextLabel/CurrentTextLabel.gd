@@ -4,9 +4,9 @@ extends Label
 signal next_text_displayed(text)
 signal finished_displaying_text
 
-export(float) var base_wait_time = 1.0
-export(float) var word_wait_time = 0.1
-export(float) var line_wait_time = 1.5
+export(float) var base_wait_time = 0.5
+export(float) var word_wait_time = 0.05
+export(float) var line_wait_time = 2.0
 var text_buffer : Array = []
 var wait_time : float
 
@@ -37,6 +37,9 @@ func add_text(value : String):
 
 func _clear_text_and_wait():
 	text = ""
+	if text_buffer.size() < 1:
+		emit_signal("finished_displaying_text")
+		return
 	$TextClearTimer.start()
 
 func advance_text():

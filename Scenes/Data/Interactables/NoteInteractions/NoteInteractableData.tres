@@ -1,18 +1,18 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Data/Interactables/InteractableData.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GameUI/Events2/NoteEvents/NoteEvent.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Data/Interactables/NoteEventData.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Data/Interactables/NoteInteractions/NoteEventData.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GameUI/Events2/NoteEvents/NoteEvent.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Resource" id=1]
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 note_text = ""
 interaction_type = 0
 
 [resource]
 script = ExtResource( 1 )
 title = ""
-interaction_event = ExtResource( 2 )
+interaction_event = ExtResource( 3 )
 event_data = SubResource( 1 )
 interactions_array = [ 0 ]
 conditions = [  ]
