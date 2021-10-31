@@ -6,15 +6,15 @@
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
-note_text = "Your reflection looks back at you from the bathroom mirror.
-It's you, but the left is right, and right is left. Strange."
+note_text = "You stir from your sleep...
+The alarm clock is buzzing loudly!"
 interaction_type = 0
 
 [resource]
 script = ExtResource( 1 )
-title = "Your Reflection"
+title = "First Waking"
 interaction_event = ExtResource( 2 )
 event_data = SubResource( 1 )
 interactions_array = [ 0 ]
 conditions = [  ]
-scene_position = Vector2( 104, 66 )
+scene_position = Vector2( 0, 0 )

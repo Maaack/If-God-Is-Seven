@@ -1,12 +1,20 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Data/Interactables/InteractableData.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GameUI/EventUI/FoodEvents/PancakeEvents/SmellOfPancakesEventUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameUI/Events2/NoteEvents/NoteEvent.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Data/Interactables/NoteEventData.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+note_text = "The smell of buttery pancakes fills your nostrils.
+You salivate at the thought of devouring them."
+interaction_type = 2
 
 [resource]
 script = ExtResource( 1 )
 title = "Pancakes"
 interaction_event = ExtResource( 2 )
+event_data = SubResource( 1 )
 interactions_array = [ 2 ]
 conditions = [  ]
 scene_position = Vector2( 498, 104 )

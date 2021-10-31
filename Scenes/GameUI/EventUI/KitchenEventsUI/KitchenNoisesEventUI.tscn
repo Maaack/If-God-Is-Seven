@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Scenes/GameUI/EventUI/BasicEventUI.tscn" type="PackedScene" id=1]
-
-[node name="KitchenNoisesEventUI" instance=ExtResource( 1 )]
-event_text = "Sounds like Papa is cooking breakfast in the kitchen."

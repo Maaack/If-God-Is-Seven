@@ -1,5 +1,6 @@
 extends Control
 
+signal finished_display_text
 
 onready var historic_text_animations_player = $AnimationPlayer
 
@@ -25,3 +26,9 @@ func add_time(minutes : int):
 
 func _on_CurrentTextLabel_next_text_displayed(text):
 	$HistoricTextPanel.add_text(text)
+
+func advance_text():
+	$CurrentTextLabel.advance_text()
+
+func _on_CurrentTextLabel_finished_displaying_text():
+	emit_signal("finished_display_text")

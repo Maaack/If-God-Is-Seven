@@ -10,6 +10,7 @@ onready var interactions_animations_player = $MarginContainer/InteractionsPanel/
 onready var fade_out_timer = $MarginContainer/InteractionsPanel/FadeOutTimer
 
 export(Resource) var current_location : Resource
+export(Resource) var first_event : Resource
 
 var interaction_type : int = InteractionConstants.interaction_types.POINT setget set_interaction_type
 var interactions_visibility : bool = true
@@ -34,8 +35,18 @@ func _force_mouse_cursor_pointer():
 		return
 	$MouseCursor.set_interaction_type(InteractionConstants.interaction_types.POINT)
 
+func is_event_active():
+	return event_container.get_child_count() > 0
+
+func get_active_event():
+	if not is_event_active():
+		return
+	return event_container.get_child(0)
+
 func _update_mouse_cursor():
 	if $MouseCursor == null:
+		return
+	if is_event_active():
 		return
 	$MouseCursor.set_interaction_type(interaction_type)
 
@@ -44,8 +55,6 @@ func _update_background():
 		return
 	$TextureRect.texture = current_location.background
 
-func is_event_active():
-	return event_container.get_child_count() > 0
 
 func _update_map():
 	$TravelPanel/TravelUI.set_current_location(current_location)
@@ -93,6 +102,13 @@ func refresh():
 	_update_mouse_cursor()
 	_update_button_visibilty()
 
+func end_event():
+	var event_ui = get_active_event()
+	if event_ui == null:
+		return
+	event_ui.queue_free()
+	refresh()
+
 func new_event(event_ui : EventUI):
 	if is_event_active():
 		return
@@ -104,10 +120,32 @@ func new_event(event_ui : EventUI):
 	_force_mouse_cursor_pointer()
 	_update_button_visibilty()
 
-func _on_InteractableButton_pressed(interactable : InteractableData):
-	var new_event_ui : EventUI = interactable.get_event_ui(interaction_type)
-	if not new_event_ui == null:
+func new_base_event(event_ui : BaseEventUI):
+	if is_event_active():
+		return
+	event_ui.connect("added_time", world_controller, "add_time")
+	event_ui.connect("added_note", self, "_add_subtitle")
+	event_ui.connect("advanced_event", self, "_advance_subtitle")
+	event_ui.connect("ended_event", self, "end_event")
+	event_ui.connect("tree_exited", self, "refresh")
+	event_container.add_child(event_ui)
+	_force_mouse_cursor_pointer()
+	_update_button_visibilty()
+
+func run_interaction(interactable : InteractableData, custom_interaction_type : int = interaction_type):
+	var new_event_ui = interactable.get_event_ui(custom_interaction_type)
+	if new_event_ui == null:
+		return
+	if new_event_ui is EventUI:
+		new_event_ui.source_interactable = interactable
+		new_event_ui.interaction_type = interaction_type
 		new_event(new_event_ui)
+	if new_event_ui is BaseEventUI:
+		new_event_ui.event_data = interactable.event_data
+		new_base_event(new_event_ui)
+
+func _on_InteractableButton_pressed(interactable : InteractableData):
+	run_interaction(interactable)
 
 func _update_buttons():
 	if button_container_node == null:
@@ -154,6 +192,9 @@ func show_interactions_menu(value : bool):
 		interactions_animations_player.seek(time_to_end)
 	interactions_visibility = value
 
+func _advance_subtitle():
+	subtitle_ui.advance_text()
+
 func _add_subtitle(value : String):
 	subtitle_ui.add_text(value)
 
@@ -164,8 +205,7 @@ func _ready():
 	world_controller.add_time(1)
 	set_location(current_location)
 	_update_mouse_cursor()
-	_add_subtitle("You stir from your sleep...")
-	_add_subtitle("The alarm clock is buzzing loudly!")
+	run_interaction(first_event, InteractionConstants.interaction_types.LOOK)
 
 func _on_WorldController_added_time(minutes):
 	subtitle_ui.add_time(minutes)
@@ -176,7 +216,7 @@ func _on_FadeOutTimer_timeout():
 func _on_TravelUI_pressed_location(location):
 	world_controller.travel_to(location)
 	set_location(location)
-	_add_subtitle("You enter %s." % location.title)
+	_add_subtitle("You enter %s." % location.title.to_lower())
 
 func _on_InteractionsPanel_changed_interaction(interaction : int):
 	set_interaction_type(interaction)
@@ -188,11 +228,16 @@ func _handle_mouse_motion(event : InputEventMouseMotion):
 		elif not interactions_force_show and interactions_visibility and fade_out_timer.is_stopped():
 			fade_out_timer.start()
 		subtitle_ui.show_historical_text(event.position.y > get_rect().size.y - 50)
-	
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		_handle_mouse_motion(event)
 	elif event.is_action_pressed("ui_cycle_interaction"):
 		_cycle_interaction()
-		
+
+func _on_SubtitleUI_finished_display_text():
+	var event_ui = get_active_event()
+	if event_ui == null:
+		return
+	if event_ui is BaseEventUI:
+		event_ui.end_event()

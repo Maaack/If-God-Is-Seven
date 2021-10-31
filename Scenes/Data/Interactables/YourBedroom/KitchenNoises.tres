@@ -1,12 +1,19 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Data/Interactables/InteractableData.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GameUI/EventUI/KitchenEventsUI/KitchenNoisesEventUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Data/Interactables/NoteEventData.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GameUI/Events2/NoteEvents/NoteEvent.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+note_text = "Sounds like Papa is cooking breakfast in the kitchen."
+interaction_type = 0
 
 [resource]
 script = ExtResource( 1 )
 title = "Kitchen Noises"
-interaction_event = ExtResource( 2 )
+interaction_event = ExtResource( 3 )
+event_data = SubResource( 1 )
 interactions_array = [ 1 ]
 conditions = [  ]
 scene_position = Vector2( 498, 68 )

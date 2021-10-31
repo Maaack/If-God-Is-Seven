@@ -82,4 +82,5 @@ custom_styles/panel = SubResource( 1 )
 anims/HistoricTextFadeIn = SubResource( 2 )
 anims/HistoricTextFadeOut = SubResource( 3 )
 
+[connection signal="finished_displaying_text" from="CurrentTextLabel" to="." method="_on_CurrentTextLabel_finished_displaying_text"]
 [connection signal="next_text_displayed" from="CurrentTextLabel" to="." method="_on_CurrentTextLabel_next_text_displayed"]

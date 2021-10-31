@@ -7,6 +7,6 @@
 
 [resource]
 script = ExtResource( 2 )
-title = "Bathroom"
+title = "The Bathroom"
 background = ExtResource( 1 )
 interactables = [ ExtResource( 3 ), ExtResource( 4 ) ]

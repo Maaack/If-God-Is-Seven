@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Styles/SmallFontLightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/TravelUI/TravelUI.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=8]
 [ext_resource path="res://Scenes/GameUI/WorldController/WorldController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsPanel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Data/Interactables/YourBedroom/FirstWaking.tres" type="Resource" id=11]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -55,6 +56,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 current_location = ExtResource( 8 )
+first_event = ExtResource( 11 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -160,6 +162,7 @@ margin_bottom = -56.0
 
 [node name="MouseCursor" parent="." instance=ExtResource( 4 )]
 
+[connection signal="finished_display_text" from="BottomFilmBar/SubtitleUI" to="." method="_on_SubtitleUI_finished_display_text"]
 [connection signal="changed_interaction" from="MarginContainer/InteractionsPanel" to="." method="_on_InteractionsPanel_changed_interaction"]
 [connection signal="timeout" from="MarginContainer/InteractionsPanel/FadeOutTimer" to="." method="_on_FadeOutTimer_timeout"]
 [connection signal="added_time" from="WorldController" to="." method="_on_WorldController_added_time"]
