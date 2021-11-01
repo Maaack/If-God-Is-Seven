@@ -141,7 +141,8 @@ func run_interaction(interactable : InteractableData, custom_interaction_type : 
 		new_event_ui.interaction_type = interaction_type
 		new_event(new_event_ui)
 	if new_event_ui is BaseEventUI:
-		new_event_ui.event_data = interactable.event_data
+		new_event_ui.interactable_data = interactable
+		new_event_ui.interaction_type = interaction_type
 		new_base_event(new_event_ui)
 
 func _on_InteractableButton_pressed(interactable : InteractableData):
@@ -239,5 +240,5 @@ func _on_SubtitleUI_finished_display_text():
 	var event_ui = get_active_event()
 	if event_ui == null:
 		return
-	if event_ui is BaseEventUI:
-		event_ui.end_event()
+	if event_ui.has_method("on_subtitle_finish_displaying"):
+		event_ui.on_subtitle_finish_displaying()

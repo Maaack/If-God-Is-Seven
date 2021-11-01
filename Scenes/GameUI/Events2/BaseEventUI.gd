@@ -10,7 +10,8 @@ signal started_event
 signal advanced_event
 signal ended_event
 
-export(Resource) var event_data : Resource
+export(Resource) var interactable_data : Resource
+export(InteractionConstants.interaction_types) var interaction_type : int
 
 func add_time(minutes : int):
 	if minutes == 0:
@@ -37,3 +38,6 @@ func _alter_condition(condition : ConditionData, intensity_delta : int, min_limi
 	if min_limit < 0:
 		min_limit = 0
 		emit_signal("altered_condition", condition.adjective, intensity_delta)
+
+func on_subtitle_finish_displaying():
+	pass

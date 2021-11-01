@@ -1,46 +1,38 @@
-extends ClockEventUI
+extends ClockEvent
 
 
-class_name AlarmClockEventUI
+class_name AlarmClockEvent
 
-
-onready var separator_label = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyCenter/Panel/SeparatorLabel
-onready var alarm_checkbox = $EventPanel/MarginContainer/Control/VBoxContainer/HBoxContainer/BodyCenter/Panel/AlarmCheckBox
+onready var alarm_checkbox = $CenterContainer/EventPanel/MarginContainer/VBoxContainer/BodyContainer/CenterContainer/Panel/AlarmCheckBox
 
 var edit_alarm_mode : bool = false
 
-func set_source_interactable(value : InteractableData):
-	if not value is AlarmClockInteractableData:
-		print("Was not AlarmClockInteractableData")
-		return
-	source_interactable = value
-
 func get_alarm_period_string():
-	if source_interactable.alarm_period == ClockInteractableData.day_periods.PM:
+	if interactable_data.alarm_period == ClockInteractableData.day_periods.PM:
 		return "PM"
 	else:
 		return "AM"
 
 func get_alarm_hour_string():
-	var current_hour : int = source_interactable.alarm_hour
+	var current_hour : int = interactable_data.alarm_hour
 	if current_hour == 0:
 		current_hour = 12
 	return "%02d" % current_hour
 
 func get_alarm_minute_string():
-	return "%02d" % source_interactable.alarm_minute
+	return "%02d" % interactable_data.alarm_minute
 
 func get_alarm_time_string():
 	return "%s:%s %s" % [get_alarm_hour_string(), get_alarm_minute_string(), get_alarm_period_string()]
 
 func add_alarm_hours(hours : int):
-	source_interactable.add_alarm_hours(hours)
+	interactable_data.add_alarm_hours(hours)
 
 func add_alarm_minutes(minutes : int):
-	source_interactable.add_alarm_minutes(minutes)
+	interactable_data.add_alarm_minutes(minutes)
 
 func add_alarm_periods(periods : int):
-	source_interactable.add_alarm_periods(periods)
+	interactable_data.add_alarm_periods(periods)
 
 func _update_time_labels():
 	if edit_alarm_mode:
@@ -58,30 +50,29 @@ func toggle_edit_alarm():
 	_update_time_labels()
 
 func _get_flashing_flavor_text() -> String:
-	if source_interactable.alarm_ringing:
+	if interactable_data.alarm_ringing:
 		return "The clock face is flashing."
 	return ""
 
 func _get_ringing_flavor_text() -> String:
-	if source_interactable.alarm_ringing:
+	if interactable_data.alarm_ringing:
 		return "The clock alarm is buzzing loudly."
 	return ""
 
 func _get_flavor_text() -> String:
-	match(get_interaction_type()):
+	match(interaction_type):
 		InteractionConstants.interaction_types.LOOK:
 			return _get_flashing_flavor_text()
 		InteractionConstants.interaction_types.LISTEN:
 			return _get_ringing_flavor_text()
 	return ""
 
-func _refresh_body_text():
-	body_label.text = get_body_text() % [get_look_time(), _get_flavor_text()]
-	log_event_text("The clock reads %s" % get_look_time())
-	log_event_text(_get_flavor_text())
+func _refresh_clock_face():
+	._refresh_clock_face()
 
 func _ready():
-	alarm_checkbox.pressed = source_interactable.alarm_ringing
+	add_note(_get_flavor_text())
+	alarm_checkbox.pressed = interactable_data.alarm_ringing
 
 func _flash_full_face():
 	hour_label.visible = !bool(hour_label.visible)
@@ -91,15 +82,15 @@ func _flash_full_face():
 	alarm_checkbox.pressed = hour_label.visible
 
 func _on_FlashTimer_timeout():
-	if source_interactable.alarm_ringing:
+	if interactable_data.alarm_ringing:
 		_flash_full_face()
 	else:
 		_flash_current_stage()
 
 func _on_ModButton_pressed():
-	if source_interactable.alarm_ringing:
-		source_interactable.alarm_ringing = false
-		log_event_text("You silenced the alarm clock.")
+	if interactable_data.alarm_ringing:
+		interactable_data.alarm_ringing = false
+		add_note("You silenced the alarm clock.")
 		end_event()
 	else:
 		match(current_use_stage):
@@ -129,10 +120,10 @@ func _on_ModButton_pressed():
 		_reset_flashing()
 
 func _on_SetButton_pressed():
-	if source_interactable.alarm_ringing:
-		source_interactable.alarm_ringing = false
-		source_interactable.alarm_snoozing = true
-		log_event_text("You snoozed the alarm clock.")
+	if interactable_data.alarm_ringing:
+		interactable_data.alarm_ringing = false
+		interactable_data.alarm_snoozing = true
+		add_note("You snoozed the alarm clock.")
 		end_event()
 	else:
 		current_use_stage += 1
@@ -141,9 +132,9 @@ func _on_SetButton_pressed():
 		_flash_current_stage()
 		if current_use_stage > PERIOD_STAGE:
 			if not edit_alarm_mode:
-				log_event_text("You set the alarm clock's time to %s." % get_time_string())
+				add_note("You set the alarm clock's time to %s." % get_time_string())
 			else:
-				log_event_text("You set the alarm clock's alarm time to %s." % get_alarm_time_string())
+				add_note("You set the alarm clock's alarm time to %s." % get_alarm_time_string())
 			emit_signal("attempted_waiting", 1)
 			end_event()
 

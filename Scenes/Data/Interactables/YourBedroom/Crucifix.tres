@@ -1,19 +1,13 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Data/Interactables/InteractableData.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Data/Interactables/NoteInteractions/NoteInteractableData.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GameUI/Events2/NoteEvents/NoteEvent.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Data/Interactables/NoteInteractions/NoteEventData.gd" type="Script" id=3]
-
-[sub_resource type="Resource" id=1]
-script = ExtResource( 3 )
-note_text = "A sign of the cross symbolizes the sacrifice the Lord made for the people of this Earth."
-interaction_type = 0
 
 [resource]
 script = ExtResource( 1 )
 title = "Crucifix"
 interaction_event = ExtResource( 2 )
-event_data = SubResource( 1 )
 interactions_array = [ 0 ]
 conditions = [  ]
 scene_position = Vector2( 86, 120 )
+note_text = "A sign of the cross symbolizes the sacrifice the Lord made for the people of this Earth."

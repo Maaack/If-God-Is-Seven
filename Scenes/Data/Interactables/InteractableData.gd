@@ -6,7 +6,6 @@ class_name InteractableData
 
 export(String) var title : String
 export(PackedScene) var interaction_event : PackedScene
-export(Resource) var event_data : Resource
 export(Array, InteractionConstants.interaction_types) var interactions_array : Array = [
 	InteractionConstants.interaction_types.LOOK,
 	InteractionConstants.interaction_types.LISTEN,

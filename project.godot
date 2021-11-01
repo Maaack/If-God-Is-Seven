@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "ClockEventUI",
-"class": "AlarmClockEventUI",
+"base": "ClockEvent",
+"class": "AlarmClockEvent",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/EventUI/ClockEvents/AlarmClockEvents/AlarmClockEventUI.gd"
+"path": "res://Scenes/GameUI/Events2/ModalEvents/TitlePanelEvents/ClockEvents/AlarmClockEvent/AlarmClockEvent.gd"
 }, {
 "base": "ClockInteractableData",
 "class": "AlarmClockInteractableData",
@@ -44,10 +44,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Data/Interactables/CalendarInteractableData.gd"
 }, {
-"base": "InteractableEventUI",
-"class": "ClockEventUI",
+"base": "ModalEvent",
+"class": "ClockEvent",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/EventUI/ClockEvents/ClockEventUI.gd"
+"path": "res://Scenes/GameUI/Events2/ModalEvents/TitlePanelEvents/ClockEvents/ClockEvent.gd"
 }, {
 "base": "InteractableData",
 "class": "ClockInteractableData",
@@ -58,11 +58,6 @@ _global_script_classes=[ {
 "class": "ConditionData",
 "language": "GDScript",
 "path": "res://Scenes/Data/Conditions/ConditionData.gd"
-}, {
-"base": "Resource",
-"class": "EventData",
-"language": "GDScript",
-"path": "res://Scenes/Data/Interactables/EventData.gd"
 }, {
 "base": "Control",
 "class": "EventUI",
@@ -99,23 +94,32 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Data/Locations/LocationData.gd"
 }, {
-"base": "EventData",
-"class": "NoteEventData",
+"base": "BaseEventUI",
+"class": "ModalEvent",
 "language": "GDScript",
-"path": "res://Scenes/Data/Interactables/NoteInteractions/NoteEventData.gd"
+"path": "res://Scenes/GameUI/Events2/ModalEvents/ModalEvent.gd"
+}, {
+"base": "BaseEventUI",
+"class": "NoteEvent",
+"language": "GDScript",
+"path": "res://Scenes/GameUI/Events2/NoteEvents/NoteEvent.gd"
+}, {
+"base": "InteractableData",
+"class": "NoteInteractableData",
+"language": "GDScript",
+"path": "res://Scenes/Data/Interactables/NoteInteractions/NoteInteractableData.gd"
 } ]
 _global_script_class_icons={
-"AlarmClockEventUI": "",
+"AlarmClockEvent": "",
 "AlarmClockInteractableData": "",
 "BaseEventUI": "",
 "BedEventUI": "",
 "BedInteractableData": "",
 "CalendarEventUI": "",
 "CalendarInteractableData": "",
-"ClockEventUI": "",
+"ClockEvent": "",
 "ClockInteractableData": "",
 "ConditionData": "",
-"EventData": "",
 "EventUI": "",
 "InteractableData": "",
 "InteractableEventUI": "",
@@ -123,7 +127,9 @@ _global_script_class_icons={
 "InteractionConstants": "",
 "LocationButton": "",
 "LocationData": "",
-"NoteEventData": ""
+"ModalEvent": "",
+"NoteEvent": "",
+"NoteInteractableData": ""
 }
 
 [application]

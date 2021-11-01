@@ -1,6 +1,8 @@
 extends BaseEventUI
 
 
+class_name NoteEvent
+
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() and event.button_index == BUTTON_LEFT:
@@ -8,7 +10,9 @@ func _input(event):
 
 func _ready():
 	start_event()
-	if event_data is NoteEventData:
-		var text_array : Array = event_data.note_text.split("\n")
-		for text in text_array:
-			add_note(text)
+	var text_array : Array = interactable_data.note_text.split("\n")
+	for text in text_array:
+		add_note(text)
+
+func on_subtitle_finish_displaying():
+	end_event()
