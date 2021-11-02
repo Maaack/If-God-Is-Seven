@@ -1,7 +1,5 @@
-extends InteractableEventUI
+extends ModalEvent
 
-
-class_name BedEventUI
 
 const MADE_CONDITION = preload("res://Scenes/Data/Conditions/Bed/Made.tres")
 const MESSY_CONDITION = preload("res://Scenes/Data/Conditions/Bed/Messy.tres")
@@ -10,15 +8,32 @@ const STINKY_SWEAT_CONDITION = preload("res://Scenes/Data/Conditions/Bed/StinkyW
 
 export(int) var made_intensity_max : int = 4
 
-func set_source_interactable(value : InteractableData):
-	if not value is BedInteractableData:
-		print("Was not BedInteractableData")
-		return
-	source_interactable = value
+func _concat_three_or_more(conditions : Array) -> String:
+	var all_conditions : String = ""
+	for i in conditions.size():
+		var condition : ConditionData = conditions[i]
+		var condition_string : String = str(condition)
+		if i == conditions.size() - 1:
+			all_conditions += "and %s" % [condition_string]
+		else:
+			all_conditions += "%s, " % [condition_string]
+	return all_conditions
+
+func _get_interactable_condition_string() -> String:
+	var filtered_conditions : Array = interactable_data.get_filtered_conditions(interaction_type)
+	match(filtered_conditions.size()):
+		0:
+			return ""
+		1:
+			return "%s" % [str(filtered_conditions[0])]
+		2:
+			return "%s and %s" % [str(filtered_conditions[0]), str(filtered_conditions[1])]
+		_:
+			return _concat_three_or_more(filtered_conditions)
 
 func _get_stinky_flavor_text():
-	var condition : ConditionData = _get_source_condition_or_new(STINKY_SWEAT_CONDITION)
-	if condition.is_interactable(get_interaction_type()):
+	var condition : ConditionData = _get_interactable_condition_or_new(STINKY_SWEAT_CONDITION)
+	if condition.is_interactable(interaction_type):
 		match(condition.intensity):
 			1, 2:
 				return "It's really only noticeable if you're up in them."
@@ -31,8 +46,8 @@ func _get_stinky_flavor_text():
 	return ""
 
 func _get_damp_flavor_text():
-	var condition : ConditionData = _get_source_condition_or_new(DAMP_SWEAT_CONDITION)
-	if condition.is_interactable(get_interaction_type()):
+	var condition : ConditionData = _get_interactable_condition_or_new(DAMP_SWEAT_CONDITION)
+	if condition.is_interactable(interaction_type):
 		match(condition.intensity):
 			1, 2:
 				return "Hopefully the sheets are able to dry before you go to sleep again."
@@ -41,8 +56,8 @@ func _get_damp_flavor_text():
 	return ""
 
 func _get_made_state_flavor_text() -> String:
-	var condition : ConditionData = _get_source_condition_or_new(MADE_CONDITION)
-	if condition.is_interactable(get_interaction_type()):
+	var condition : ConditionData = _get_interactable_condition_or_new(MADE_CONDITION)
+	if condition.is_interactable(interaction_type):
 		match(condition.intensity):
 			0:
 				return "It looks like you didn't make your bed."
@@ -68,27 +83,26 @@ func _get_flavor_text():
 	return all_text.trim_suffix(" ")
 
 func _ready():
-	body_label.text = get_body_text() % [get_interaction_verb(), get_source_conditions_string(), _get_flavor_text()]
-	log_event_text("The bed %s %s." % [get_interaction_verb(), get_source_conditions_string()])
-	log_event_text(_get_flavor_text())
+	add_note("The bed %s %s." % [get_interaction_verb(), _get_interactable_condition_string()])
+	add_note(_get_flavor_text())
 
 func _clean_bed() -> bool:
-	return _alter_source_condition(MESSY_CONDITION, -1)
+	return _alter_condition(MESSY_CONDITION, -1)
 
 func _make_bed() -> bool:
-	return _alter_source_condition(MADE_CONDITION, 1, 0, made_intensity_max)
+	return _alter_condition(MADE_CONDITION, 1, 0, made_intensity_max)
 
 func _on_MakeButton_pressed():
 	if _clean_bed():
-		log_event_text("You clean some of the mess from the bed.")
+		add_note("You clean some of the mess from the bed.")
 	if _make_bed():
-		log_event_text("You made the bed for a bit.")
+		add_note("You made the bed for a bit.")
 	else:
-		log_event_text("You failed to make the bed look better.")
-	emit_signal("attempted_waiting", 1)
+		add_note("You failed to make the bed look better.")
+	add_time(1)
 	queue_free()
 
 func _on_SleepButton_pressed():
-	log_event_text("You slept in the bed for a full 24 hours!")
-	emit_signal("attempted_waiting", 1440)
+	add_note("You slept in the bed for a full 24 hours!")
+	add_time(1440)
 	queue_free()

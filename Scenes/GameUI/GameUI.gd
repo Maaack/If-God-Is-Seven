@@ -109,17 +109,6 @@ func end_event():
 	event_ui.queue_free()
 	refresh()
 
-func new_event(event_ui : EventUI):
-	if is_event_active():
-		return
-	event_ui.connect("attempted_waiting", world_controller, "add_time")
-	event_ui.connect("logged_event", self, "_add_subtitle")
-	event_ui.connect("ended_event", self, "refresh")
-	event_ui.connect("tree_exited", self, "refresh")
-	event_container.add_child(event_ui)
-	_force_mouse_cursor_pointer()
-	_update_button_visibilty()
-
 func new_base_event(event_ui : BaseEventUI):
 	if is_event_active():
 		return
@@ -136,10 +125,6 @@ func run_interaction(interactable : InteractableData, custom_interaction_type : 
 	var new_event_ui = interactable.get_event_ui(custom_interaction_type)
 	if new_event_ui == null:
 		return
-	if new_event_ui is EventUI:
-		new_event_ui.source_interactable = interactable
-		new_event_ui.interaction_type = interaction_type
-		new_event(new_event_ui)
 	if new_event_ui is BaseEventUI:
 		new_event_ui.interactable_data = interactable
 		new_event_ui.interaction_type = interaction_type

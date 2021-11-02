@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Data/Interactables/BedInteractableData.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GameUI/EventUI/BedEvents/BedInteractionEventUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameUI/Events2/ModalEvents/TitleImageEvents/BedEvents/BedEvent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Data/Conditions/Bed/DampWithSweat.tres" type="Resource" id=3]
 [ext_resource path="res://Scenes/Data/Conditions/Bed/StinkyWithSweat.tres" type="Resource" id=4]
 [ext_resource path="res://Scenes/Data/Conditions/Bed/Messy.tres" type="Resource" id=5]
