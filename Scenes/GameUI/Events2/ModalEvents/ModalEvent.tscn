@@ -78,6 +78,7 @@ alignment = 1
 margin_left = 127.0
 margin_right = 176.0
 margin_bottom = 15.0
+focus_mode = 0
 size_flags_horizontal = 4
 custom_fonts/font = ExtResource( 2 )
 text = "Continue"
