@@ -26,6 +26,8 @@ func set_interaction_type(value : int):
 			$Travel.show()
 		InteractionConstants.interaction_types.POINT:
 			$ArrowPointer.show()
+		InteractionConstants.interaction_types.WAIT:
+			$Wait.show()
 
 func set_active(value : bool):
 	active = value

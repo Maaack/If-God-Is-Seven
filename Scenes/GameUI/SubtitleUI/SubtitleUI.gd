@@ -1,6 +1,7 @@
 extends Control
 
 signal finished_display_text
+signal last_text_displayed
 
 onready var historic_text_animations_player = $AnimationPlayer
 
@@ -32,3 +33,6 @@ func advance_text():
 
 func _on_CurrentTextLabel_finished_displaying_text():
 	emit_signal("finished_display_text")
+
+func _on_CurrentTextLabel_last_text_displayed():
+	emit_signal("last_text_displayed")

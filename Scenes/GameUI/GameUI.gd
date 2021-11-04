@@ -35,6 +35,19 @@ func _force_mouse_cursor_pointer():
 		return
 	$MouseCursor.set_interaction_type(InteractionConstants.interaction_types.POINT)
 
+func _force_mouse_cursor_wait():
+	if $MouseCursor == null:
+		return
+	$MouseCursor.set_interaction_type(InteractionConstants.interaction_types.WAIT)
+
+func _start_waiting():
+	_force_mouse_cursor_wait()
+	$WaitScreen.show()
+
+func _stop_waiting():
+	_force_mouse_cursor_pointer()
+	$WaitScreen.hide()
+
 func is_event_active():
 	return event_container.get_child_count() > 0
 
@@ -118,7 +131,7 @@ func new_base_event(event_ui : BaseEventUI):
 	event_ui.connect("ended_event", self, "end_event")
 	event_ui.connect("tree_exited", self, "refresh")
 	event_container.add_child(event_ui)
-	_force_mouse_cursor_pointer()
+	_start_waiting()
 	_update_button_visibilty()
 
 func run_interaction(interactable : InteractableData, custom_interaction_type : int = interaction_type):
@@ -225,5 +238,12 @@ func _on_SubtitleUI_finished_display_text():
 	var event_ui = get_active_event()
 	if event_ui == null:
 		return
+	_stop_waiting()
 	if event_ui.has_method("on_subtitle_finish_displaying"):
 		event_ui.on_subtitle_finish_displaying()
+
+func _on_SubtitleUI_last_text_displayed():
+	var event_ui = get_active_event()
+	if event_ui == null:
+		return
+	_stop_waiting()

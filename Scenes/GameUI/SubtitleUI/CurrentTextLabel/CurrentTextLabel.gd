@@ -2,6 +2,7 @@ extends Label
 
 
 signal next_text_displayed(text)
+signal last_text_displayed
 signal finished_displaying_text
 
 export(float) var base_wait_time = 0.5
@@ -27,8 +28,9 @@ func _display_next_text():
 	$ClickSoundsPlayer.play("Typing")
 	$TextWaitTimer.wait_time = wait_time + line_wait_time
 	$TextWaitTimer.start()
-
 	emit_signal("next_text_displayed", next_text)
+	if text_buffer.size() == 0:
+		emit_signal("last_text_displayed")
 
 func add_text(value : String):
 	text_buffer.append(value)
