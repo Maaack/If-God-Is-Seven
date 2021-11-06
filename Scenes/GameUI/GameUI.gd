@@ -120,6 +120,7 @@ func end_event():
 	if event_ui == null:
 		return
 	event_ui.queue_free()
+	_stop_waiting()
 	refresh()
 
 func new_base_event(event_ui : BaseEventUI):
@@ -238,7 +239,6 @@ func _on_SubtitleUI_finished_display_text():
 	var event_ui = get_active_event()
 	if event_ui == null:
 		return
-	_stop_waiting()
 	if event_ui.has_method("on_subtitle_finish_displaying"):
 		event_ui.on_subtitle_finish_displaying()
 
