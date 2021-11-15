@@ -29,8 +29,6 @@ func _display_next_text():
 	$TextWaitTimer.wait_time = wait_time + line_wait_time
 	$TextWaitTimer.start()
 	emit_signal("next_text_displayed", next_text)
-	if text_buffer.size() == 0:
-		emit_signal("last_text_displayed")
 
 func add_text(value : String):
 	text_buffer.append(value)
@@ -61,3 +59,5 @@ func _on_TextClearTimer_timeout():
 
 func _on_Tween_tween_all_completed():
 	$ClickSoundsPlayer.stop()
+	if text_buffer.size() < 1:
+		emit_signal("last_text_displayed")

@@ -241,9 +241,12 @@ func _on_SubtitleUI_finished_display_text():
 		return
 	if event_ui.has_method("on_subtitle_finish_displaying"):
 		event_ui.on_subtitle_finish_displaying()
+	if not event_ui is ModalEvent:
+		_stop_waiting()
 
 func _on_SubtitleUI_last_text_displayed():
 	var event_ui = get_active_event()
 	if event_ui == null:
 		return
-	_stop_waiting()
+	if event_ui is ModalEvent:
+		_stop_waiting()
