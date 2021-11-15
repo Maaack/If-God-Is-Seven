@@ -1,0 +1,28 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/feel.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/arrow-pointer.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/speak.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/travel.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/look.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/take.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/smell.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/listen.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Icons/16x16/white-padded-20x20/stop-watch.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/GameUI/MouseCursor/MouseCursorSprite.gd" type="Script" id=10]
+[ext_resource path="res://Shaders/OutlineMaterial.tres" type="Material" id=11]
+
+[node name="MouseCursorSprite" type="Sprite"]
+material = ExtResource( 11 )
+offset = Vector2( 8, 8 )
+script = ExtResource( 10 )
+arrow_pointer = ExtResource( 2 )
+feel_pointer = ExtResource( 1 )
+listen_pointer = ExtResource( 8 )
+look_pointer = ExtResource( 5 )
+smell_pointer = ExtResource( 7 )
+grab_pointer = ExtResource( 6 )
+speak_pointer = ExtResource( 3 )
+travel_pointer = ExtResource( 4 )
+wait_pointer = ExtResource( 9 )
+arrow_offset = Vector2( 8, 8 )

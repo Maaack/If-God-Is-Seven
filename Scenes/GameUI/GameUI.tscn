@@ -3,7 +3,6 @@
 [ext_resource path="res://Styles/SmallFontLightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/TravelUI/TravelUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/GameUI/HintArrow/HintArrow.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/GameUI/MouseCursor/MouseCursor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GameUI/GameUI.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/GameUI/SubtitleUI/SubtitleUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=7]
@@ -11,6 +10,7 @@
 [ext_resource path="res://Scenes/GameUI/WorldController/WorldController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsPanel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Data/Interactables/YourBedroom/FirstWaking.tres" type="Resource" id=11]
+[ext_resource path="res://Scenes/GameUI/MouseCursor/MouseCursorSprite.tscn" type="PackedScene" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -169,7 +169,7 @@ margin_top = -96.0
 margin_right = -256.0
 margin_bottom = -56.0
 
-[node name="MouseCursor" parent="." instance=ExtResource( 4 )]
+[node name="MouseCursorSprite" parent="." instance=ExtResource( 12 )]
 
 [connection signal="finished_display_text" from="BottomFilmBar/SubtitleUI" to="." method="_on_SubtitleUI_finished_display_text"]
 [connection signal="last_text_displayed" from="BottomFilmBar/SubtitleUI" to="." method="_on_SubtitleUI_last_text_displayed"]

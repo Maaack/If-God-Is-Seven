@@ -31,14 +31,14 @@ func _clear_buttons():
 		child.queue_free()
 
 func _force_mouse_cursor_pointer():
-	if $MouseCursor == null:
+	if $MouseCursorSprite == null:
 		return
-	$MouseCursor.set_interaction_type(InteractionConstants.interaction_types.POINT)
+	$MouseCursorSprite.set_interaction_type(InteractionConstants.interaction_types.POINT)
 
 func _force_mouse_cursor_wait():
-	if $MouseCursor == null:
+	if $MouseCursorSprite == null:
 		return
-	$MouseCursor.set_interaction_type(InteractionConstants.interaction_types.WAIT)
+	$MouseCursorSprite.set_interaction_type(InteractionConstants.interaction_types.WAIT)
 
 func _start_waiting():
 	_force_mouse_cursor_wait()
@@ -57,17 +57,16 @@ func get_active_event():
 	return event_container.get_child(0)
 
 func _update_mouse_cursor():
-	if $MouseCursor == null:
+	if $MouseCursorSprite == null:
 		return
 	if is_event_active():
 		return
-	$MouseCursor.set_interaction_type(interaction_type)
+	$MouseCursorSprite.set_interaction_type(interaction_type)
 
 func _update_background():
 	if $TextureRect == null:
 		return
 	$TextureRect.texture = current_location.background
-
 
 func _update_map():
 	$TravelPanel/TravelUI.set_current_location(current_location)
