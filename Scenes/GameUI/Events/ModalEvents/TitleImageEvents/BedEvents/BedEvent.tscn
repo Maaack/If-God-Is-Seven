@@ -27,7 +27,6 @@ text = "Make"
 [node name="ContinueButton" parent="CenterContainer/EventPanel/MarginContainer/VBoxContainer/FooterContainer" index="2"]
 margin_left = 182.0
 margin_right = 218.0
-focus_mode = 2
 
 [connection signal="pressed" from="CenterContainer/EventPanel/MarginContainer/VBoxContainer/FooterContainer/SleepButton" to="." method="_on_SleepButton_pressed"]
 [connection signal="pressed" from="CenterContainer/EventPanel/MarginContainer/VBoxContainer/FooterContainer/MakeButton" to="." method="_on_MakeButton_pressed"]
