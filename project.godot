@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "ClockEvent",
 "class": "AlarmClockEvent",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/Events2/ModalEvents/TitlePanelEvents/ClockEvents/AlarmClockEvent/AlarmClockEvent.gd"
+"path": "res://Scenes/GameUI/Events/ModalEvents/TitlePanelEvents/ClockEvents/AlarmClockEvent/AlarmClockEvent.gd"
 }, {
 "base": "ClockInteractableData",
 "class": "AlarmClockInteractableData",
@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "BaseEventUI",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/Events2/BaseEventUI.gd"
+"path": "res://Scenes/GameUI/Events/BaseEventUI.gd"
 }, {
 "base": "InteractableData",
 "class": "BedInteractableData",
@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "ModalEvent",
 "class": "ClockEvent",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/Events2/ModalEvents/TitlePanelEvents/ClockEvents/ClockEvent.gd"
+"path": "res://Scenes/GameUI/Events/ModalEvents/TitlePanelEvents/ClockEvents/ClockEvent.gd"
 }, {
 "base": "InteractableData",
 "class": "ClockInteractableData",
@@ -77,12 +77,12 @@ _global_script_classes=[ {
 "base": "BaseEventUI",
 "class": "ModalEvent",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/Events2/ModalEvents/ModalEvent.gd"
+"path": "res://Scenes/GameUI/Events/ModalEvents/ModalEvent.gd"
 }, {
 "base": "BaseEventUI",
 "class": "NoteEvent",
 "language": "GDScript",
-"path": "res://Scenes/GameUI/Events2/NoteEvents/NoteEvent.gd"
+"path": "res://Scenes/GameUI/Events/NoteEvents/NoteEvent.gd"
 }, {
 "base": "InteractableData",
 "class": "NoteInteractableData",
