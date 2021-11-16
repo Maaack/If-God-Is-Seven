@@ -39,7 +39,6 @@ func set_interaction_type(value : int):
 
 func _ready():
 	set_active(active)
-	print(get_viewport().get_mouse_position())
 	var mouse_window_position = get_viewport().get_mouse_position()
 	var window_ratio = get_viewport().size / get_tree().root.size 
 	position = mouse_window_position * window_ratio

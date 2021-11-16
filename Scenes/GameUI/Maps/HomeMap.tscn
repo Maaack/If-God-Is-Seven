@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Textures/home_map_1bit.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Data/Locations/HomeBathroom.tres" type="Resource" id=6]
 [ext_resource path="res://Scenes/GameUI/Maps/InteractableMap.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/GameUI/Maps/LocationButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Data/Locations/HomeYourBedroomBedsideDrawers.tres" type="Resource" id=9]
 
 [node name="InteractableMap" instance=ExtResource( 7 )]
 anchor_left = 0.5
@@ -36,7 +37,19 @@ margin_bottom = -6.0
 group = ExtResource( 5 )
 location = ExtResource( 2 )
 
-[node name="LocationButton2" parent="." index="2" instance=ExtResource( 8 )]
+[node name="LocationButton5" parent="." index="2" instance=ExtResource( 8 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.1244
+margin_top = -16.0
+margin_right = -25.1244
+margin_bottom = -6.0
+group = ExtResource( 5 )
+location = ExtResource( 9 )
+
+[node name="LocationButton2" parent="." index="3" instance=ExtResource( 8 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -48,7 +61,7 @@ margin_bottom = 28.0
 group = ExtResource( 5 )
 location = ExtResource( 3 )
 
-[node name="LocationButton3" parent="." index="3" instance=ExtResource( 8 )]
+[node name="LocationButton3" parent="." index="4" instance=ExtResource( 8 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -60,7 +73,7 @@ margin_bottom = 28.0
 group = ExtResource( 5 )
 location = ExtResource( 4 )
 
-[node name="LocationButton4" parent="." index="4" instance=ExtResource( 8 )]
+[node name="LocationButton4" parent="." index="5" instance=ExtResource( 8 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

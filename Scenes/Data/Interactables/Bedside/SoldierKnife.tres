@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource( 1 )
-title = "Papa"
+title = "Soldier Knife"
 interaction_event = ExtResource( 2 )
 interactions_array = [ 0 ]
 conditions = [  ]
-scene_position = Vector2( 496, 94 )
-note_text = "Papa is dutifully cooking pancakes in the kitchen for breakfast."
+scene_position = Vector2( 359.162, 232.271 )
+note_text = "A multi-tool pocket knife. It looks slightly worn.
+It's inscribed, \"For Eva - 1964\""
