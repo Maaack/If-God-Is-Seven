@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Data/Interactables/Characters/CharacterInteractableData.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GameUI/Events/CharacterEvents/CharacterEvent.tscn" type="PackedScene" id=2]
+
+[resource]
+script = ExtResource( 1 )
+title = ""
+interaction_event = ExtResource( 2 )
+interactions_array = [ 0, 3 ]
+conditions = [  ]
+scene_position = Vector2( 0, 0 )
+dialogue = ""
+visual_description = ""
