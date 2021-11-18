@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/eva-portrait.png-621bfbdceebd0c6a241148ba4a688881.stex"
+path="res://.import/angela-colored-portrait.png-331ea151baf468edff6c2aa1dec107f5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/eva-portrait.png"
-dest_files=[ "res://.import/eva-portrait.png-621bfbdceebd0c6a241148ba4a688881.stex" ]
+source_file="res://Assets/Textures/angela-colored-portrait.png"
+dest_files=[ "res://.import/angela-colored-portrait.png-331ea151baf468edff6c2aa1dec107f5.stex" ]
 
 [params]
 

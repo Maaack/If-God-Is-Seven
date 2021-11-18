@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Data/Interactables/Characters/CharacterInteractableData.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/GameUI/Events/CharacterEvents/SelfReflectionEvent.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Textures/eva-colored-portrait.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/angela-colored-portrait.png" type="Texture" id=3]
 
 [resource]
 script = ExtResource( 1 )
