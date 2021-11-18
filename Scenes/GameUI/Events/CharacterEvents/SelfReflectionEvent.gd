@@ -8,6 +8,7 @@ func _input(event):
 
 func _ready():
 	start_event()
+	$HBoxContainer/LeftPortraitContainer/LeftPortrait.texture = interactable_data.portrait
 	$HBoxContainer/RightPortraitContainer/RightPortrait.texture = interactable_data.portrait
 	match interaction_type:
 		InteractionConstants.interaction_types.SPEAK:
