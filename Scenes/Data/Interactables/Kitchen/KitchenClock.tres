@@ -11,6 +11,6 @@ interactions_array = [ 0, 4 ]
 conditions = [  ]
 scene_position = Vector2( 304, 86 )
 current_hour = 8
-current_minute = 59
+current_minute = 54
 current_period = 0
 current_day = 20

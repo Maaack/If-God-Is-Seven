@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Data/Interactables/Characters/CharacterInteractableData.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GameUI/Events/CharacterEvents/CharacterEvent.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Textures/adam-colored-portrait.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+title = "Young Boy"
+interaction_event = ExtResource( 2 )
+interactions_array = [ 0, 3 ]
+conditions = [  ]
+scene_position = Vector2( 436.233, 224.242 )
+portrait = ExtResource( 3 )
+dialogue = "\"I don't want to get up.\"
+\"I don't care that there's pancakes.\""
+visual_description = "This boy looks entangled in bed sheets and despair."
