@@ -43,8 +43,9 @@ func add_periods(periods : int):
 func get_look_time():
 	return "%s:%s %s" % [get_hour_string(), get_minute_string(), get_period_string()]
 
-func _ready():
-	add_note("The clock reads %s" % get_look_time())
+func start_event():
+	.start_event()
+	add_note("The clock reads %s." % get_look_time())
 	hour_label.text = get_hour_string()
 	minute_label.text = get_minute_string()
 	period_label.text = get_period_string()

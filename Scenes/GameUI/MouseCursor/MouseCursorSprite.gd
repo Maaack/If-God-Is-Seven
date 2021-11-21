@@ -13,8 +13,10 @@ export(Texture) var wait_pointer : Texture
 export(Vector2) var arrow_offset : Vector2
 
 var active : bool = true setget set_active
+var interaction_type : int = InteractionConstants.interaction_types.POINT setget set_interaction_type
 
 func set_interaction_type(value : int):
+	interaction_type = value
 	set_offset(Vector2.ZERO)
 	match(value):
 		InteractionConstants.interaction_types.FEEL:

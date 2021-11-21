@@ -10,5 +10,6 @@ func get_current_day():
 func get_look_date():
 	return "June %d, 1986" % [get_current_day()]
 
-func _ready():
+func start_event():
+	.start_event()
 	add_note("The calendar reads %s" % get_look_date())

@@ -82,7 +82,8 @@ func _get_flavor_text():
 		all_text += flavor_text + " "
 	return all_text.trim_suffix(" ")
 
-func _ready():
+func start_event():
+	.start_event()
 	add_note("The bed %s %s." % [get_interaction_verb(), _get_interactable_condition_string()])
 	add_note(_get_flavor_text())
 

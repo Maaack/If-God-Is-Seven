@@ -70,7 +70,8 @@ func _get_flavor_text() -> String:
 func _refresh_clock_face():
 	._refresh_clock_face()
 
-func _ready():
+func start_event():
+	.start_event()
 	add_note(_get_flavor_text())
 	alarm_checkbox.pressed = interactable_data.alarm_ringing
 

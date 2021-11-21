@@ -30,22 +30,26 @@ func _clear_buttons():
 	for child in button_container_node.get_children():
 		child.queue_free()
 
-func _force_mouse_cursor_pointer():
-	if $MouseCursorSprite == null:
-		return
-	$MouseCursorSprite.set_interaction_type(InteractionConstants.interaction_types.POINT)
-
 func _force_mouse_cursor_wait():
 	if $MouseCursorSprite == null:
-		return
+		return false
+	if $MouseCursorSprite.interaction_type == InteractionConstants.interaction_types.WAIT:
+		return false
 	$MouseCursorSprite.set_interaction_type(InteractionConstants.interaction_types.WAIT)
+
+func _force_mouse_cursor_stop_wait():
+	if $MouseCursorSprite == null:
+		return false
+	if $MouseCursorSprite.interaction_type != InteractionConstants.interaction_types.WAIT:
+		return false
+	_update_mouse_cursor()
 
 func _start_waiting():
 	_force_mouse_cursor_wait()
 	$WaitScreen.show()
 
 func _stop_waiting():
-	_force_mouse_cursor_pointer()
+	_force_mouse_cursor_stop_wait()
 	$WaitScreen.hide()
 
 func is_event_active():
@@ -60,6 +64,7 @@ func _update_mouse_cursor():
 	if $MouseCursorSprite == null:
 		return
 	if is_event_active():
+		$MouseCursorSprite.set_interaction_type(InteractionConstants.interaction_types.POINT)
 		return
 	$MouseCursorSprite.set_interaction_type(interaction_type)
 
@@ -101,6 +106,8 @@ func _update_button_visibilty():
 		travel_panel.hide()
 
 func _cycle_interaction():
+	if is_event_active():
+		return
 	interaction_type += 1
 	while(not interaction_type in interaction_types_available):
 		interaction_type += 1
@@ -110,7 +117,6 @@ func _cycle_interaction():
 	set_interaction_type(interaction_type)
 
 func refresh():
-	_hide_hint_1()
 	_update_mouse_cursor()
 	_update_button_visibilty()
 
@@ -120,6 +126,7 @@ func end_event():
 		return
 	event_ui.queue_free()
 	_stop_waiting()
+	_hide_hint_1()
 	refresh()
 
 func new_base_event(event_ui : BaseEventUI):
@@ -131,8 +138,8 @@ func new_base_event(event_ui : BaseEventUI):
 	event_ui.connect("ended_event", self, "end_event")
 	event_ui.connect("tree_exited", self, "refresh")
 	event_container.add_child(event_ui)
-	_start_waiting()
-	_update_button_visibilty()
+	refresh()
+	event_ui.start_event()
 
 func run_interaction(interactable : InteractableData, custom_interaction_type : int = interaction_type):
 	var new_event_ui = interactable.get_event_ui(custom_interaction_type)
@@ -195,6 +202,7 @@ func _advance_subtitle():
 	subtitle_ui.advance_text()
 
 func _add_subtitle(value : String):
+	_start_waiting()
 	subtitle_ui.add_text(value)
 
 func _ready():
@@ -235,13 +243,12 @@ func _input(event):
 		_cycle_interaction()
 
 func _on_SubtitleUI_finished_display_text():
+	_stop_waiting()
 	var event_ui = get_active_event()
 	if event_ui == null:
 		return
 	if event_ui.has_method("on_subtitle_finish_displaying"):
 		event_ui.on_subtitle_finish_displaying()
-	if not event_ui is ModalEvent:
-		_stop_waiting()
 
 func _on_SubtitleUI_last_text_displayed():
 	var event_ui = get_active_event()
