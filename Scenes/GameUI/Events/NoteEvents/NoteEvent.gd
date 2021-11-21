@@ -3,11 +3,6 @@ extends BaseEventUI
 
 class_name NoteEvent
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.is_pressed() and event.button_index == BUTTON_LEFT:
-			advance_event()
-
 func start_event():
 	.start_event()
 	var text_array : Array = interactable_data.note_text.split("\n")

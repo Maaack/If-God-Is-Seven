@@ -241,6 +241,9 @@ func _input(event):
 		_handle_mouse_motion(event)
 	elif event.is_action_pressed("ui_cycle_interaction"):
 		_cycle_interaction()
+	if event is InputEventMouseButton:
+		if event.is_pressed() and event.button_index == BUTTON_LEFT:
+			_advance_subtitle()
 
 func _on_SubtitleUI_finished_display_text():
 	_stop_waiting()

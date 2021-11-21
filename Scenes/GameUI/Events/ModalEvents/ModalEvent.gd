@@ -8,11 +8,6 @@ onready var body_container = $CenterContainer/EventPanel/MarginContainer/VBoxCon
 onready var footer_container = $CenterContainer/EventPanel/MarginContainer/VBoxContainer/FooterContainer
 onready var continue_button = $CenterContainer/EventPanel/MarginContainer/VBoxContainer/FooterContainer/ContinueButton
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.is_pressed() and event.button_index == BUTTON_LEFT:
-			advance_event()
-
 func hide_continue_button():
 	continue_button.hide()
 

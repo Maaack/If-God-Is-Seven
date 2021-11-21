@@ -1,11 +1,5 @@
 extends BaseEventUI
 
-
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.is_pressed() and event.button_index == BUTTON_LEFT:
-			advance_event()
-
 func start_event():
 	.start_event()
 	$HBoxContainer/RightPortraitContainer/RightPortrait.texture = interactable_data.portrait
