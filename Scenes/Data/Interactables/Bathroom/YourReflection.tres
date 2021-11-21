@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Data/Interactables/InteractableData.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GameUI/EventUI/BathroomEvents/YourReflectionLookEventUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Data/Interactables/NoteInteractions/NoteInteractableData.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/GameUI/Events/NoteEvents/NoteEvent.tscn" type="PackedScene" id=2]
 
 [resource]
 script = ExtResource( 1 )
@@ -10,3 +10,5 @@ interaction_event = ExtResource( 2 )
 interactions_array = [ 0 ]
 conditions = [  ]
 scene_position = Vector2( 104, 66 )
+note_text = "Your reflection looks back at you from the bathroom mirror.
+It's you, but the left is right, and right is left. Strange."

@@ -46,8 +46,6 @@ func get_event_ui(interaction_type : int):
 	var event_ui = interaction_event.instance()
 	if event_ui == null:
 		return
-	event_ui.source_interactable = self
-	event_ui.interaction_type = interaction_type
 	interaction_count += 1
 	if not has_interacted(interaction_type):
 		interactions_had_array.append(interaction_type)
@@ -65,3 +63,13 @@ func set_condition(new_condition : ConditionData):
 		old_condition.intensity = new_condition.intensity
 	else:
 		conditions.append(new_condition)
+
+func get_filtered_conditions(interaction_type : int) -> Array:
+	var filtered_conditions : Array = []
+	for condition in get_conditions():
+		if condition is ConditionData:
+			if condition.intensity == 0:
+				continue
+			if condition.is_interactable(interaction_type):
+				filtered_conditions.append(condition)
+	return filtered_conditions

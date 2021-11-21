@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Data/Interactables/YourBedroom/Radio.tres" type="Resource" id=5]
 [ext_resource path="res://Scenes/Data/Interactables/YourBedroom/AlarmClock.tres" type="Resource" id=6]
 [ext_resource path="res://Scenes/Data/Interactables/YourBedroom/Bed.tres" type="Resource" id=7]
-[ext_resource path="res://Scenes/Data/Interactables/YourBedroom/KitchenNoises.tres" type="Resource" id=8]
+[ext_resource path="res://Scenes/Data/Interactables/YourBedroom/CookingNoises.tres" type="Resource" id=8]
 [ext_resource path="res://Scenes/Data/Interactables/YourBedroom/Crucifix.tres" type="Resource" id=9]
 
 [resource]

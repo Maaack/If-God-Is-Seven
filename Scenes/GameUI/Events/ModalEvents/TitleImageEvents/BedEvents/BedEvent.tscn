@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/GameUI/Events/ModalEvents/TitleImageEvents/BedEvents/BedEvent.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Textures/Events/bed.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/GameUI/Events/ModalEvents/TitleImageEvents/TitleImageEvent.tscn" type="PackedScene" id=3]
+
+[node name="BedEvent" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+
+[node name="TextureRect" parent="CenterContainer/EventPanel/MarginContainer/VBoxContainer/BodyContainer" index="0"]
+texture = ExtResource( 2 )
+
+[node name="SleepButton" type="Button" parent="CenterContainer/EventPanel/MarginContainer/VBoxContainer/FooterContainer" index="0"]
+margin_left = 85.0
+margin_right = 118.0
+margin_bottom = 15.0
+focus_mode = 0
+text = "Sleep"
+
+[node name="MakeButton" type="Button" parent="CenterContainer/EventPanel/MarginContainer/VBoxContainer/FooterContainer" index="1"]
+margin_left = 134.0
+margin_right = 166.0
+margin_bottom = 15.0
+focus_mode = 0
+text = "Make"
+
+[node name="ContinueButton" parent="CenterContainer/EventPanel/MarginContainer/VBoxContainer/FooterContainer" index="2"]
+margin_left = 182.0
+margin_right = 218.0
+
+[connection signal="pressed" from="CenterContainer/EventPanel/MarginContainer/VBoxContainer/FooterContainer/SleepButton" to="." method="_on_SleepButton_pressed"]
+[connection signal="pressed" from="CenterContainer/EventPanel/MarginContainer/VBoxContainer/FooterContainer/MakeButton" to="." method="_on_MakeButton_pressed"]

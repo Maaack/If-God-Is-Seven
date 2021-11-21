@@ -30,7 +30,6 @@ func add_text(append_text : String):
 	event_history_scroll.scroll_vertical += 16 * new_lines
 	event_write_delay_timer.start()
 	yield(event_write_delay_timer, "timeout")
-	var full_log : String = "[06/%d %s] %s" % [current_day, _get_time_text(), append_text]
 	log_list.append(append_text)
 	var full_text : String = ""
 	var first_flag : bool = true

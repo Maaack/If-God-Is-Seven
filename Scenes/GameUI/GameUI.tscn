@@ -1,18 +1,16 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Styles/SmallFontLightTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/TravelUI/TravelUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/GameUI/HintArrow/HintArrow.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/GameUI/MouseCursor/MouseCursor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/GameUI/GameUI.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/GameUI/SubtitleUI/SubtitleUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Textures/bedroom3_1bit.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Data/Locations/HomeYourBedroom.tres" type="Resource" id=8]
 [ext_resource path="res://Scenes/GameUI/WorldController/WorldController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/GameUI/InteractableUI/InteractionsPanel/InteractionsPanel.tscn" type="PackedScene" id=10]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0, 0, 1 )
+[ext_resource path="res://Scenes/Data/Interactables/YourBedroom/FirstWaking.tres" type="Resource" id=11]
+[ext_resource path="res://Scenes/GameUI/MouseCursor/MouseCursorSprite.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=2]
 resource_name = "FadeIn"
@@ -46,6 +44,9 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -55,6 +56,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 current_location = ExtResource( 8 )
+first_event = ExtResource( 11 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -63,50 +65,6 @@ texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="BottomFilmBar" type="Panel" parent="."]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -50.0
-custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SubtitleUI" parent="BottomFilmBar" instance=ExtResource( 6 )]
-
-[node name="TopFilmBar" type="Panel" parent="."]
-anchor_right = 1.0
-margin_bottom = 50.0
-custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-custom_constants/margin_right = 540
-custom_constants/margin_top = 50
-custom_constants/margin_bottom = 50
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="InteractionsPanel" parent="MarginContainer" instance=ExtResource( 10 )]
-margin_top = 50.0
-margin_bottom = 264.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/InteractionsPanel"]
-anims/FadeIn = SubResource( 2 )
-anims/FadeOut = SubResource( 3 )
-
-[node name="FadeOutTimer" type="Timer" parent="MarginContainer/InteractionsPanel"]
-one_shot = true
 
 [node name="ButtonContainer" type="Control" parent="."]
 anchor_right = 1.0
@@ -152,15 +110,70 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 540
+custom_constants/margin_top = 50
+custom_constants/margin_bottom = 50
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="InteractionsPanel" parent="MarginContainer" instance=ExtResource( 10 )]
+margin_top = 50.0
+margin_bottom = 264.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/InteractionsPanel"]
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
+
+[node name="FadeOutTimer" type="Timer" parent="MarginContainer/InteractionsPanel"]
+one_shot = true
+
 [node name="HintArrow" parent="." instance=ExtResource( 3 )]
 margin_left = -296.0
 margin_top = -96.0
 margin_right = -256.0
 margin_bottom = -56.0
 
-[node name="MouseCursor" parent="." instance=ExtResource( 4 )]
+[node name="BottomFilmBar" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -50.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[connection signal="changed_interaction" from="MarginContainer/InteractionsPanel" to="." method="_on_InteractionsPanel_changed_interaction"]
-[connection signal="timeout" from="MarginContainer/InteractionsPanel/FadeOutTimer" to="." method="_on_FadeOutTimer_timeout"]
+[node name="SubtitleUI" parent="BottomFilmBar" instance=ExtResource( 6 )]
+
+[node name="TopFilmBar" type="Panel" parent="."]
+anchor_right = 1.0
+margin_bottom = 50.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaitScreen" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MouseCursorSprite" parent="." instance=ExtResource( 12 )]
+
 [connection signal="added_time" from="WorldController" to="." method="_on_WorldController_added_time"]
 [connection signal="pressed_location" from="TravelPanel/TravelUI" to="." method="_on_TravelUI_pressed_location"]
+[connection signal="changed_interaction" from="MarginContainer/InteractionsPanel" to="." method="_on_InteractionsPanel_changed_interaction"]
+[connection signal="timeout" from="MarginContainer/InteractionsPanel/FadeOutTimer" to="." method="_on_FadeOutTimer_timeout"]
+[connection signal="finished_display_text" from="BottomFilmBar/SubtitleUI" to="." method="_on_SubtitleUI_finished_display_text"]
+[connection signal="last_text_displayed" from="BottomFilmBar/SubtitleUI" to="." method="_on_SubtitleUI_last_text_displayed"]
